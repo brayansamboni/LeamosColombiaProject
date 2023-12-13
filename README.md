@@ -1,1 +1,3 @@
 # LeamosColombiaProject
+
+leamoscolombiamobile = Parte Móvil
