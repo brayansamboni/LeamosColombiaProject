@@ -1,0 +1,193 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Manual Proveedores";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .seccion {
+            width: 90%;
+            margin: 0 auto;
+            max-height: 80vh;
+            overflow: auto;
+            display: grid;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .step {
+            width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 8px;
+            display: inline-block;
+            vertical-align: top;
+            background: #fff;
+        }
+        p {
+            padding: 10px;
+            font-size: 18px;
+            color: #333;
+            font-weight: normal;
+        }
+
+        h3 {
+            padding: 10px;
+            font-size: 20px;
+            color: #333;
+            text-align: center;
+            line-height: 1.5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .step h4 {
+            padding: 10px;
+            font-size: 18px;
+            color: #333;
+            text-align: center;
+            line-height: 1.5;
+            display: flex;
+        }
+
+        .step img {
+            max-height: 85%; 
+        }
+
+        .img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            border-radius: 8px;
+            border: 1px solid #F4F2F7;
+            box-shadow: 10px 15px 20px #ccc;
+        }
+
+        .container-fluid::-webkit-scrollbar {
+            width: 12px; 
+        }
+
+        .seccion::-webkit-scrollbar-thumb {
+            background-color: #888; 
+            border-radius: 10px;
+        }
+
+            .seccion::-webkit-scrollbar-thumb:hover {
+                background-color: #555; 
+            }
+    </style>
+
+</head>
+<body>
+    <div class="seccion">
+        <h3>1. Ingreso a gentión de Proveedores.</h3>
+        <div class="step">
+            <p>Pulsa con el botón izquierdo del mouse en el menú de la barra izquierda de la pantalla sobre la opción "Proveedores" para acceder a la sección de proveedores en la plataforma. Esto te llevará a la página principal de gestión de proveedores.</p>
+            <img class="img" src="https://images.tango.us/workflows/4c344e52-86e4-4e70-bbbc-6bffb03199c3/steps/58ebda88-a79b-4441-9b92-c5f1031990e9/7a08cd9e-f760-4c81-84ac-9650b6bf21fb.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=5&mark-y=134&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0zMDYmaD03MiZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Proveedores" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>1.1 Crear un nuevo Proveedor.</h4>
+            <p>
+                Para crear un nuevo proveedor, debe pulsar con el botón izquierdo del mouse sobre el
+                botón "Nuevo Proveedor". Esto te permitirá iniciar el proceso de creación de registro del nuevo proveedor.
+            </p>
+            <img class="img" src="https://images.tango.us/workflows/1357765f-7907-4050-b75c-92a36b439873/steps/3848c01b-2c0c-494e-8f5b-b59e93244a33/ce86c4ce-ba06-4c0d-b73f-14f1909f1826.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=43&mark-y=181&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz00MzYmaD0xMzImZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Nuevo proveedor" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>1.1.1 Formulario de registro.</h4>
+            <p>
+                Para registrar un nuevo proveedor, se deben ingresar cada uno de los campos del formulario donde debes ingresar los datos del proveedor. Asegúrate de completar todos los campos marcados con un asterisco (*), ya que son obligatorios para el registro. <br />Si alguno de los campos obligatorios no es diligenciado correctamente, el sistema no permitirá el registro del proveedor
+                hasta que los campos obligatorios sean ingresados correctamente.
+            </p>
+            <img class="img" src="https://images.tango.us/workflows/1357765f-7907-4050-b75c-92a36b439873/steps/10ed48f3-7f63-4c05-9384-f560b946890a/6f4e92c5-8d11-46c3-9fbb-20ecd25bb562.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Crear proveedor" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Una vez que todos los campos estén completos, presiona el botón "Crear" con el botón izquierdo del mouse. Esto garantizará que los datos del proveedor se registren de manera precisa en el sistema.</p>
+            <img class="img" src="https://images.tango.us/workflows/1357765f-7907-4050-b75c-92a36b439873/steps/c51d7d0c-ef8a-41ea-a11c-c7d5e6dc9933/cb1d4e09-b139-47f0-bf11-4cd87ecc080c.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=287&mark-y=210&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0yMjcmaD0xNDMmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Crear" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>1.2 Buscar Proveedor. </h4>
+            <p>Si desea buscar un proveedor que ya está en la base de datos, selecciona la opción "Buscar" con el botón izquierdo del mouse. Esto te permitirá realizar búsquedas y acceder a los proveedores existentes.</p>
+            <img class="img" src="https://images.tango.us/workflows/1357765f-7907-4050-b75c-92a36b439873/steps/5dbe7704-8b44-4dbd-bf31-48c6047af0eb/c645960c-0421-44a9-a08c-70c879fa0e51.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=941&mark-y=264&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0xOTYmaD01MyZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Buscar" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>1.3 Desactivar Estado de un Proveedor.</h4>
+            <p>Para inhabilitar un proveedor presione el botón "Activo" con el botón izquierdo del mouse en el proveedor que desee inhabilitar.</p>
+            <img class="img" src="https://images.tango.us/workflows/1357765f-7907-4050-b75c-92a36b439873/steps/4081ecc1-406b-4880-9655-8e55ae2c78f4/671bd7b6-d18c-4ab7-adc0-7bbf2a86a978.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=1036&mark-y=106&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0xMDUmaD02MSZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Activo" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Luego, confirma esta acción presionando el botón "Confirmar" con el botón izquierdo del mouse. (Solo los proveedores activos están disponibles para su uso).</p>
+            <img class="img" src="https://images.tango.us/workflows/c2fec76c-439f-4501-b05d-e8444383b534/steps/92a75321-e581-4245-a7ea-720d622fd089/ad423a95-35e0-44f1-8fe2-53604bff269a.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=907&mark-y=426&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0yMDUmaD05MiZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Confirmar" />
+        </div>
+
+        <div class="step mt-2">
+            <p>El sistema mostrará un mensaje de Éxito confirmando que el proveedor se ha inhabilitado correctamente.</p>
+            <img class="img" src="https://images.tango.us/workflows/c2fec76c-439f-4501-b05d-e8444383b534/steps/b192bb1b-1479-4c7c-9817-d64ea87b734b/3fddfedc-6a79-484b-b2f6-71dbd173b58a.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Éxito…" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>1.4 Activar Estado del Proveedor.</h4>
+            <p>Si desea volver a habilitar un proveedor que estaba inactivo, selecciona el botón en la opción "Inactivo" con el botón izquierdo del mouse en el proveedor que desea habilitar.</p>
+            <img class="img" src="https://images.tango.us/workflows/1357765f-7907-4050-b75c-92a36b439873/steps/9f3d285f-e03c-49ed-901d-f4c42b14068f/4fa1c125-9736-4713-80ed-fd3948f4ead8.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=1024&mark-y=98&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0xMTUmaD02MCZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Inactivo" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Después de seleccionar "Inactivo" para un proveedor, confirma la activación presiona con el botón izquierdo del mousa el botón "Confirmar".</p>
+            <img class="img" src="https://images.tango.us/workflows/c2fec76c-439f-4501-b05d-e8444383b534/steps/1264201b-113e-4548-9aae-4487d350c4a0/50e330e4-01a8-4b73-a3e4-c01fc47084b1.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=916&mark-y=440&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0yMTEmaD05NSZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Confirmar" />
+        </div>
+        <div class="step mt-2">
+            <p>El sistema mostrará un mensaje de Éxito confirmando que el proveedor se ha habilitado correctamente.</p>
+            <img class="img" src="https://images.tango.us/workflows/c2fec76c-439f-4501-b05d-e8444383b534/steps/b1d15156-1c70-4ec7-af1e-4bd79b0c30f9/daf07e3f-cc73-447e-b46b-2e57a602dc8e.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Éxito…" />
+        </div>
+        <div class="step mt-2">
+            <h4>1.5 Modificar un datos del provedor.</h4>
+            <p>Si necesita realizar cambios en la información de un proveedor, presiona con el botón izquierdo del mouse el ícono "Editar", asociado al proveedor que necesitas modificar.</p>
+            <img class="img" src="https://images.tango.us/workflows/1357765f-7907-4050-b75c-92a36b439873/steps/8cea498d-239d-409f-a347-fbdf0c32440b/627f5071-a4df-4c83-aa57-f02fb73f3c17.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=997&mark-y=81&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz04MSZoPTY5JmZpdD1jcm9wJmNvcm5lci1yYWRpdXM9MTA%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Editar información del proveedor" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Se abrirá un formulario que te permitirá acceder y modificar los detalles del proveedor. Después de realizar las modificaciones necesarias en la información del proveedor, asegúrate presionar con el botón izquierdo del mouse, en el botón "Editar" para guardar los cambios realizados.</p>
+            <img class="img" src="https://images.tango.us/workflows/1357765f-7907-4050-b75c-92a36b439873/steps/ad22fd62-be9d-4abb-9967-ad5b0a596fdf/11f06766-a629-4a06-a53f-b1f3c936a41f.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=179&mark-y=803&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0xMTYmaD03MCZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Editar" />
+        </div>
+        <div class="step mt-2">
+            <p>El sistema mostrará un mensaje de Éxito confirmando que el proveedor se ha editado correctamente.</p>
+            <img class="img" src="https://images.tango.us/workflows/c2fec76c-439f-4501-b05d-e8444383b534/steps/e2ad0737-8000-46c7-ae52-b491009ac864/db054fce-ab12-46c1-afc7-58d57da80b67.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Éxito…" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>1.6 Acceder al listado de compras del proveedor seleccionado. </h4>
+            <p>Si desea acceder al historial de compras realizadas por un proveedor, presiona el botón con el icono de carrito de compras con el botón izquierdo del mouse para ver la lista de compras asociadas a ese proveedor.</p>
+            <img class="img" src="https://images.tango.us/workflows/1357765f-7907-4050-b75c-92a36b439873/steps/3e2a130b-fc80-47a8-88a9-b5c23fb37a16/94da4356-2a09-4a93-a47d-2efe2ca2ba0d.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=968&mark-y=141&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz04OSZoPTc3JmZpdD1jcm9wJmNvcm5lci1yYWRpdXM9MTA%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Visualizar las compras hechas a ese proveedor" />
+        </div>
+        <div class="step mt-2">
+            <P>Una vez que visualice el historial de compras de ese proveedor, puedes explorar los detalles de cada compra.<br /> Para ver los productos asociados a una compra específica, presiona el botón "Ver Productos", con el botón izquierdo del mouse.  </P>
+            <img class="img" src="https://images.tango.us/workflows/c2fec76c-439f-4501-b05d-e8444383b534/steps/9dcfdbc3-42a9-4906-84eb-922f2462d594/0c9bda82-6aed-44b9-91c0-22c4ab479d2e.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=949&mark-y=279&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0xMzQmaD00NyZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Ver productos" />
+        </div>
+
+        <div class="step mt-2">
+            <p>
+                Al hacerlo, podrá visualizar los detalles de la compra junto con sus respectivos productos. Además, tiene la opción de descargar un archivo PDF que contiene toda la información relacionada. <br /> <br />
+                Una vez revisados los detalles de la compra, si desea regresar a la página principal, presione el botón "Volver" con el botón izquierdo de mouse.
+            </p>
+            <img class="img" src="https://images.tango.us/workflows/c2fec76c-439f-4501-b05d-e8444383b534/steps/1fad8c65-9d5e-4fce-9696-49722473651b/7c9a44a5-f84b-45b4-acd5-20f20e196797.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Detalles de la Compra" />
+        </div>
+
+    </div>
+
+</body>
+</html>

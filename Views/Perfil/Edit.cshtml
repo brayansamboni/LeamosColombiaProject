@@ -1,0 +1,166 @@
+﻿@model LeamosColombiaProject.Models.ViewModels.UsuariosViewModel
+
+@{
+    ViewData["Title"] = "Perfil";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body wizard-content">
+                <div class="text-center">
+                    <i class="fas fa-user font-24" alt="Imagen de usuario" style="display: block; margin: 0 auto;"></i>
+                </div>
+                <h4 class="card-title text-center" style="margin-top: 15px">Editar usuario</h4>
+                <form id="example-form" asp-controller="Perfil" asp-action="Edit" class="mt-4">
+                    <input type="hidden" asp-for="IdUsuario" />
+                    <div class="form-group">
+                        <label for="Nombre">Nombre</label>
+                        <input asp-for="Nombre" class="form-control" placeholder="Nombre *" data-rule-required="true" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Correo">Correo</label>
+                        <input asp-for="Correo" class="form-control" placeholder="Correo *" data-rule-required="true" />
+                    </div>
+                    <div class="form-group">
+                        <select asp-for="Estado" hidden class="form-control">
+                            <option value="True">Activo</option>
+                            <option value="False">Inactivo</option>
+                        </select>
+                    </div>
+                    <div class="mt-3">
+                        <input type="submit" value="Editar perfil" class="btn btn-primary" title="Confirmar edición de perfil" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body wizard-content">
+                <div class="text-center">
+                    <i class="fas fa-lock font-24" style="display: block; margin: 0 auto;"></i>
+                </div>
+                <h4 class="card-title text-center" style="margin-top: 15px">Cambiar contraseña</h4>
+                <form id="change-password-form" asp-controller="Perfil" asp-action="CambiarContrasena" class="mt-4">
+                    <div class="form-group">
+                        <label for="ContrasenaActual">Contraseña Actual</label>
+                        <input type="password" id="ContrasenaActual" name="ContrasenaActual" class="form-control" placeholder="Contraseña Actual" data-rule-required="true" />
+                    </div>
+                    <div class="form-group">
+                        <label for="NuevaContrasena">Nueva Contraseña</label>
+                        <input type="password" id="NuevaContrasena" name="NuevaContrasena" class="form-control" placeholder="Nueva Contraseña" data-rule-required="true" />
+                    </div>
+                    <div class="form-group">
+                        <label for="ConfirmarContrasena">Confirmar Contraseña</label>
+                        <input type="password" id="ConfirmarContrasena" name="ConfirmarContrasena" class="form-control" placeholder="Confirmar Contraseña" data-rule-required="true" equalTo="#NuevaContrasena" />
+                    </div>
+                    <div class="mt-3">
+                        <input type="submit" value="Cambiar Contraseña" class="btn btn-primary" title="Confirmar cambio de contraseña" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+                        $.validator.addMethod("tieneDominio", function (value) {
+    // Devuelve true si la cadena contiene al menos un dominio
+    return /\.[a-zA-Z]+$/.test(value);
+}, "El correo debe contener al menos un dominio.");
+            $.validator.addMethod("tieneMayuscula", function (value) {
+                return /[A-Z]/.test(value);
+            }, "La contraseña debe contener al menos una mayúscula.");
+            $('#example-form').validate({
+                errorClass: "text-danger",
+                rules: {
+                    Nombre: {
+                        required: true,
+                        maxlength: 80
+                    },
+                    Correo: {
+                        required: true,
+                        email: true,
+                        maxlength: 50,
+                        tieneDominio: true,
+                        remote: {
+                            url: "/Perfil/VerificarCorreoExistente",
+                            type: "GET",
+                            data: {
+                                id: function () {
+                                    return @Model.IdUsuario;
+                                },
+                                correo: function () {
+                                    return $("#Correo").val();
+                                }
+                            }
+                        }
+                    }
+                },
+                messages: {
+                    Nombre: {
+                        required: "Este campo es obligatorio.",
+                        maxlength: "Ingresa máximo {0} caracteres."
+                    },
+                    Correo: {
+                        required: "Este campo es obligatorio.",
+                        email: "Ingresa un correo electrónico válido.",
+                        maxlength: "Ingresa máximo {0} caracteres."
+                    }
+                }
+            });
+        });
+
+    </script>
+    <script>
+        $(document).ready(function () {
+            $.validator.addMethod("tieneMayuscula", function (value) {
+                return /[A-Z]/.test(value);
+            }, "La contraseña debe contener al menos una mayúscula.");
+
+            $('#change-password-form').validate({
+                errorClass: "text-danger",
+                rules: {
+                    ContrasenaActual: {
+                        required: true,
+                        minlength: 10,
+                        maxlength: 30,
+                        tieneMayuscula: true
+                    },
+                    NuevaContrasena: {
+                        required: true,
+                        minlength: 10,
+                        maxlength: 30,
+                        tieneMayuscula: true
+                    },
+                    ConfirmarContrasena: {
+                        required: true,
+                        equalTo: "#NuevaContrasena"
+                    }
+                },
+                messages: {
+                    ContrasenaActual: {
+                        required: "Este campo es obligatorio.",
+                        minlength: "Ingresa mínimo {0} caracteres.",
+                        maxlength: "Ingresa máximo {0} caracteres."
+                    },
+                    NuevaContrasena: {
+                        required: "Este campo es obligatorio.",
+                        minlength: "Ingresa mínimo {0} caracteres.",
+                        maxlength: "Ingresa máximo {0} caracteres."
+                    },
+                    ConfirmarContrasena: {
+                        required: "Este campo es obligatorio.",
+                        equalTo: "Las contraseñas no coinciden."
+                    }
+                }
+            });
+        });
+
+
+    </script>
+    }

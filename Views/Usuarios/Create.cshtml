@@ -1,0 +1,131 @@
+﻿@model LeamosColombiaProject.Models.Usuario
+
+@{
+    ViewData["Title"] = "Usuario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-body wizard-content">
+            <h4 class="card-title">Crear usuario</h4>
+            <form id="example-form" asp-action="Create" class="mt-4">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="Nombre">Nombre  <span style="color: red;">*</span></label>
+                            <input asp-for="Nombre" class="form-control" placeholder="Nombre *" data-rule-required="true" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="Correo">Correo  <span style="color: red;">*</span></label>
+                            <input asp-for="Correo" class="form-control" placeholder="Correo *" data-rule-required="true" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label for="IdRol">Rol  <span style="color: red;">*</span></label>
+                                <select asp-for="IdRol" class="form-control" asp-items="ViewBag.IdRol">
+                                    <option selected disabled value="Selecciona un rol *">Selecciona un rol *</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="IdRol">Contraseña  <span style="color: red;">*</span></label>
+                            <input asp-for="Contraseña" class="form-control" placeholder="Contraseña *" data-rule-required="true" data-rule-minlength="10" data-rule-maxlength="30" type="password" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <select asp-for="Estado" hidden class="form-control">
+                        <option value="True">Activo</option>
+                        <option value="False">Inactivo</option>
+                    </select>
+                </div>
+
+
+                <p class="mt-2">(<span style="color: red;">*</span>) Obligatorio</p>
+                <div class="mt-3">
+                    <a asp-action="Index" class="btn btn-secondary"  title="Volver a la vista de usuarios">Volver</a>
+                    <input type="submit" value="Crear" class="btn btn-primary"  title="Confirmar la creación de un nuevo usuario"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+                        $.validator.addMethod("tieneDominio", function (value) {
+    // Devuelve true si la cadena contiene al menos un dominio
+    return /\.[a-zA-Z]+$/.test(value);
+}, "El correo debe contener al menos un dominio.");
+            $.validator.addMethod("tieneMayuscula", function (value) {
+                return /[A-Z]/.test(value); // Devuelve true si la cadena contiene al menos una mayúscula
+            }, "La contraseña debe contener al menos una mayúscula.");
+            $('#example-form').validate({
+                errorClass: "text-danger", // Cambia el color de los mensajes de error a rojo
+                rules: {
+                    Nombre: {
+                        required: true,
+                        maxlength: 80
+                    },
+                    Contraseña: {
+                        required: true,
+                        minlength: 10,
+                        maxlength: 30,
+                        tieneMayuscula: true
+                    },
+                    Correo: {
+                        required: true,
+                        email: true,
+                        maxlength: 50,
+                        tieneDominio: true,
+                        remote: {
+                            url: "/Usuarios/VerificarCorreoExistente",
+                            type: "GET",
+                            data: {
+                                correo: function () {
+                                    return $("#Correo").val();
+                                }
+                            }
+                        }
+                    },
+                    IdRol: {
+                        required: true
+                    },
+                },
+                messages: {
+                    Nombre: {
+                        required: "Este campo es obligatorio.",
+                        maxlength: "Ingresa máximo {0} caracteres."
+                    },
+                    Contraseña: {
+                        required: "Este campo es obligatorio.",
+                        minlength: "Ingresa mínimo {0} caracteres.",
+                        maxlength: "Ingresa máximo {0} caracteres."
+                    },
+                    Correo: {
+                        required: "Este campo es obligatorio.",
+                        email: "Ingresa un correo electrónico válido.",
+                        maxlength: "Ingresa máximo {0} caracteres."
+                    },
+                    IdRol: {
+                        required: "Este campo es obligatorio.",
+                    },
+                }
+            });
+        });
+
+    </script>
+}

@@ -1,0 +1,257 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Manual Cartera";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .seccion {
+            width: 90%;
+            margin: 0 auto;
+            max-height: 80vh;
+            overflow: auto;
+            display: grid;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .step {
+            width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 8px;
+            display: inline-block;
+            vertical-align: top;
+            background: #fff;
+        }
+
+            .step h4 {
+                padding: 10px;
+                font-size: 18px;
+                color: #333;
+                text-align: center;
+                line-height: 1.5;
+                display: flex;
+            }
+
+        p {
+            padding: 10px;
+            font-size: 18px;
+            color: #333;
+            font-weight: normal;
+        }
+
+        h3 {
+            padding: 10px;
+            font-size: 20px;
+            color: #333;
+            text-align: center;
+            line-height: 1.5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .step img {
+            max-height: 85%; 
+        }
+
+        .img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            border-radius: 8px;
+            border: 1px solid #F4F2F7;
+            box-shadow: 10px 15px 20px #ccc;
+        }
+
+        .container-fluid::-webkit-scrollbar {
+            width: 12px; 
+        }
+
+        .seccion::-webkit-scrollbar-thumb {
+            background-color: #888; 
+            border-radius: 10px;
+        }
+
+            .seccion::-webkit-scrollbar-thumb:hover {
+                background-color: #555; 
+            }
+    </style>
+
+</head>
+<body>
+    <div class="seccion">
+        <h3>1. Ingreso a gestión de Cartera</h3>
+        <div class="step">
+            <p>
+                Pulsa con el botón izquierdo del mouse en el enlace "Ventas" del menú ubicado en la barra lateral izquierda de la pantalla. Esta acción  abrirá un submenú que presenta las funciones que se pueden gestionar dentro de este módulo.
+            </p>
+            <img class="img" src="https://images.tango.us/workflows/193491ed-52c8-4137-a630-512b9c975ea6/steps/7a927347-1e4c-4cc2-badd-8722dc586c53/f257472f-fccb-40d6-9d45-c790d31b72f1.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=5&mark-y=386&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0zMDYmaD03MiZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Ventas" />
+        </div>
+        <div class="step mt-2">
+            <h4>1.2. Acceder a Cartera</h4>
+            <p>Luego de desplegar el submenú “Ventas”, pulsamos con el botón izquierdo del mouse sobre la opción “Cartera”. Esto te llevará a la página principal de Cartera.</p>
+            <img class="img" src="https://images.tango.us/workflows/724198f2-7498-4852-8a09-d70489640607/steps/f92557cb-fafe-40a9-9cdb-c7a753a0e24f/a1203f6f-fc14-4040-8215-9a44684e1336.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=5&mark-y=505&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0zMDgmaD02MyZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Cartera" />
+        </div>
+        <h3>2. Cartera</h3>
+        <div class="step">
+            <p>En la sección de Cartera, puedes visualizar el listado de ventas a crédito registradas en el sistema.</p>
+            <img class="img" src="https://images.tango.us/workflows/afdde974-c2c8-4613-a963-027d16591dde/steps/515bad6f-2fe0-4120-9c09-d1ba5477cfc2/f286e1f4-e06b-4eeb-93c0-6b41e9445c11.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="empezamos modulo cartera" />
+        </div>
+        <div class="step mt-2">
+            <h4>2.1 Buscar cliente con venta a crédito</h4>
+            <p>Si desea buscar una venta a crédito específica, selecciona la opción "Buscar" con el botón izquierdo del mouse. Esto te permitirá explorar entre las ventas a crédito existentes.</p>
+            <img class="img" src="https://images.tango.us/workflows/afdde974-c2c8-4613-a963-027d16591dde/steps/23929b81-54de-4cdb-bc61-a4ab47dc0fa7/11ce5d2b-e23c-4d0a-a3f5-338ee52e1416.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=952&mark-y=67&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0yMjAmaD02MCZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Buscar" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>2.2 Desactivar Estado de una Cartera</h4>
+            <p>Para inhabilitar una cartera presione el botón "Activo" con el botón izquierdo del mouse, en la venta a crédito que desea inhabilitar. Si una cartera esta "Completada" no se podrá inhabilitar.</p>
+            <img class="img" src="https://images.tango.us/workflows/afdde974-c2c8-4613-a963-027d16591dde/steps/838dcbe7-9f4d-4799-864d-8cc96026a966/a7675570-c59c-49f9-88ef-7938c65bcce5.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=899&mark-y=88&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0xMTQmaD02MCZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Activo" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Luego, confirma esta acción presionando el botón "Confirmar" con el botón izquierdo del mouse. Si se pulsa sobre el botón “Cerrar”, el sistema cierra sin inhabilitar la cartera.</p>
+            <img class="img" src="https://images.tango.us/workflows/724198f2-7498-4852-8a09-d70489640607/steps/badc2667-25db-43b0-afc9-7ea8e69437fd/02597aea-233a-435b-a501-1676f13333ad.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=914&mark-y=438&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0yMTEmaD05NSZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Confirmar" />
+        </div>
+
+        <div class="step mt-2">
+            <p>El sistema mostrará un mensaje de éxito, confirmando que la cartera se ha inhabilitado correctamente.</p>
+            <img class="img" src="https://images.tango.us/workflows/724198f2-7498-4852-8a09-d70489640607/steps/4e10befc-9825-4376-bb3e-86008952cb83/0ed22854-8498-4988-b806-6f65e8730d28.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Éxito…" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>2.3 Activar Estado de una Cartera</h4>
+            <p>Si desea habilitar una cartera que esta inactiva, pulsa el botón "Inactivo" con el botón izquierdo del mouse en la cartera que desea habilitar.</p>
+            <img class="img" src="https://images.tango.us/workflows/afdde974-c2c8-4613-a963-027d16591dde/steps/92e9fdea-fd68-41f1-b163-78015629ffb3/215a4e5c-246a-484f-a248-91fbaade9c75.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=927&mark-y=104&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0xMTImaD01OSZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Inactivo" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Después de seleccionar "Inactivo" para una venta tipo crédito, confirma la activación presionando con el botón izquierdo del mouse, el botón "Confirmar". Si se pulsa sobre el botón “Cerrar”, el sistema cierra sin habilitar la cartera.</p>
+            <img class="img" src="https://images.tango.us/workflows/724198f2-7498-4852-8a09-d70489640607/steps/2dc77690-0e5d-4fa0-ab35-4bad40a6973e/b9ff1cf9-48fa-4e5b-b6e6-049947e34c46.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=923&mark-y=455&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0yMTgmaD05OCZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Confirmar" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Si el cliente asociado a la cartera que intentas habilitar actualmente tiene otra cartera activa, el sistema mostrará un mensaje de error, y no se podrá habilitar la cartera. </p>
+            <img class="img" src="https://images.tango.us/workflows/724198f2-7498-4852-8a09-d70489640607/steps/91122379-72aa-4502-8bc5-b0fbf304a9d8/334488c5-e98f-47bc-b2cf-1842eddf1962.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Error" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Si el cliente asociado a la cartera que desea habilitar no tiene otra cartera activa, el sistema mostrará un mensaje de Éxito confirmando que la cartera se ha habilitado correctamente.</p>
+            <img class="img" src="https://images.tango.us/workflows/724198f2-7498-4852-8a09-d70489640607/steps/6843f45a-73d7-442e-9c50-bd00bafaab4f/0032c3ad-9bf5-4c5a-9c12-051b818aa433.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Éxito…" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>2.4 Visualizar Detalles de Cartera</h4>
+            <p>Para ver detalles de una cartera, pulsa con el botón izquierdo del mouse sobre el botón con el icono de bolso que se encuentra en cada cartera. </p>
+            <img class="img" src="https://images.tango.us/workflows/afdde974-c2c8-4613-a963-027d16591dde/steps/a5b9aa19-8a00-4815-a4d6-a40a80158b0f/b40279b9-df24-4e5a-aba7-22fdbc60fe1d.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=1063&mark-y=87&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz02MyZoPTU4JmZpdD1jcm9wJmNvcm5lci1yYWRpdXM9MTA%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Visualizar detalles de la cartera" />
+        </div>
+
+        <div class="step mt-2">
+            <p>
+                Al hacerlo, podrá visualizar los detalles de la venta a crédito junto con los detalles de los abonos. Además, tiene la opción de descargar un archivo PDF que contiene toda la información relacionada.
+            </p>
+            <img class="img" src="https://images.tango.us/workflows/724198f2-7498-4852-8a09-d70489640607/steps/6dc5d5b7-68b7-4460-be87-88d45f4ab0c7/88c22ab9-7db0-4f12-9832-a28467060769.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Detalles de la cartera…" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Una vez revisados los detalles de la cartera, presione el botón "Volver" con el botón izquierdo de mouse, para regresar a la página principal.</p>
+            <img class="img" src="https://images.tango.us/workflows/afdde974-c2c8-4613-a963-027d16591dde/steps/fdea8d74-3f93-48c5-a0b1-d32b8cfae93f/6e8684b6-ee12-45b8-9ec4-3ca92661d36c.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=54&mark-y=212&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0zMDcmaD0xNzkmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Volver" />
+        </div>
+        <h3>3. Abonos</h3>
+        <div class="step">
+            <h4>3.1 Crear Nuevo Abono</h4>
+            <p>Para crear un abono, debe pulsar con el botón izquierdo del mouse sobre el botón “Nuevo abono”. El sistema lo redirigirá a un formulario donde ingresará los datos necesarios para registrar el abono.</p>
+            <img class="img" src="https://images.tango.us/workflows/afdde974-c2c8-4613-a963-027d16591dde/steps/36df9651-306b-480d-b754-bca12b76e5ec/be8f6b81-edeb-45cc-a2b2-d5a3fa5dd9bb.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=32&mark-y=153&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0zMzgmaD0xMjQmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Nuevo abono" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>3.1.1. Formulario de registro</h4>
+            <p>Para iniciar, seleccione un cliente desde el botón desplegable que presenta la información de los clientes con ventas a crédito, así como el abono que desea registrar. Ambos campos son obligatorios (*). <br /><br />
+                Luego, para finalizar, se debe pulsar con el botón izquierdo del mouse sobre el botón “Crear”, ubicado en la parte inferior del formulario.
+            </p>
+            <img class="img" src="https://images.tango.us/workflows/afdde974-c2c8-4613-a963-027d16591dde/steps/2d7bd88b-a0b8-401b-b0db-54fc4282ae1a/46e7cf5f-683e-4ce0-80e4-81fc18f2e87d.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=139&mark-y=321&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz05MSZoPTU4JmZpdD1jcm9wJmNvcm5lci1yYWRpdXM9MTA%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Crear" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Si el abono excede el saldo disponible en la cartera. El sistema mostrará un mensaje de Error. Se deberá ajustar el monto del abono para garantizar una transacción exitosa.</p>
+            <img class="img" src="https://images.tango.us/workflows/724198f2-7498-4852-8a09-d70489640607/steps/a261039a-e54c-485f-920b-49486b9bd79d/70070c30-c5eb-4ae4-ab68-96e143032979.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on El abono excede el saldo disponible en la cartera." />
+        </div>
+
+        <div class="step mt-2">
+            <P>Si el abono es inferior al saldo disponible en la cartera. El sistema mostrará un mensaje de Éxito confirmando que el abono se creo exitosamente. </P>
+            <img class="img" src="https://images.tango.us/workflows/724198f2-7498-4852-8a09-d70489640607/steps/0c209e5e-5299-4624-ba5c-d0a206ef6de5/646f8516-3026-4b5f-8ce9-379d02d597ee.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Éxito…" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>3.2 Visualizar abonos</h4>
+            <p>Para acceder a todos los abonos registrados en el sistema, presiona el botón "Ver abonos" con el botón izquierdo del mouse.</p>
+            <img class="img" src="https://images.tango.us/workflows/afdde974-c2c8-4613-a963-027d16591dde/steps/d172dc5b-c87d-4f26-b0f6-b67eecf498e4/c1efe165-a585-4728-8e8f-1b334a204843.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=338&mark-y=158&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0yOTEmaD0xMTkmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Ver abonos" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Ahora es posible visualizar el listado completo de abonos registrados en el sistema.</p>
+            <img class="img" src="https://images.tango.us/workflows/afdde974-c2c8-4613-a963-027d16591dde/steps/bde9d49a-0e3f-43f3-b23f-7ae36b6990ea/680362f6-5527-4eae-96fe-9a1f014655d8.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Abonos" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>3.2.1 Buscar Abono</h4>
+            <p>Si desea buscar un abono de una cartera específica, selecciona la opción "Buscar" con el botón izquierdo del mouse.</p>
+            <img class="img" src="https://images.tango.us/workflows/afdde974-c2c8-4613-a963-027d16591dde/steps/05aa0ef2-c477-4dd8-8faa-447cf0b47f61/a9bdb609-f72b-401d-a996-e623c48d1613.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=959&mark-y=55&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0yMjYmaD02MiZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Buscar" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>3.2.2 Eliminar Abono</h4>
+            <p>Puede eliminar un abono, al pulsar con el botón izquierdo del mouse sobre el botón con el icono de papelera.</p>
+            <img class="img" src="https://images.tango.us/workflows/afdde974-c2c8-4613-a963-027d16591dde/steps/a2e3b7ae-9e79-42a8-a713-a75d9f220a8a/3ca8e0b3-e22a-4fa7-8eb2-7e779f7db161.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=1055&mark-y=89&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz02MiZoPTU4JmZpdD1jcm9wJmNvcm5lci1yYWRpdXM9MTA%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Eliminar un abono de la cartera del cliente" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Luego, En caso de confirmar la acción presiona con el botón izquierdo del mouse, el botón "Confirmar", el sistema eliminará el abono. Si se pulsa sobre el botón “Cerrar” el sistema cierra la ventana sin eliminar el abono. </p>
+            <img class="img" src="https://images.tango.us/workflows/724198f2-7498-4852-8a09-d70489640607/steps/1c7fd966-bf75-4e8b-9c39-bd1ece101b57/3773e999-53f1-4473-87aa-1360e7aa0042.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=893&mark-y=407&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0xOTUmaD04NyZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Confirmar" />
+        </div>
+
+        <div class="step mt-2">
+            <p>El sistema mostrará un mensaje de éxito confirmando que el abono se ha eliminado correctamente.</p>
+            <img class="img" src="https://images.tango.us/workflows/724198f2-7498-4852-8a09-d70489640607/steps/5ea1631a-4dbf-491b-b458-77c7388c68ff/bb4958bb-6a9d-4a7f-9a43-d803284d44d6.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Éxito…" />
+        </div>
+        <div class="step mt-2">
+            <p>Presiona el botón "Volver a cartera" con el botón izquierdo del mouse, para regresar a la página principal.</p>
+            <img class="img" src="https://images.tango.us/workflows/afdde974-c2c8-4613-a963-027d16591dde/steps/d1456a70-569a-4142-a994-d0205725cb3e/9c0553da-2566-4569-bb01-5ebd4759375b.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=370&mark-y=161&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz00MDMmaD0xMzAmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Volver a cartera" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>3.3 Filtrar Registros</h4>
+            <p>Para acceder a registros de ventas a crédito en un rango de fechas, presiona el botón "Filtrar por fecha" con el botón izquierdo del mouse.</p>
+            <img class="img" src="https://images.tango.us/workflows/afdde974-c2c8-4613-a963-027d16591dde/steps/4f7e7a55-5994-4c47-a1b4-86cc8c55b95b/2d137d5d-4c17-4740-b13d-ba8e37a28db2.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=589&mark-y=149&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0zNTkmaD0xMTYmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Filtrar por fecha" />
+        </div>
+
+        <div class="step mt-2">
+            <P>Para filtrar los registros de ventas a crédito, completa los campos "Fecha de inicio" y "Fecha de fin" con las fechas específicas que necesitas. <br /> <br />
+                -Presiona el botón "Descargar PDF" con el botón izquierdo del mouse. Esto descargará un archivo PDF con un reporte de la tabla cartera según los filtros aplicados.<br />
+                -Presiona el botón "Filtrar" con el botón izquierdo del mouse, para aplicar los filtros seleccionados y visualizar el listado de ventas a crédito con el rango de fechas aplicados.<br />
+                -Presiona el botón "Limpiar filtros" con el botón izquierdo del mouse, para restaurar la vista original de la tabla de ventas a crédito, eliminando cualquier filtro previamente aplicado y mostrando todos los registros sin restricciones de fechas.<br />
+                -Presiona el botón "Cerrar" con el botón izquierdo del mouse, para cerrar la ventana.
+            </P>
+            <img class="img" src="https://images.tango.us/workflows/724198f2-7498-4852-8a09-d70489640607/steps/26ef7d9a-43c4-423e-a424-676d0f7b7f11/46cfb9a6-53fe-4ece-a3fb-3e87017a2cbc.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Filtrar por fecha…" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Si los campos de fecha están vacíos o no son válidos, al intentar aplicar acciones, el sistema mostrará un mensaje de Error indicando que es necesario seleccionar un rango de fechas válido.</p>
+            <img class="img" src="https://images.tango.us/workflows/724198f2-7498-4852-8a09-d70489640607/steps/6634e5dd-8951-406e-9dcc-de3345aac9e7/86a4b4da-bbc5-42a8-a4ac-7a54ff7f9b81.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Por favor, selecciona un rango de fechas válido." />
+        </div>
+
+       
+    </div>
+
+</body>
+</html>

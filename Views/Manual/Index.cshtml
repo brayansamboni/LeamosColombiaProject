@@ -1,0 +1,192 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{  
+    ViewData["Title"] = "Manual de Usuarios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vista de Cards</title>
+    <link rel="icon" type="image/png" href="~/img/logo.png" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        #cards {
+            width: 90%;
+            padding-inline: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .card {
+            min-width: 150px;
+            height: 200px;
+            flex: 1 1 250px;
+            background-color: rgba(255, 255, 255, 0.12);
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .card-content {
+            position: absolute;
+            inset: 1px;
+            background: #fff;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h3 {
+            padding: 10px;
+            font-size: 20px;
+            color: #333;
+            text-align: center;
+            line-height: 1.5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .icon-container {
+            width: 65px; 
+            height: 65px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #000; 
+            border-radius: 50%; 
+            margin-bottom: 10px;
+            box-shadow: 10px 15px 20px #ccc;
+        }
+
+        .icon {
+            font-size: 2.5em; 
+            color: #fff;
+        }
+
+        button {
+            cursor: pointer;
+            padding: 10px;
+            background-color: #1D1A39;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+
+            button:hover {
+                background-color: #1B3358;
+            }
+
+    </style>
+</head>
+<body>
+    <div id="cards" class="mx-auto">
+        <div class="card">
+            <div class="card-content">
+                <div class="icon-container">
+                    <i class="fa fa-user icon m-auto"></i>
+                </div>
+                <h3>Iniciar Sesión</h3>
+                <a asp-controller="ManualIngresar" asp-action="Index">
+                    <button>Ver Manual</button>
+                </a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <div class="icon-container">
+                    <i class="fas fa-user-plus mr-2 icon m-auto"></i>
+                </div>
+                <h3>Usuarios - Roles</h3>
+                <a asp-controller="ManualUsuarios" asp-action="Index">
+                    <button>Ver Manual</button>
+                </a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <div class="icon-container">
+                    <i class="fas fa-dolly-flatbed mr-2 icon m-auto"></i>
+                </div>
+                <h3>Proveedores</h3>
+                <a asp-controller="ManualProveedores" asp-action="Index">
+                    <button>Ver Manual</button>
+                </a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <div class="icon-container">
+                    <i class="fas fa-cart-plus mr-2 icon m-auto"></i>
+                </div>
+                <h3>Compras</h3>
+                <a asp-controller="ManualCompras" asp-action="Index">
+                    <button>Ver Manual</button>
+                </a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <div class="icon-container">
+                    <i class="fas fa-book mr-2 icon m-auto"></i>
+                </div>
+                <h3>Productos</h3>
+                <a asp-controller="ManualProductos" asp-action="Index">
+                    <button>Ver Manual</button>
+                </a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <div class="icon-container">
+                    <i class="fas fa-users mr-2 icon m-auto"></i>
+                </div>
+                <h3>Clientes</h3>
+                <a asp-controller="ManualClientes" asp-action="Index">
+                    <button>Ver Manual</button>
+                </a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <div class="icon-container">
+                    <i class="fas fa-shopping-cart mr-2 icon m-auto"></i>
+                </div>
+                <h3>Ventas</h3>
+                <a asp-controller="ManualVentas" asp-action="Index">
+                    <button>Ver Manual</button>
+                </a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <div class="icon-container">
+                    <i class="far fa-credit-card mr-2 icon m-auto"></i>
+                </div>
+                <h3>Cartera</h3>
+                <a asp-controller="ManualCartera" asp-action="Index">
+                    <button>Ver Manual</button>
+                </a>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+</html>

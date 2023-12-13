@@ -1,0 +1,256 @@
+﻿@model IEnumerable<LeamosColombiaProject.Models.Proveedor>
+
+@{
+    ViewData["Title"] = "Proveedores";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .custom-tooltip {
+        position: relative;
+        display: inline-block;
+    }
+
+        .custom-tooltip::before {
+            content: attr(data-title);
+            position: absolute;
+            background-color: #C4C8C7;
+            color: black; 
+            border: 1px solid white; 
+            padding: 10px; 
+            border-radius: 5px; 
+            font-size: 14px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+            z-index: 1000;
+            top: -180%; 
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 8px; 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .custom-tooltip:hover::before {
+            opacity: 1;
+            visibility: visible;
+        }
+
+    .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+    }
+</style>
+
+<p>
+    <a class="btn btn-success custom-tooltip" asp-action="Create" data-title="Crear" title="Crear un nuevo proveedor">Nuevo proveedor</a>
+</p>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Listado de proveedores</h5>
+        <div class="table-responsive">
+            <table id="zero_config" class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>
+                            Proveedor
+                        </th>
+                        <th>
+                            Encargado
+                        </th>
+                        <th>
+                            Identificación
+                        </th>
+                        <th>
+                            Correo electrónico
+                        </th>
+                        <th>
+                            Dirección
+                        </th>
+                        <th>
+                            Teléfono
+                        </th>
+                        <th>
+                            Estado
+                        </th>
+                        <th>
+                            Acciones
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Nombre)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Encargado)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Identificacion) <br> @Html.DisplayFor(modelItem => item.numeroIdentificacion)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Correo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Direccion)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Telefono)
+                            </td>
+                            <td>
+                                @switch (item.Estado)
+                                {
+                                    case true:
+                                        <button type="button" class="btn btn-success btn-block custom-tooltip" data-toggle="modal" data-target="#inhabilitar-@item.IdProveedor" data-title="Cambiar estado" title="El proveedor esta activo. Si presionas se inhabilitará">
+                                            Activo
+                                        </button>
+                                        break;
+                                    case false:
+                                        <button type="button" class="btn btn-danger btn-block custom-tooltip" data-toggle="modal" data-target="#habilitar-@item.IdProveedor" data-title="Cambiar estado" title="El proveedor esta inactivo. Si presionas se habilitará">
+                                            Inactivo
+                                        </button>
+                                        break;
+                                    default:
+                                        <span>Estado desconocido</span>
+                                        break;
+                                }
+                            </td>
+                            <td>
+                                @if (item.Estado == true)
+                                {
+                                    <div class="d-flex justify-content-center">
+                                        <a class="btn btn-warning m-1 custom-tooltip" asp-action="Edit" asp-route-id="@item.IdProveedor" data-title="Editar" title="Editar información del proveedor"><i class="fas fa-edit"></i></a>
+                                        <a class="btn btn-info m-1 custom-tooltip" asp-action="Details" asp-route-id="@item.IdProveedor" data-title="Compras al proveedor" title="Visualizar las compras hechas a ese proveedor"><i class="fas fa-shopping-cart"></i></a>
+
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="d-flex justify-content-center">
+                                        <a class="btn btn-warning disabled m-1" asp-action="Edit" asp-route-id="@item.IdProveedor"><i class="fas fa-edit"></i></a>
+                                        <a class="btn btn-info disabled m-1" asp-action="Details" asp-route-id="@item.IdProveedor"><i class="fas fa-shopping-cart"></i></a>
+                                    </div>
+                                }
+                                <div class="modal fade" id="habilitar-@item.IdProveedor" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Habilitar proveedores</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" title="Cerrar el modal de habilitación del proveedor">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body modal-body-content">
+                                                <div>
+                                                    <div>
+                                                        <div>
+                                                            <dl class="text-center modal-body">
+                                                                ¿Estás seguro de querer realizar esta acción?
+                                                            </dl>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal" title="Cerrar el modal de habilitación del proveedor">Cerrar</button>
+                                                <form asp-action="Habilitar" asp-route-id="@item.IdProveedor" method="post">
+                                                    <button type="submit" class="btn btn-danger" title="Confirmar la habilitación del proveedor">Confirmar</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="modal fade" id="inhabilitar-@item.IdProveedor" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Inhabilitar proveedores</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" title="Cerrar el modal de inhabilitación del proveedor">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body modal-body-content">
+                                                <div>
+                                                    <div>
+                                                        <div>
+                                                            <dl class="text-center modal-body">
+                                                                ¿Estás seguro de querer realizar esta acción?
+
+                                                            </dl>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal" title="Cerrar el modal de inhabilitación del proveedor">Cerrar</button>
+                                                <form asp-action="Inhabilitar" asp-route-id="@item.IdProveedor" method="post">
+                                                    <button type="submit" class="btn btn-danger" title="Confirmar la inhabilitación del proveedor">Confirmar</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#zero_config').DataTable({
+                "columns": [
+                    { "data": "Nombre" },
+                    { "data": "Encargado" },
+                    { "data": "Identificación" },
+                    { "data": "Correo electrónico" },
+                    { "data": "Dirección" },
+                    { "data": "Teléfono" },
+                    { "data": "Estado" },
+                    { "data": "Acciones" }
+                ],
+                "paging": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "pageLength": 10,
+                "lengthMenu": [10, 25, 50, 100],
+                "language": {
+                    "lengthMenu": "Mostrando _MENU_ registros por página",
+                    "zeroRecords": "No se ha encontrado este registro",
+                    "info": "Mostrando página _PAGE_ de _PAGES_",
+                    "infoEmpty": "No hay registros en la tabla",
+                    "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    'search': 'Buscar',
+                    'paginate': {
+                        'next': 'Siguiente',
+                        'previous': 'Anterior'
+                    },
+                },
+                "columnDefs": [
+                    { "searchable": false, "targets": [1, 2, 3, 4, 5, 6,7] }
+                ]
+            });
+        });
+    </script>
+
+
+}
+

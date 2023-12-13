@@ -1,0 +1,200 @@
+﻿@model IEnumerable<LeamosColombiaProject.Models.AbonoCartera>
+
+@{
+    ViewData["Title"] = "Abonos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .custom-tooltip {
+        position: relative;
+        display: inline-block;
+    }
+
+        .custom-tooltip::before {
+            content: attr(data-title);
+            position: absolute;
+            background-color: #C4C8C7;
+            color: black;
+            border: 1px solid white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+            z-index: 1000;
+            top: -180%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .custom-tooltip:hover::before {
+            opacity: 1;
+            visibility: visible;
+        }
+
+    .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+    }
+</style>
+
+<p>
+    <a class="btn btn-success custom-tooltip" asp-controller="AbonoCarteras" asp-action="Create" data-title="Crear" title="Crear un nuevo abono">Nuevo abono</a>
+    <a class="btn btn-info custom-tooltip" asp-controller="Carteras" asp-action="Index" data-title="Volver" title="Volver a la vista de cartera">Volver a cartera</a>
+</p>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Listado de abonos</h5>
+        <div class="table-responsive">
+            <table id="zero_config" class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>
+                            ID
+                        </th>
+                        <th>
+                            Cartera
+                        </th>
+                        <th>
+                            Cliente
+                        </th>
+                        <th>
+                            Cuota
+                        </th>
+                        <th>
+                            Fecha
+                        </th>
+                        <th>
+                            Monto
+                        </th>
+                        <th>
+                            Acción
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IdAbonoCartera)
+                            </td>
+                            <td>
+                                Cartera: @Html.DisplayFor(modelItem => item.IdCarteraNavigation.IdCartera)
+                            </td>
+                            <td>
+@Html.DisplayFor(modelItem => item.IdCarteraNavigation.IdVentaNavigation.IdClienteNavigation.Nombre)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Cuotas)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Fecha)
+                            </td>
+                            <td>
+                                $@string.Format("{0:N0}", item.Abono)
+                            </td>
+                            <td class="text-center">
+                                @if (item.IdCarteraNavigation.Saldo != 0 || item.IdCarteraNavigation.Estado == false)
+                {
+                                    <button id="createCategoryButton" class="btn btn-danger custom-tooltip" data-toggle="modal" data-target="#eliminar-@item.IdAbonoCartera" data-title="Eliminar" title="Eliminar un abono de la cartera del cliente">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                }
+                else
+                {
+                    <button class="btn btn-danger" disabled>
+                        <i class="fas fa-trash"></i>
+                    </button>
+                }
+                
+                                <div class="modal fade" id="eliminar-@item.IdAbonoCartera" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Eliminar abono</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" title="Cerrar el modal de eliminar abono de la cartera">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body modal-body-content">
+                                                <div>
+                                                    <div>
+                                                        <div>
+                                                            <dl class="text-center modal-body">
+                                                                ¿Estás seguro de querer realizar esta acción?
+                                                            </dl>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal" title="Cerrar el modal de eliminar abono de la cartera">Cerrar</button>
+                                                <form asp-action="Delete" asp-route-id="@item.IdAbonoCartera" method="post">
+                                                    <button type="submit" class="btn btn-danger" title="Confirmar eliminaciòn del abono de la cartera">Confirmar</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#zero_config').DataTable({
+                "columns": [
+                    { "data": "ID" },
+                    { "data": "Cartera" },
+                                        { "data": "Cliente" },
+
+                    { "data": "Cuotas" },
+                    { "data": "Fecha" },
+                    { "data": "Abono" },
+                    { "data": "Acción" },
+                ],
+                "paging": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "pageLength": 10,
+                "lengthMenu": [10, 25, 50, 100],
+                "language": {
+                    "lengthMenu": "Mostrando _MENU_ registros por página",
+                    "zeroRecords": "No se ha encontrado este registro",
+                    "info": "Mostrando página _PAGE_ de _PAGES_",
+                    "infoEmpty": "No hay registros en la tabla",
+                    "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    'search': 'Buscar',
+                    'paginate': {
+                        'next': 'Siguiente',
+                        'previous': 'Anterior'
+                    },
+                },
+                "columnDefs": [
+                    { "searchable": false, "targets": [2, 4, 5] }
+                ]
+            });
+        });
+    </script>
+
+}       

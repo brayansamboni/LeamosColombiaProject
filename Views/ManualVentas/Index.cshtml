@@ -1,0 +1,243 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Manual Ventas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .seccion {
+            width: 90%;
+            margin: 0 auto;
+            max-height: 80vh;
+            overflow: auto;
+            display: grid;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .step {
+            width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 8px;
+            display: inline-block;
+            vertical-align: top;
+            background: #fff;
+        }
+
+            .step h4 {
+                padding: 10px;
+                font-size: 18px;
+                color: #333;
+                text-align: center;
+                line-height: 1.5;
+                display: flex;
+            }
+
+        p {
+            padding: 10px;
+            font-size: 18px;
+            color: #333;
+            font-weight: normal;
+        }
+
+        h3 {
+            padding: 10px;
+            font-size: 20px;
+            color: #333;
+            text-align: center;
+            line-height: 1.5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .step img {
+            max-height: 85%; /* Establece la altura máxima que desees */
+        }
+
+        .img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            border-radius: 8px;
+            border: 1px solid #F4F2F7;
+            box-shadow: 10px 15px 20px #ccc;
+        }
+
+        /* Estilo para el scroll en el contenedor */
+        .container-fluid::-webkit-scrollbar {
+            width: 12px; /* Ancho del scrollbar */
+        }
+
+        .seccion::-webkit-scrollbar-thumb {
+            background-color: #888; /* Color del "pulgarcito" del scrollbar */
+            border-radius: 10px;
+        }
+
+            .seccion::-webkit-scrollbar-thumb:hover {
+                background-color: #555; /* Color del "pulgarcito" al pasar el mouse */
+            }
+    </style>
+
+</head>
+<body>
+    <div class="seccion">
+        <h3>1. Ingreso a gestión de Ventas</h3>
+        <div class="step">
+            <p>
+                Pulsa con el botón izquierdo del mouse en el enlace "Ventas" del menú ubicado en la barra lateral izquierda de la pantalla. Esta acción  abrirá un submenú que presenta las funciones que se pueden gestionar dentro de este módulo.
+            </p>
+            <img class="img" src="https://images.tango.us/workflows/193491ed-52c8-4137-a630-512b9c975ea6/steps/7a927347-1e4c-4cc2-badd-8722dc586c53/f257472f-fccb-40d6-9d45-c790d31b72f1.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=5&mark-y=386&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0zMDYmaD03MiZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Ventas" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>1.2. Acceder a ventas</h4>
+            <p>
+                Luego de desplegar el submenú “Ventas”, pulsamos con el botón izquierdo del mouse sobre la opción “Ventas”. Esto te llevará a la página principal de ventas.
+            </p>
+            <img class="img" src="https://images.tango.us/workflows/193491ed-52c8-4137-a630-512b9c975ea6/steps/68b17155-776f-4f5c-b588-bffd811a9e6a/d242c69b-2aab-4015-b854-a827cce3e7b4.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=5&mark-y=459&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0zMTMmaD02NCZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Ventas" />
+        </div>
+
+        <h3>2. Ventas</h3>
+        <div class="step">
+            <p>En la sección de ventas, puedes visualizar el listado de ventas que se encuentran registrados en el sistema. </p>
+            <img class="img" src="https://images.tango.us/workflows/afdde974-c2c8-4613-a963-027d16591dde/steps/be6d6162-b87d-4cc3-b213-fc3470fdaeaf/6d66c095-9b32-4734-9440-8d9d74054477.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Listado de ventas…" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>2.1. Crear nueva venta</h4>
+            <p>
+                Para crear una venta, debe pulsar con el botón izquierdo del mouse sobre el botón “Nueva venta”. Luego, el sistema muestra un formulario donde se ingresan los datos requeridos para realizar la nueva venta.
+            </p>
+            <img class="img" src="https://images.tango.us/workflows/afdde974-c2c8-4613-a963-027d16591dde/steps/4cf34ef9-c5e1-4614-892c-6fe2921c8ba5/4fcaadf3-f168-4c5f-a430-7ef98fd035a3.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=33&mark-y=169&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0zNDEmaD0xMzAmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Nueva venta" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>2.1.1. Formulario de registro</h4>
+            <p>
+                Para iniciar, seleccione un cliente desde el botón desplegable que muestra los datos de los clientes disponibles, también el Tipo de pago. Ambos campos son obligatorios (*), para crear la nueva venta. <br /><br />
+                Presione con el botón izquierdo del mouse sobre el botón "Agregar producto". Los productos se irán agregando a la tabla de productos de la venta, verifica que haya suficiente cantidad de productos disponibles. Desde allí, puede indicar la cantidad de cada producto y eliminar si es necesario.
+            </p>
+            <img class="img" src="https://images.tango.us/workflows/afdde974-c2c8-4613-a963-027d16591dde/steps/a8879d4e-87be-4317-b52e-328234b345af/dd7e7041-fe3b-4172-b9a6-61ea4d4ec9c7.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="crear vent" />
+        </div>
+
+        <div class="step mt-2">
+            <p>
+                Para guardar la venta, se debe pulsar con el botón izquierdo del mouse sobre el botón “Crear”, ubicado en la parte inferior del formulario.
+            </p>
+            <img class="img" src="https://images.tango.us/workflows/afdde974-c2c8-4613-a963-027d16591dde/steps/4e8ca380-972c-421c-a703-95613eab2210/ae196a99-4114-4f7b-9b93-988ab739959c.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=378&mark-y=224&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0yODImaD0xNzkmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Crear" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Para garantizar una única cartera activa por cliente, se prohíbe la creación de otro crédito si el cliente ya posee una cartera activa. Si intentas realizar la venta en estas condiciones, se mostrará un mensaje de error, y no se permitirá completar la venta.</p>
+            <img class="img" src="https://images.tango.us/workflows/193491ed-52c8-4137-a630-512b9c975ea6/steps/17fdc1f4-4a38-418a-ba97-4cf91204d707/75b59c76-d879-47e3-97ce-d6515bee0bce.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=354&mark-y=19&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz04MjcmaD0zMjgmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Error…" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Para realizar una venta a crédito, es necesario que el cliente disponga de referencias. Si el cliente no cuenta con referencias registradas, se mostrará un mensaje de error y no será posible efectuar la venta a crédito.</p>
+            <img class="img" src="https://images.tango.us/workflows/193491ed-52c8-4137-a630-512b9c975ea6/steps/973613f9-138f-4f7f-8807-8e770149f236/348662a6-9d20-42dc-aa91-71fff78ede32.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=398&mark-y=21&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz04MDImaD0zMTgmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Error…" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Si no hay cantidad disponible, se mostrará un mensaje de error y no podrás completar la venta hasta que se aumenten las existencias.</p>
+            <img class="img" src="https://images.tango.us/workflows/193491ed-52c8-4137-a630-512b9c975ea6/steps/e8e43070-0410-466e-9e8b-517f8fc3de71/6254c9cb-9b67-47c7-b74d-4adf6710f753.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=339&mark-y=22&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz04NDImaD0zOTEmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Error…" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Si todo esta correcto, el sistema mostrará un mensaje de éxito confirmando el registro de la nueva venta.</p>
+            <img class="img" src="https://images.tango.us/workflows/193491ed-52c8-4137-a630-512b9c975ea6/steps/44903948-77b7-49c4-a72b-7124f8998620/f3c9aa05-cbb3-43f8-8686-95bb01d90f8f.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Éxito…" />
+        </div>
+
+        <div class ="step mt-2">
+            <h4>2.2 Filtrar Ventas</h4>
+            <p>Para acceder a registros de las ventas en un rango de fechas, presiona el botón "Filtrar por fecha" con el botón izquierdo del mouse.</p>
+            <img class="img" src="https://images.tango.us/workflows/afdde974-c2c8-4613-a963-027d16591dde/steps/ed2ff580-0474-4dae-8b00-0ce7798b9447/cf7ea2bd-bb93-40ec-ad5d-8b5e60d4fd95.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=313&mark-y=150&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0zNTYmaD0xMTUmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Filtrar por fecha" />
+        </div>
+
+        <div class="step mt-2">
+            <P>
+                Para filtrar registros de ventas, completa los campos "Fecha de inicio" y "Fecha de fin" con las fechas específicas que necesitas. <br /> <br />
+                -Presiona el botón "Descargar PDF" con el botón izquierdo del mouse. Esto descargará un archivo PDF con un reporte de la Tabla de Ventas según los filtros aplicados.<br />
+                -Presiona el botón "Filtrar" con el botón izquierdo del mouse, para aplicar los filtros seleccionados y visualizar el Listado de Ventas con el rango de fechas aplicados.<br />
+                -Presiona el botón "Limpiar filtros" con el botón izquierdo del mouse, para restaurar la vista original del Listado de Ventas, eliminando cualquier filtro previamente aplicado y mostrando todos los registros sin restricciones de fechas.<br />
+                -Presiona el botón "Cerrar" con el botón izquierdo del mouse, para cerrar la ventana.
+            </P>
+            <img class="img" src="https://images.tango.us/workflows/724198f2-7498-4852-8a09-d70489640607/steps/26ef7d9a-43c4-423e-a424-676d0f7b7f11/46cfb9a6-53fe-4ece-a3fb-3e87017a2cbc.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Filtrar por fecha…" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Si los campos de fecha están vacíos o no son válidos, al intentar aplicar acciones, el sistema mostrará un mensaje de Error indicando que es necesario seleccionar un rango de fechas válido.</p>
+            <img class="img" src="https://images.tango.us/workflows/193491ed-52c8-4137-a630-512b9c975ea6/steps/3496788e-df10-413f-a238-6b8bcf5e6b43/8758e9c7-dc95-44be-ae3d-67d9d3a3987b.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Por favor, selecciona un rango de fechas válido." />
+        </div>
+
+        <div class="step mt-2">
+            <h4>2.3 Buscar Venta</h4>
+            <p>Si desea buscar una venta, selecciona la opción "Buscar" con el botón izquierdo del mouse. Esto te permitirá buscar entre las ventas existentes.</p>
+            <img class="img" src="https://images.tango.us/workflows/193491ed-52c8-4137-a630-512b9c975ea6/steps/466dd074-9fda-4b48-bc99-63d169face8e/336a1594-dbdb-422c-a07d-f1a21af8c8c8.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=958&mark-y=59&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0yMjImaD00OCZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Buscar" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>2.4. Desactivar estado de una venta tipo contado</h4>
+            <p>Para inhabilitar una venta presione el botón "Activo" con el botón izquierdo del mouse en la venta que desea inhabilitar.</p>
+            <img class="img" src="https://images.tango.us/workflows/afdde974-c2c8-4613-a963-027d16591dde/steps/c1da3c74-16ae-421d-bc21-2989ff35fb87/9473a1e9-4c5b-46fd-8264-091977c6c95a.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=131&mark-y=211&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz03MzcmaD0xMjgmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Activo" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Luego, confirma esta acción presionando el botón "Confirmar" con el botón izquierdo del mouse. Si se pulsa sobre el botón “Cerrar”, el sistema cierra sin inhabilitar la venta.</p>
+            <img class="img" src="https://images.tango.us/workflows/193491ed-52c8-4137-a630-512b9c975ea6/steps/818ef311-c5b2-4caa-a1ab-1ef50ae88497/133ad22b-c874-4675-adff-862321df6388.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Inhabilitar venta…" />
+        </div>
+
+        <div class="step mt-2">
+            <p>El sistema mostrará un mensaje de éxito, confirmando que la venta se ha inhabilitado correctamente.</p>
+            <img class="img" src="https://images.tango.us/workflows/193491ed-52c8-4137-a630-512b9c975ea6/steps/4c36efeb-9e03-4fa1-95d3-b15c60a94e5c/57c55162-42ba-4690-968a-a541c437b148.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Éxito…" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>2.5. Activar estado de una venta tipo contado</h4>
+            <p>Si desea habilitar una venta que esta inactiva, pulsa el botón "Inactivo" con el botón izquierdo del mouse en la venta que desea habilitar.</p>
+            <img class="img" src="https://images.tango.us/workflows/afdde974-c2c8-4613-a963-027d16591dde/steps/aaf7287f-ae5d-4311-a431-0ddd3aef145b/88812f2f-b30d-4d44-9031-78d4a60db303.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=149&mark-y=249&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz03MTAmaD0xMjMmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Inactivo" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Después de seleccionar "Inactivo" para una venta tipo contado, confirma la activación presionando con el botón izquierdo del mouse el botón "Confirmar". Si se pulsa sobre el botón “Cerrar”, el sistema cierra sin habilitar la venta.</p>
+            <img class="img" src="https://images.tango.us/workflows/382fe3bd-5218-4c95-984d-b024482622d9/steps/cfadf5c6-9cfd-48c3-8466-6e99c9dac7d2/8e93f76f-7158-4baf-8c84-0ea20035ebbe.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=924&mark-y=445&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0yMTQmaD05NiZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Confirmar" />
+        </div>
+
+        <div class="step mt-2">
+            <p>El sistema mostrará un mensaje de éxito confirmando que la venta se ha habilitado correctamente.</p>
+            <img class="img" src="https://images.tango.us/workflows/382fe3bd-5218-4c95-984d-b024482622d9/steps/2b39fa7e-be68-41c3-afdc-6b59602b4326/2b47381a-2198-4c1b-9cd8-5a1967758273.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Éxito…" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>2.6. Estado tipo crédito</h4>
+            <p>Si la venta es de tipo crédito, modifica su estado desde la sección de Cartera.</p>
+            <img class="img" src="https://images.tango.us/workflows/afdde974-c2c8-4613-a963-027d16591dde/steps/9b6f8935-88ed-4c70-998d-cbf561a9c142/51330ddf-72d5-40b7-b7b4-ac0f63713a1e.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=156&mark-y=130&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz03MTUmaD0xNDImZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on ID	Tipo de venta	Fecha	Precio total	Cliente	Estado	Acciones" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>2.7 Visualizar Detalles de la Venta</h4>
+            <p>Para ver detalles de una venta, pulsa con el botón izquierdo del mouse sobre el botón con el icono de bolso que se encuentra en cada venta. </p>
+            <img class="img" src="https://images.tango.us/workflows/afdde974-c2c8-4613-a963-027d16591dde/steps/820b355d-e444-4ce3-b833-1d3351c33eb1/32fa2c69-eb4e-442d-9a20-769a4031e1ab.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=1080&mark-y=129&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz02NCZoPTU5JmZpdD1jcm9wJmNvcm5lci1yYWRpdXM9MTA%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Visualizar el detalle de la venta" />
+        </div>
+
+        <div class="step mt-2">
+            <p>
+                Al hacerlo, podrá visualizar los detalles de la venta junto con sus respectivos productos. Además, tiene la opción de descargar un archivo PDF que contiene toda la información relacionada. <br /> <br />
+                Una vez revisados los detalles de la venta, si desea regresar a la página principal, presione el botón "Volver" con el botón izquierdo de mouse.
+            </p>
+            <img class="img" src="https://images.tango.us/workflows/193491ed-52c8-4137-a630-512b9c975ea6/steps/8be1e947-209d-448f-a98e-e6859f414929/98e2f7c8-7ce7-4dbd-9ee1-1c5f217cc05b.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Ventas" />
+        </div>
+
+    </div>
+
+</body>
+</html>

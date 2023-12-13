@@ -1,0 +1,267 @@
+﻿@model LeamosColombiaProject.Models.ViewModels.CompraViewModel
+
+@{
+    ViewData["Title"] = "Compras";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-body wizard-content">
+            <h4 class="card-title">Crear compra</h4>
+            <form id="example-form" asp-action="Create" class="mt-4">
+                <div>
+<section class="row mb-3">
+    <div class="col-md-4">
+                            <label for="Proveedor">Proveedor <span style="color: red;">*</span></label>
+        <select asp-for="@Model.IdProveedor" asp-items="@Model.ProveedoresSelectList" class="select2 form-control">
+            <option value="">Seleccione un proveedor</option>
+        </select>
+        <span asp-validation-for="@Model.IdProveedor"></span>
+    </div>
+    <div class="col-md-3 offset-md-5">
+        <label for="Total">Total de compra</label>
+        <input readonly type="number" id="totalVenta" name="TotalVenta" class="form-control" style="width: 100%;" />
+    </div>
+</section>
+                    <section>
+                        <select asp-for="Estado" hidden class="form-control">
+                            <option value="True">Activo</option>
+                        </select>
+                    </section>
+                    <section>
+                        <div class="form-group">
+                            <button type="button" class="btn btn-primary" id="addDetail"    title="Agregar un nuevo producto al detalle de la compra">Agregar producto</button>
+                        </div>
+                    </section>
+                    <section>
+        <h4 class="card-title">Productos</h4>
+                        <div class="table-responsive">
+                            <table id="zero_config" class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 100px">Producto <span style="color: red;">*</span></th>
+                                        <th style="width: 80px;">Cantidad <span style="color: red;">*</span></th>
+                                        <th style="width: 80px;">Precio unitario</th>
+                                        <th style="width: 80px;">Precio total</th>
+                                        <th style="width: 10px;">Acción</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="detallesBody">
+                                    @for (int i = 0; i < Model.Detalles.Count; i++)
+                                    {
+                                        <tr>
+                                            <td style="width: 200px;">
+                                                <select name="Detalles[@i].IdProducto" class="select2 form-control" style="width: 100%;" required>
+                                                    <option value="">Seleccione un producto</option>
+                                                    @foreach (var producto in Model.ProductosSelectList)
+                                                    {
+                                                        <option value="@producto.Value">@producto.Text</option>
+                                                    }
+                                                </select>
+                                                <span class="text-danger" data-valmsg-for="Detalles[@i].IdProducto" data-valmsg-replace="true"></span>
+                                            </td>
+                                            <td><input type="number" for="Cantidad" name="Detalles[@i].Cantidad" class="form-control" data-rule-required="true" data-rule-digits="true" data-msg-digits="Ingresa solo dígitos." /></td>
+                                            <td><input readonly type="number" for="Precio unitario" name="Detalles[@i].Precio" class="precio-unitario form-control" /></td>
+                                            <td><input readonly type="number" for="Precio total" name="Detalles[${detallesCount}].PrecioTotal" class="precio-total form-control" /></td>
+                                            <td><button type="button" class="btn btn-danger remove-detail" title="Eliminar producto del detalle de la compra"><i class="fas fa-trash"></i></button></td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="mt-2">(<span style="color: red;">*</span>) Obligatorio</p>
+                    </section>
+                    <section class="mt-3">
+                        <a asp-action="Index" class="btn btn-secondary" title="Volver a la vista del listado de compras">Volver</a>
+                        <input type="submit" value="Crear" class="btn btn-primary" title="Confirmar creación de una nueva compra" />
+                    </section>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script>
+        $.extend($.validator.messages, {
+            required: "Este campo es obligatorio.",
+            digits: "Ingresa solo dígitos.",
+            maxlength: $.validator.format("Ingresa máximo {0} caracteres."),
+            number: "Ingresa un número válido."
+        });
+
+        $.validator.addMethod("noDuplicateProduct", function (value, element) {
+            var selectedProducts = $('select[name^="Detalles["][name$=".IdProducto"]').map(function () {
+                return this.value;
+            }).get();
+
+            var count = selectedProducts.reduce(function (acc, currentValue) {
+                return acc + (currentValue === value ? 1 : 0);
+            }, 0);
+
+            return count <= 1;
+        }, "No se puede seleccionar el mismo producto en varias filas.");
+
+        $(document).ready(function () {
+            var productosSelectList = @Html.Raw(Json.Serialize(Model.ProductosSelectList));
+            var detallesCount = @Model.Detalles.Count;
+            var table = $('#zero_config').DataTable({
+                "paging": false,
+                "searching": false,
+                "info": false,
+                "language": {
+                    "lengthMenu": "Mostrando _MENU_ registros por página",
+                    "zeroRecords": "No hay registros en la tabla",
+                    "info": "Mostrando página _PAGE_ de _PAGES_",
+                    "infoEmpty": "No hay registros en la tabla",
+                    "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    'search': 'Buscar por identificación o nombre',
+                    'paginate': {
+                        'next': 'Siguiente',
+                        'previous': 'Anterior'
+                    },
+                },
+            });
+
+            $.validator.setDefaults({
+                errorClass: "text-danger",
+                errorElement: "span"
+            });
+
+            $.validator.messages.required = "Este campo es obligatorio.";
+            $.validator.messages.digits = "Ingresa solo dígitos.";
+
+            $("#addDetail").on("click", function () {
+                var newRow = `
+                                    <tr>
+                                        <td>
+                                            <select name="Detalles[${detallesCount}].IdProducto" class="select2 form-control" style="width: 250px;" required data-rule-noDuplicateProduct="true">
+                                                <option value="">Seleccione un producto</option>
+                                                ${productosSelectList.map(p => `<option value="${p.value}">${p.text}</option>`).join("")}
+                                            </select>
+                                        </td>
+                                                <td><input type="number" for="Cantidad" name="Detalles[${detallesCount}].Cantidad" class="form-control" data-rule-digits="true" data-msg-digits="Ingresa solo dígitos."  data-rule-required="true" data-msg-required="Este campo es obligatorio." data-rule-maxlength="3" data-msg-maxlength="Ingresa máximo {0} caracteres."                                    data-rule-min="1"
+                                           data-msg-min="Ingresa un valor mayor a 0" /></td>
+                                                <td><input type="number" readonly for="Precio unitario" name="Detalles[${detallesCount}].Precio" class="precio-unitario form-control"/></td>
+                                        <td><input readonly type="number" for="Precio total" name="Detalles[${detallesCount}].PrecioTotal" class="precio-total form-control" /></td>
+                                                <td><button type="button" class="btn btn-danger remove-detail" title="Eliminar producto del detalle de la compra"><i class="fas fa-trash"></button></td>
+                                    </tr>
+                                `;
+
+                var row = $(newRow).appendTo("#detallesBody");
+                table.row.add(row).draw();
+
+                detallesCount++;
+
+                row.find("select.select2").select2();
+
+                calcularTotalVenta(); // Recalculate total after adding a row
+            });
+
+            $(document).on("click", ".remove-detail", function () {
+                var $row = $(this).closest("tr");
+                table.row($row).remove().draw();
+                detallesCount--;
+
+                $("#detallesBody tr").each(function (index) {
+                    var $currentRow = $(this);
+                    $currentRow.find('select, input').each(function () {
+                        var name = $(this).attr('name').replace(/\[\d+\]/g, '[' + index + ']');
+                        $(this).attr('name', name);
+                    });
+                }); 
+                
+                calcularTotalVenta();
+            });
+
+            $('#example-form').validate({
+                errorClass: "text-danger",
+                errorPlacement: function (error, element) {
+                    if (element.is("select") && element.hasClass("select2")) {
+                        error.insertAfter(element.next('.select2-container')).addClass("text-error-below");
+                    } else {
+                        error.insertAfter(element);
+                    }
+                },
+                rules: {
+                    IdProveedor: {
+                        required: true,
+                    },
+                    TipoVenta: {
+                        required: true,
+                    },
+                    'Detalles[0].IdProducto': {
+                        required: true,
+                        noDuplicateProduct: true
+                    },
+                    'Detalles[0].Cantidad': {
+                        required: true,
+                        digits: true,
+                        maxlength: 3,
+                        min: 1
+                    },
+                },
+                messages: {
+                    IdProveedor: {
+                        required: "Este campo es obligatorio.",
+                    },
+                    TipoVenta: {
+                        required: "Este campo es obligatorio.",
+                    },
+                    'Detalles[0].IdProducto': {
+                        required: "Este campo es obligatorio.",
+                    },
+                    'Detalles[0].Cantidad': {
+                        required: "Este campo es obligatorio.",
+                        digits: "Ingresa solo dígitos.",
+                        maxlength: "Ingresa máximo {0} caracteres.",
+                        min: "Ingresa un valor mayor a 0" // Mensaje para la regla 'min'
+
+                    },
+                }
+            });
+
+            $(document).on('change', 'select[name^="Detalles["][name$=".IdProducto"]', function () {
+                var $row = $(this).closest('tr');
+                var selectedProductId = $(this).val();
+
+                $.ajax({
+                    url: '@Url.Action("ObtenerPrecioProducto", "Productos")',
+                    type: 'GET',
+                    data: { id: selectedProductId },
+                    success: function (response) {
+                        $row.find('.precio-unitario').val(response.precio);
+                        calcularPrecioTotal($row); // Recalculate total after changing product
+                    },
+                    error: function () {
+                    }
+                });
+            });
+
+            $(document).on('input', 'input[name^="Detalles["][name$=".Cantidad"], input[name^="Detalles["][name$=".Precio"]', function () {
+                var $row = $(this).closest('tr');
+                calcularPrecioTotal($row);
+            });
+
+            function calcularPrecioTotal(row) {
+                var cantidad = parseFloat(row.find('input[name$=".Cantidad"]').val()) || 0;
+                var precioUnitario = parseFloat(row.find('input[name$=".Precio"]').val()) || 0;
+                var precioTotal = cantidad * precioUnitario;
+                row.find('input[name$=".PrecioTotal"]').val(precioTotal.toFixed(2));
+
+                calcularTotalVenta();
+            }
+
+            function calcularTotalVenta() {
+                var sumaTotal = 0;
+                $('#detallesBody tr').each(function () {
+                    var precioTotal = parseFloat($(this).find('input[name$=".PrecioTotal"]').val()) || 0;
+                    sumaTotal += precioTotal;
+                });
+
+                $('#totalVenta').val(sumaTotal.toFixed(2));
+            }
+        });
+    </script>
+}
+

@@ -1,0 +1,105 @@
+﻿@model LeamosColombiaProject.Models.Venta
+
+@{
+    ViewData["Title"] = "Ventas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <p>
+        <a asp-controller="Ventas" asp-action="DescargarPDF" asp-route-id="@Model.IdVenta" class="btn btn-success">Descargar PDF</a>
+    </p>
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Detalles de venta</h4>
+            <dl class="row">
+                <dt class="col-sm-3">Total:</dt>
+                <dd class="col-sm-9">$@string.Format("{0:N0}", Model.Total)</dd>
+
+
+                <dt class="col-sm-3">Fecha:</dt>
+                <dd class="col-sm-9">@Model.Fecha</dd>
+
+                <dt class="col-sm-3">Cliente:</dt>
+                <dd class="col-sm-9">@Model.IdClienteNavigation.Nombre</dd>
+
+                <dt class="col-sm-3">Estado:</dt>
+                <dd class="col-sm-9">
+                    @if (Model.Estado == true)
+                    {
+                        <span class="text-success">Activo</span>
+
+                    }
+                    else
+                    {
+                        <span class="text-danger">Inactivo</span>
+                    }
+                </dd>
+            </dl>
+
+            <h4 class="card-title">Productos comprados</h4>
+            <div class="table-responsive">
+            <table id="zero_config" class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Precio unitario</th>
+                        <th>Precio total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var detalle in Model.DetalleVenta)
+                    {
+                        <tr>
+                            <td>@detalle.IdProductoNavigation.Titulo</td>
+                            <td>@detalle.Cantidad</td>
+                                <td class="text-right">$@string.Format("{0:N0}", detalle.Precio)</td>
+                                <td class="text-right">$@string.Format("{0:N0}", detalle.Cantidad * detalle.Precio)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <a href="javascript:history.back()" class="btn btn-secondary">Volver</a>
+        </div>
+    </div>
+</div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#zero_config').DataTable({
+                "columns": [
+                    { "data": "Producto" },
+                    { "data": "Cantidad" },
+                    { "data": "Precio unitario" },
+                    { "data": "Precio total" },
+                ],
+                "paging": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "pageLength": 10,
+                "lengthMenu": [10, 25, 50, 100],
+                "language": {
+                    "lengthMenu": "Mostrando _MENU_ registros por página",
+                    "zeroRecords": "No se ha encontrado este registro",
+                    "info": "Mostrando página _PAGE_ de _PAGES_",
+                    "infoEmpty": "No hay registros en la tabla",
+                    "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    'search': 'Buscar',
+                    'paginate': {
+                        'next': 'Siguiente',
+                        'previous': 'Anterior'
+                    },
+                },
+                "columnDefs": [
+                    { "searchable": true, "targets": [0] },
+                    { "searchable": false, "targets": [1, 2, 3] }
+                ]
+            });
+        });
+    </script>
+}

@@ -1,0 +1,343 @@
+﻿@using System.Security.Claims;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LeamosColombia</title>
+    <link href="~/css/style.min.css" rel="stylesheet" />
+    <link href="~/libs/datatables/datatables.min.css" rel="stylesheet" />
+    <link href="~/libs/select2/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="~/libs/toastr/build/toastr.min.css" rel="stylesheet" />
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="icon" type="image/png" href="~/img/logo.png" />
+</head>
+<style> 
+    .table td {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .table thead tr th {
+        text-align: center;
+        vertical-align: middle
+    }
+
+    .table h4, dl {
+        text-align: center;
+    }
+
+    .city-row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .city-cell {
+        max-width: 150px;
+        white-space: normal;
+        word-wrap: break-word;
+        overflow: hidden;
+    }
+
+    .city-content {
+        max-height: 60px;
+        overflow-y: auto;
+        border: 1px solid #ccc;
+        padding: 5px;
+        border-radius: 3px;
+        margin-top: 5px;
+    }
+
+
+        .city-content::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .city-content::-webkit-scrollbar-thumb {
+            background-color: #888;
+            border-radius: 3px;
+        }
+
+        .city-content::-webkit-scrollbar-track {
+            background-color: #f1f1f1;
+            border-radius: 3px;
+        }
+
+    .card {
+        border-radius: 15px;
+    }
+
+    .btn {
+        border-radius: 15px;
+    }
+
+    .modal-content {
+        -webkit-border-radius: 15px !important;
+        -moz-border-radius: 15px !important;
+        border-radius: 15px !important;
+    }
+
+    .dropdown-menu {
+        -webkit-border-radius: 15px !important;
+        -moz-border-radius: 15px !important;
+        border-radius: 15px !important;
+    }
+
+    .toast {
+        -webkit-border-radius: 15px !important;
+        -moz-border-radius: 15px !important;
+        border-radius: 15px !important;
+    }
+
+    .form-control {
+        -webkit-border-radius: 10px !important;
+        -moz-border-radius: 10px !important;
+        border-radius: 10px !important;
+        height: 37px !important;
+        color: #444444 !important;
+        border: 1px solid #aaa !important;
+    }
+
+    .text-error-below {
+        display: block;
+        margin-top: 5px;
+        clear: both;
+    }
+
+</style>
+<body>
+
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+
+    <div id="main-wrapper">
+        <header class="topbar" style="        background-color: #000;
+">
+            <nav class="navbar top-navbar navbar-expand-md navbar-dark" style="background-color: #000;
+">
+                <div class="navbar-header" data-logobg="skin5" style="background-color: #000;">
+                    <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)" title="Desplegar menú lateral">
+                        <i class="fas fa-bars ti-close"></i>
+                    </a>
+                    <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                        <b class="logo-icon p-l-10">
+                            <img src="~/img/logo.png" alt="homepage" class="light-logo" width="50px" height="50px" />
+                        </b>
+                        <span class="logo-text">
+                            <span class="font-weight-bold">Leamos Colombia</span>
+                        </span>
+                    </a>
+                    <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)"
+                       data-toggle="collapse" data-target="#navbarSupportedContent" title="Desplegar menú de opciones de usuario"
+                       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> 
+                        <i class="fas fa-bars"></i>
+                    </a>
+                </div>
+                <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5" style="background-color: #000;">
+                    <ul class="navbar-nav float-left mr-auto">
+                        <li class="nav-item d-none d-md-block">
+                            <a class="nav-link sidebartoggler waves-effect waves-light" href="javascript:void(0)" title="Desplegar menú lateral"
+                               data-sidebartype="mini-sidebar"><i class="fas fa-bars font-20"></i></a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav float-right">
+                        <li class="nav-item dropdown">
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <span class="text-white font-14">
+                                    @User.Identity.Name - @User.FindFirstValue("Rol")
+                                </span>
+
+                            }
+                            else
+                            {
+                            }
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark pro-pic" href=""
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"title="Desplegar opciones de usuario">
+                                <i class="fas fa-user-circle font-20"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right user-dd animated">
+                                <a class="dropdown-item text-dark" asp-controller="Perfil" asp-action="Edit" asp-route-id="@User.FindFirstValue(ClaimTypes.NameIdentifier)" title="Ingresar a la vista de edición de perfil"><i class="fas fa-user mr-2"></i>Mi Perfil</a>
+                                <a class="dropdown-item text-dark" data-toggle="modal" data-target="#confirmLogoutModal" title="Cerrar sesión en la cuenta">
+                                    <i class="fas fa-sign-out-alt mr-2"></i>Cerrar Sesión
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <aside class="left-sidebar mt-4" data-sidebarbg="skin5" style="background-color: #000;">
+            <div class="scroll-sidebar" >
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav" class="p-t-30">
+                        <li class="sidebar-item" style="background-color: #000;">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                               asp-controller="Home" asp-action="Index" aria-expanded="false" title="Ingresar a la vista del Dashboard">
+                                <i class="fas fa-chart-pie mr-2"></i><span class="hide-menu">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item" style="background-color: #000;">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                               asp-controller="Proveedor" asp-action="Index" aria-expanded="false" title="Ingresar a la vista de Proveedores">
+                                <i class="fas fa-dolly-flatbed mr-2"></i><span class="hide-menu">Proveedores</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item" style="background-color: #000;">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                               asp-controller="Compras" asp-action="Index" aria-expanded="false" title="Ingresar a la vista de Compras">
+                                <i class="fas fa-cart-plus mr-2"></i><span class="hide-menu">Compras</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item" style="background-color: #000;">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                               asp-controller="Productos" asp-action="Index" aria-expanded="false" title="Ingresar a la vista de Productos">
+                                <i class="fas fa-book mr-2"></i><span class="hide-menu">Productos</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item" style="background-color: #000;">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                               asp-controller="Clientes" asp-action="Index" aria-expanded="false" title="Ingresar a la vista de Clientes">
+                                <i class="fas fa-users mr-2"></i><span class="hide-menu">Clientes</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item" style="background-color: #000;">
+                            <a class="sidebar-link has-arrow waves-effect waves-dark"
+                               href="javascript:void(0)" aria-expanded="false" title="Desplegar módulo de Ventas y Cartera">
+                                <i class="fas fa-shopping-cart mr-2"></i><span class="hide-menu" >Ventas</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse  first-level" style="background-color: #000;">
+                                <li class="sidebar-item" style="background-color: #000;">
+                                    <a asp-controller="Ventas" asp-action="Index" class="sidebar-link" title="Ingresar a la vista de Ventas">
+                                        <i class="fas fa-shopping-cart mr-2"></i><span class="hide-menu">
+                                            Ventas
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item" style="background-color: #000;">
+                                    <a asp-controller="Carteras" asp-action="Index" class="sidebar-link" title="Ingresar a la vista de Cartera">
+                                        <i class="far fa-credit-card mr-2"></i><span class="hide-menu">
+                                            Cartera
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item" style="background-color: #000;">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                               asp-controller="Usuarios" asp-action="Index" aria-expanded="false" title="Ingresar a la vista de Usuarios">
+                                <i class="fas fa-user-plus mr-2"></i><span class="hide-menu">Usuarios</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item" style="background-color: #000">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                               asp-controller="Manual" asp-action="Index" aria-expanded="false" title="Ingresar al Manual de ayuda">
+                                <i class="fa fa-user mr-2"></i><span class="hide-menu">Manual de Usuarios</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        <div class="page-wrapper">
+            <div class="page-breadcrumb">
+                <div class="row">
+                    <div class="col-12 d-flex no-block align-items-center">
+                        <h4 class="page-title font-18">@ViewData["Title"]</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+            <footer class="footer text-center">
+                BookWare v1.0.0 - Santiago Gómez - Brayan Samboni - Juliana Pérez - Deisy Blandón
+            </footer>
+        </div>
+    </div>
+
+    <div class="modal fade" id="confirmLogoutModal" tabindex="-1" role="dialog" aria-labelledby="confirmLogoutModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmLogoutModalLabel">Confirmar Cierre de Sesión</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ¿Estás seguro de que deseas cerrar la sesión?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <a class="btn btn-danger" asp-controller="InicioSesion" asp-action="CerrarSesion">Cerrar Sesión</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="~/libs/jquery/dist/jquery.min.js"></script>
+    <script src="~/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/libs/toastr/toastr.js"></script>
+    <script src="~/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+    <script src="~/libs/sparkline/sparkline.js"></script>
+    <script src="~/libs/select2/dist/js/select2.min.js"></script>
+    <script src="~/libs/select2/dist/js/select2.full.min.js"></script>
+    <script src="~/libs/select2/dist/js/i18n/es.js"></script>
+    <script src="~/libs/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/libs/datatables/datatables.min.js"></script>
+    <script src="~/js/waves.js"></script>
+    <script src="~/js/sidebarmenu.js"></script>
+    <script src="~/js/custom.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".select2").select2({
+                language: {
+
+                    noResults: function () {
+
+                        return "No hay resultados";
+                    },
+                    searching: function () {
+
+                        return "Buscando..";
+                    }
+                }
+            });
+        });
+    </script>
+    @if (TempData["ToastrMessage"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                var toastrMessage = '@TempData["ToastrMessage"]';
+                var toastrType = '@TempData["ToastrType"]';
+
+                if (toastrMessage && toastrType) {
+                    if (toastrType === "success") {
+                        toastr.success(toastrMessage, 'Éxito');
+                    } else if (toastrType === "danger") {
+                        toastr.error(toastrMessage, 'Error');
+                    } else {
+                        toastr.info(toastrMessage, 'Notificación');
+                    }
+                }
+            });
+        </script>
+    }
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,251 @@
+﻿@model LeamosColombiaProject.Models.Cliente
+
+
+
+@{
+    ViewData["Title"] = "Clientes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .gray-text {
+        color: gray !important;
+    }
+</style>
+
+
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-body wizard-content">
+            <h4 class="card-title">Crear Cliente</h4>
+            <form id="example-form" asp-action="Create" class="mt-4">
+                <input type="hidden" asp-for="IdCliente" />
+                <div>
+                    <section class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="IdTipoDocumento">Tipo de Documento <span style="color: red;">*</span></label>
+                            <select asp-for="IdTipoDocumento" class="form-control select2" asp-items="ViewBag.IdTipoDocumento" asp-placeholder="Selecciona el tipo de documento *" data-rule-required="true">
+                                <option value="" disabled selected>Selecciona el tipo de documento *</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="Documento">Documento <span style="color: red;">*</span></label>
+                            <input asp-for="Documento" class="form-control" placeholder="Ingresa el documento *" data-rule-required="true" data-rule-digits="true" data-rule-minlength="5" data-rule-maxlength="10" data-rule-maxlength="10" />
+                            <span asp-validation-for="Documento" class="text-danger"></span>
+                            <span id="documento-validation-error" class="text-danger"></span>
+                        </div>
+                    </section>
+                    <section class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="Nombre">Nombre <span style="color: red;">*</span></label>
+                            <input asp-for="Nombre" class="form-control" placeholder="Ingresa el nombre *" data-rule-required="true" data-rule-maxlength="80" />
+                        </div>
+                        <div class="col-md-6">
+                            <label for="Correo">Correo <span style="color: red;">*</span></label>
+                            <input asp-for="Correo" class="form-control" placeholder="Ingresa el correo *" data-rule-required="true" data-rule-email="true" data-rule-maxlength="50" />
+                            <span asp-validation-for="Correo" class="text-danger"></span>
+                            <span id="correo-validation-error" class="text-danger"></span>
+                        </div>
+                    </section>
+                    <section class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="Ciudad">Ciudad <span style="color: red;">*</span></label>
+                            <select asp-for="Ciudad" class="select2 form-control" data-rule-required="true" placeholder="Selecciona la ciudad *">
+                                <option disabled selected>Selecciona la ciudad *</option>
+                                @foreach (var ciudad in (IEnumerable<string>)ViewData["Ciudades"])
+                                {
+                                    <option value="@ciudad" selected="@(ciudad == Model.Ciudad)">@ciudad</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="Direccion">Dirección <span style="color: red;">*</span></label>
+                            <input asp-for="Direccion" class="form-control" placeholder="Ingresa la dirección *" data-rule-required="true" data-rule-maxlength="50" />
+                        </div>
+
+                    </section>
+                    <section class="row mb-3">
+
+                        <div class="col-md-6">
+                            <label for="Universidad">Universidad <span style="color: red;">*</span></label>
+                            <input asp-for="Universidad" class="form-control" placeholder="Ingresa la universidad *" data-rule-required="true" data-rule-maxlength="80" />
+
+                        </div>
+                        <div class="col-md-6">
+                            <label for="Facultad">Facultad <span style="color: red;">*</span></label>
+                            <input asp-for="Facultad" class="form-control" placeholder="Ingresa la facultad *" data-rule-required="true" data-rule-maxlength="80" />
+                        </div>
+                    </section>
+                    <section class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="Telefono">Teléfono <span style="color: red;">*</span></label>
+                            <input asp-for="Telefono" class="form-control" placeholder="Ingresa el teléfono *" data-rule-required="true" data-rule-digits="true" data-rule-minlength="7" data-rule-maxlength="11" data-rule-maxlength="11" />
+                        </div>
+                    </section>
+                    <section>
+                        <select asp-for="Estado" class="form-control" style="display: none;">
+                            <option value="True">Activo</option>
+                            <option value="False">Inactivo</option>
+                        </select>
+                        <p class="mt-2">(<span style="color: red;">*</span>) Obligatorio</p>
+                    </section>
+                    <section class="mt-3">
+                        <a asp-action="Index" class="btn btn-secondary" title="Volver a la vista de clientes">Volver</a>
+                        <input type="submit" value="Crear" class="btn btn-primary" title="Confirmar la creación de un nuevo cliente" />
+                    </section>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $.extend($.validator.messages, {
+            required: "Este campo es obligatorio.",
+            digits: "Ingresa solo dígitos.",
+            maxlength: $.validator.format("Ingresa máximo {0} caracteres."),
+            number: "Ingresa un número válido."
+            // Agrega más mensajes según sea necesario
+        });
+
+        $(document).ready(function () {
+            $.validator.addMethod("tieneDominio", function (value) {
+                // Devuelve true si la cadena contiene al menos un dominio
+                return /\.[a-zA-Z]+$/.test(value);
+            }, "El correo debe contener al menos un dominio.");
+            $('#example-form').validate({
+                errorClass: "text-danger",
+                errorPlacement: function (error, element) {
+                    if (element.is("select") && element.hasClass("select2")) {
+                        error.insertAfter(element.next("span.select2"));
+                    } else {
+                        error.insertAfter(element);
+                    }
+                },
+                highlight: function (element, errorClass, validClass) {
+                    $(element).addClass(errorClass).removeClass(validClass);
+                    if ($(element).is('select')) {
+                        $(element).addClass('gray-text');
+                        $('option', element).addClass('keep-black-text');
+                    }
+                },
+                unhighlight: function (element, errorClass, validClass) {
+                    $(element).removeClass(errorClass).addClass(validClass);
+                    if ($(element).is('select')) {
+                        $(element).removeClass('gray-text');
+                        $('option', element).removeClass('keep-black-text');
+                    }
+                },
+
+                rules: {
+                    IdTipoDocumento: {
+                        required: true
+                    },
+                    Documento: {
+                        required: true,
+                        digits: true,
+                        minlength: 5,
+                        maxlength: 10,
+                        remote: {
+                            url: "/Clientes/VerificarDocumentoExistente",
+                            type: "GET",
+                            data: {
+                                documento: function () {
+                                    return $("#Documento").val();
+                                }
+                            }
+                        }
+                    },
+                    Nombre: {
+                        required: true,
+                        minlength: 2,
+                        maxlength: 80 // Ajusta la longitud máxima según tu base de datos
+                    },
+                    Correo: {
+                        required: true,
+                        email: true,
+                        tieneDominio: true,
+                        remote: {
+                            url: "/Clientes/VerificarCorreoExistente",
+                            type: "GET",
+                            data: {
+                                correo: function () {
+                                    return $("#Correo").val();
+                                }
+                            }
+                        },
+                        maxlength: 50
+                    },
+                    Direccion: {
+                        required: true,
+                        maxlength: 30 // Ajusta la longitud máxima según tu base de datos
+                    },
+                    Telefono: {
+                        required: true,
+                        digits: true,
+                        minlength: 7,
+                        maxlength: 11
+                    },
+                    Facultad: {
+                        required: true,
+                        maxlength: 80 // Ajusta la longitud máxima según tu base de datos
+                    },
+                    Ciudad: {
+                        required: true,
+                        maxlength: 200 // Ajusta la longitud máxima según tu base de datos
+                    },
+                    Universidad: {
+                        required: true,
+                        maxlength: 80 // Ajusta la longitud máxima según tu base de datos
+                    }
+                },
+                messages: {
+                    IdTipoDocumento: {
+                        required: "Por favor, selecciona un tipo de documento."
+                    },
+                    Documento: {
+                        required: "Este campo es obligatorio.",
+                        digits: "Ingresa solo dígitos.",
+                        minlength: "Ingresa al menos {0} caracteres.",
+                        maxlength: "Ingresa máximo {0} caracteres.",
+                        remote: "El documento ya existe en la base de datos."
+                    },
+                    Nombre: {
+                        required: "Este campo es obligatorio.",
+                        minlength: "Ingresa al menos {0} caracteres.",
+                        maxlength: "Ingresa máximo {0} caracteres."
+                    },
+                    Correo: {
+                        required: "Este campo es obligatorio.",
+                        email: "Ingresa un correo electrónico válido.",
+                        remote: "El correo electrónico ya existe en la base de datos.",
+                        maxlength: "Ingresa máximo {0} caracteres."
+                    },
+                    Direccion: {
+                        required: "Este campo es obligatorio.",
+                        maxlength: "Ingresa máximo {0} caracteres."
+                    },
+                    Telefono: {
+                        required: "Este campo es obligatorio.",
+                        digits: "Ingresa solo dígitos.",
+                        minlength: "Ingresa al menos {0} caracteres.",
+                        maxlength: "Ingresa máximo {0} caracteres."
+                    },
+                    Facultad: {
+                        required: "Este campo es obligatorio.",
+                        maxlength: "Ingresa máximo {0} caracteres."
+                    },
+                    Ciudad: {
+                        required: "Por favor, selecciona una ciudad.",
+                        maxlength: "Ingresa máximo {0} caracteres."
+                    },
+                    Universidad: {
+                        required: "Este campo es obligatorio.",
+                        maxlength: "Ingresa máximo {0} caracteres."
+                    }
+                }
+            });
+        });
+    </script>
+}

@@ -1,0 +1,185 @@
+﻿@model LeamosColombiaProject.Models.Cliente
+
+@{
+    ViewData["Title"] = "Clientes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .custom-tooltip {
+        position: relative;
+        display: inline-block;
+    }
+
+        .custom-tooltip::before {
+            content: attr(data-title);
+            position: absolute;
+            background-color: #C4C8C7;
+            color: black;
+            border: 1px solid white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+            z-index: 1000;
+            top: -180%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .custom-tooltip:hover::before {
+            opacity: 1;
+            visibility: visible;
+        }
+
+    .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+    }
+</style>
+
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Referencias del cliente</h4>
+        <div class="table-responsive">
+            <table id="zero_config" class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th class="text-center">Documento</th>
+                        <th class="text-center">Nombre</th>
+                        <th class="text-center">Correo</th>
+                        <th class="text-center">Ciudad</th>
+                        <th class="text-center">Dirección</th>
+                        <th class="text-center">Teléfono</th>
+                        <th class="text-center">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var referencia in Model.Referencia)
+                    {
+                        <tr>
+                            <td class="text-center">@referencia.Documento</td>
+                            <td class="text-center">@referencia.Nombre</td>
+                            <td class="text-center">@referencia.Correo</td>
+                            <td class="text-center city-cell">
+                                <div class="city-content">
+                                    @referencia.Ciudad
+                                </div>
+                            </td>
+                            <td class="text-center">@referencia.Direccion</td>
+                            <td class="text-center">@referencia.Telefono</td>
+
+                            <td>
+                                @if (referencia.Estado == true)
+                                {
+                                    <div class="d-flex justify-content-center">
+                                        <a class="btn btn-warning m-1 custom-tooltip" asp-controller="Referencias" asp-action="Edit" asp-route-id="@referencia.IdReferencia" data-title="Editar" title="Editar información de la referencia"><i class="fas fa-edit"></i></a>
+                                        <button type="button" class="btn btn-danger m-1 custom-tooltip" data-toggle="modal" data-target="#eliminar-@referencia.IdReferencia" data-title="Eliminar" title="Eliminar la referencia">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="d-flex justify-content-center">
+                                        <a class="btn btn-warning disabled m-1" asp-controller="Referencias" asp-action="Edit" asp-route-id="@referencia.IdReferencia"><i class="fas fa-edit"></i></a>
+                                        <button type="button" class="btn btn-danger disabled m-1" data-toggle="modal" data-target="#eliminar-@referencia.IdReferencia">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                }
+                                <div class="modal fade" id="eliminar-@referencia.IdReferencia" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Referencia del cliente</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" title="Cerrar modal de eliminación de la referencia">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body modal-body-content">
+                                                <div>
+                                                    <div>
+                                                        <div>
+                                                            <h4 class="text-center">Eliminar referencia</h4>
+                                                            <hr />
+                                                            <dl class="text-center modal-body">
+                                                                ¿Estás seguro de querer eliminar esta referencia?
+                                                            </dl>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal" title="Cerrar modal de eliminación de la referencia">Cancelar</button>
+                                                <form asp-controller="Referencias" asp-action="DeleteConfirmed" asp-route-id="@referencia.IdReferencia" method="post">
+                                                    <button type="submit" class="btn btn-danger" title="Confirmar la eliminación de la referencia">Eliminar</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <a asp-action="Index" class="btn btn-secondary mt-3" title="Volver a la vista de clientes">Volver</a>
+        </div>
+    </div>
+
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#zero_config').DataTable({
+                "columns": [
+                    { "data": "Documento" },
+                    { "data": "Nombre" },
+                    { "data": "Correo" },
+                    { "data": "Dirección" },
+                    { "data": "Teléfono" },
+                    { "data": "Ciudad" },
+                    { "data": "Acciones" }
+                ],
+                "paging": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "pageLength": 10,
+                "lengthMenu": [10, 25, 50, 100],
+                "language": {
+                    "lengthMenu": "Mostrando _MENU_ registros por página",
+                    "zeroRecords": "No se ha encontrado este registro",
+                    "info": "Mostrando página _PAGE_ de _PAGES_",
+                    "infoEmpty": "No hay registros en la tabla",
+                    "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    'search': 'Buscar',
+                    'paginate': {
+                        'next': 'Siguiente',
+                        'previous': 'Anterior'
+                    },
+                },
+                "columnDefs": [
+                    { "searchable": true, "targets": [0, 1] },
+                    { "searchable": false, "targets": [2, 3, 4, 5, 6,] }
+                ]
+            });
+        });
+    </script>
+}

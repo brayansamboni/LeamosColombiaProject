@@ -1,0 +1,135 @@
+﻿@model LeamosColombiaProject.Models.ViewModels.RolViewModel
+
+@{
+    ViewData["Title"] = "Roles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-body wizard-content">
+            <h4 class="card-title">Editar rol</h4>
+            <form id="example-form" asp-action="Edit" method="post" class="mt-4">
+                <input type="hidden" asp-for="IdRol" />
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="Nombre">Nombre *</label>
+                            <input asp-for="Nombre" class="form-control" placeholder="Ingrese el nombre *" data-rule-required="true" />
+                            <span asp-validation-for="Nombre" class="text-danger"></span>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <select asp-for="Estado" class="form-control" hidden>
+                                <option value="True">Activo</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <p>Seleccione los módulos de acceso:</p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- Columna 1 -->
+                        <div>
+                            <input type="checkbox" id="Usuarios" name="Modulos" value="Usuarios" @(Model.Modulos.Contains("Usuarios") ? "checked" : "")>
+                            <label for="Usuarios">Acceso a Usuarios</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="Proveedores" name="Modulos" value="Proveedores" @(Model.Modulos.Contains("Proveedores") ? "checked" : "")>
+                            <label for="Proveedores">Acceso a Proveedores</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="Compras" name="Modulos" value="Compras" @(Model.Modulos.Contains("Compras") ? "checked" : "")>
+                            <label for="Compras">Acceso a Compras</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="Productos" name="Modulos" value="Productos" @(Model.Modulos.Contains("Productos") ? "checked" : "")>
+                            <label for="Productos">Acceso a Productos</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <!-- Columna 2 -->
+                        <div>
+                            <input type="checkbox" id="Clientes" name="Modulos" value="Clientes" @(Model.Modulos.Contains("Clientes") ? "checked" : "")>
+                            <label for="Clientes">Acceso a Clientes</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="Ventas" name="Modulos" value="Ventas" @(Model.Modulos.Contains("Ventas") ? "checked" : "")>
+                            <label for="Ventas">Acceso a Ventas</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="Carteras" name="Modulos" value="Carteras" @(Model.Modulos.Contains("Carteras") ? "checked" : "")>
+                            <label for="Carteras">Acceso a Carteras</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="Roles" name="Modulos" value="Roles" @(Model.Modulos.Contains("Roles") ? "checked" : "")>
+                            <label for="Roles">Acceso a Roles</label>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-2">(*) Obligatorio</p>
+                <div class="mt-3">
+                    <a asp-action="Index" class="btn btn-secondary"  title="Volver a la vista de roles">Volver</a>
+                    <input type="submit" value="Editar" class="btn btn-primary"  title="Confirmar la edición de la información del rol"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#example-form').validate({
+                errorClass: "text-danger",
+                rules: {
+                    Nombre: {
+                        required: true,
+                        maxlength: 80
+                    },
+                },
+                messages: {
+                    Nombre: {
+                        required: "Este campo es obligatorio.",
+                        maxlength: "Ingresa máximo {0} caracteres."
+                    },
+                },
+                submitHandler: function (form) {
+                    if ($('input[name="Modulos"]:checked').length === 0) {
+                        toastr.error("Seleccione al menos un módulo antes de crear el rol.");
+                        return;
+                    }
+
+                    form.submit();
+                }
+            });
+            $('#Productos').on('change', function () {
+                if ($(this).is(':checked')) {
+                    toastr.info("Al seleccionar 'Productos', también se seleccionarán 'Editoriales' y 'Categorías'.", 'Notificación');
+                } else {
+                    toastr.warning("Al deseleccionar 'Productos', no se podrá acceder a 'Editoriales' y tampoco a 'Categorias'.", 'Notificación');
+                }
+            });
+
+            $('#Clientes').on('change', function () {
+                if ($(this).is(':checked')) {
+                    toastr.info("Al seleccionar 'Clientes', también se seleccionará 'Referencias'.", 'Notificación');
+                } else {
+                    toastr.warning("Al deseleccionar 'Clientes', no se podrá acceder a 'Referencias'.", 'Notificación');
+                }
+            });
+
+            $('#Carteras').on('change', function () {
+                if ($(this).is(':checked')) {
+                    toastr.info("Al seleccionar 'Carteras', también se seleccionará 'Abonos'.", 'Notificación');
+                } else {
+                    toastr.warning("Al deseleccionar 'Carteras', no se podrá acceder a 'Abonos'.", 'Notificación');
+                }
+            });
+        });
+    </script>
+}

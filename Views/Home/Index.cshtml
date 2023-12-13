@@ -1,0 +1,236 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Agrega el meta tag para la escala -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<section>
+
+    <style>
+        .small-box {
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            color: #333;
+            width: 100%;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .small-box:hover {
+            transform: scale(102%);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+    </style>
+
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-12 mb-4">
+                <div class="small-box bg-primary" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; height: 100px;">
+                    <div class="inner">
+                        <p style="margin: 0;">
+                            <span>Egresos de compras activas </span>
+                            <i class="fas fa-dollar-sign" style="color:white"></i>
+                        </p>
+                    </div>
+                    <div class="card-footer text-white text-center">
+                        <div class="totalSales">
+                            $@string.Format("{0:N0}", @ViewData["TotalComprasActivas"])
+                     </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-12 mb-4">
+                <div class="small-box bg-success" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; height: 100px;">
+                    <div class="inner">
+                        <p style="margin: 0;">
+                            <span>Ingresos de ventas activas </span>
+                            <i class="fas fa-dollar-sign" style="color:white"></i>
+                        </p>
+                    </div>
+                    <div class="card-footer text-white text-center">
+                        <div class="totalSales">
+                            $@string.Format("{0:N0}", @ViewData["TotalVentasActivas"])
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-12 mb-4">
+                <div class="small-box bg-warning" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; height: 100px;">
+                    <div class="inner">
+                        <p style="margin: 0;">
+                            <span>Cantidad de clientes</span>
+                            <i class="fas fa-user" style="color: white; margin-left: 5px;"></i>
+                        </p>
+                    </div>
+                    <div class="card-footer text-white text-center">
+                        <div class="clientCount">@ViewData["ClientCount"] clientes</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-12 mb-4">
+                <div class="small-box bg-danger" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; height: 100px;">
+                    <div class="inner">
+                        <p style="margin: 0;">
+                            <span>Productos activos</span>
+                            <i class="fas fa-shopping-cart" style="color: white; margin-left: 5px;"></i>
+                        </p>
+                    </div>
+                    <div class="card-footer text-white text-center">
+                        <div class="productCount">@ViewData["productCount"] productos</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    <div class="row" style="margin-top: 30px;">
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-header">Cantidad de ventas en los últimos 10 días</div>
+                <div class="card-body">
+                    <canvas id="myChart" style="max-height: 250px"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-header">Total de ventas por mes</div>
+                <div class="card-body">
+                    <canvas id="myLineChart" style="max-height: 250px"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+@section Scripts {
+    <script>
+        var clientCount = @Html.Raw(Json.Serialize(ViewData["ClientCount"]));
+        var activeSales = @Html.Raw(Json.Serialize(ViewData["TotalVentasActivas"]));
+        var activeBuys = @Html.Raw(Json.Serialize(ViewData["TotalComprasActivas"]));
+        var ProductCount = @Html.Raw(Json.Serialize(ViewData["ProductCount"]));
+        var ventasUltimoMes = @Html.Raw(Json.Serialize(ViewData["ventasPorDia"]));
+    </script>
+
+    <script>
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        function ResumenVenta() {
+            fetch("/Home/ResumenVenta")
+                .then((response) => {
+                    return response.ok ? response.json() : Promise.reject(response);
+                })
+                .then((dataJson) => {
+                    console.log(dataJson)
+
+                    const labels = dataJson.map((item) => { return item.fecha })
+                    const values = dataJson.map((item) => { return item.cantidad })
+
+                    const backgroundColors = values.map(() => getRandomColor());
+
+                    console.log(labels)
+                    console.log(values)
+
+                    const data = {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Cantidad',
+                            data: values,
+                            fill: false,
+                            backgroundColor: backgroundColors, // Usar colores aleatorios
+                            tension: 0.1
+                        }]
+                    };
+
+                    const config = {
+                        type: 'line', // Cambiar a un diagrama de líneas
+                        data: data,
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        },
+                    };
+
+                    const canvasLineChart = document.getElementById("myChart");
+
+                    const lineChart = new Chart(canvasLineChart, config);
+                })
+        }
+
+        $(document).ready(() => {
+            ResumenVenta()
+        })
+    </script>
+
+    <script>
+        function ResumenVentaPorMes() {
+            fetch("/Home/ResumenVentaPorMes")
+                .then((response) => {
+                    return response.ok ? response.json() : Promise.reject(response);
+                })
+                .then((dataJson) => {
+                    console.log(dataJson);
+
+                    const labels = dataJson.map((item) => item.mes);
+                    const values = dataJson.map((item) => item.cantidad);
+
+                    const backgroundColors = values.map(() => getRandomColor());
+
+                    const data = {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Total de Ventas por Mes',
+                            data: values,
+                            backgroundColor: backgroundColors, // Usar colores aleatorios
+                            borderWidth: 1
+                        }]
+                    };
+
+                    const config = {
+                        type: 'bar', // Cambiar a un diagrama de barras
+                        data: data,
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    };
+
+                    const canvasBarras = document.getElementById("myLineChart");
+
+                    const barChart = new Chart(canvasBarras, config);
+                });
+        }
+
+        $(document).ready(() => {
+            ResumenVentaPorMes();
+        });
+    </script>
+
+}
+</body>
+</html>

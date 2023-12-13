@@ -1,0 +1,128 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="~/libs/toastr/build/toastr.min.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="~/img/logo.png" />
+    <link href="~/css/login.css" rel="stylesheet" />
+    <title>Leamos Colombia | Iniciar sesión</title>
+</head>
+<body>
+    <div class="container-form">
+        <div class="information">
+            <div class="info-childs">
+                <h2>Bienvenidos</h2>
+                <p>Si no tienes cuenta, comunícate con el administrador</p>
+            </div>
+        </div>
+        <div class="form-information">
+            <div class="form-information-childs">
+                <h2>Iniciar sesión</h2>
+                <br>
+                <form asp-controller="InicioSesion" asp-action="IniciarSesion" method="post" class="form">
+                    <div class="input-box">
+                        <input type="text" name="correo" placeholder=" " autocomplete="off">
+                        <label class="font-weight-bold">Correo electrónico</label>
+                        <box-icon name='user' type='solid'></box-icon>
+                        <i class='bx bxs-user-circle'></i>
+                    </div>
+                    <div class="input-box">
+                        <input type="password" name="contraseña" placeholder=" ">
+                        <label class="font-weight-bold">Contraseña</label>
+                        <box-icon name='lock-alt'></box-icon>
+                        <i class='bx bxs-lock-alt'></i>
+                    </div>
+                    <button type="submit" class="btn" title="Confirmar ingreso al aplicativo">Ingresar</button>
+                    <span>Olvidé mi <a href="#" class="olvidar" title="Abrir el modal de recuperación de contraseña" data-toggle="modal" data-target="#olvidarContrasenaModal">contraseña</a></span>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="olvidarContrasenaModal" tabindex="-1" role="dialog" aria-labelledby="olvidarContrasenaModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="olvidarContrasenaModalLabel">Recuperación de Contraseña</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar" title="Cerrar el modal de recuperación de contraseña">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form asp-controller="InicioSesion" asp-action="RecuperarContrasena" method="post" id="RecoveryForm">
+                        <div class="form-group">
+                            <label for="correoRecuperacion">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="correoRecuperacion" name="correo" autocomplete="off">
+                        </div>
+                        <button type="submit" class="btn" title="Confirmar envío de solicitud de recuperación de contraseña">Enviar solicitud</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/libs/jquery/dist/jquery.min.js"></script>
+    <script src="~/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/libs/toastr/toastr.js"></script>
+    <script src="~/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+    <script src="~/libs/sparkline/sparkline.js"></script>
+    <script src="~/libs/select2/dist/js/select2.min.js"></script>
+    <script src="~/libs/select2/dist/js/select2.full.min.js"></script>
+    <script src="~/libs/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/libs/datatables/datatables.min.js"></script>
+    <script src="~/js/waves.js"></script>
+    <script src="~/js/sidebarmenu.js"></script>
+    <script src="~/js/custom.min.js"></script>
+    @if (TempData["ToastrMessage"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                var toastrMessage = '@TempData["ToastrMessage"]';
+                var toastrType = '@TempData["ToastrType"]';
+
+                if (toastrMessage && toastrType) {
+                    if (toastrType === "success") {
+                        toastr.success(toastrMessage.toString(), 'Éxito');
+                    } else if (toastrType === "danger") {
+                        toastr.error(toastrMessage.toString(), 'Error');
+                    } else {
+                        toastr.info(toastrMessage.toString(), 'Notificación');
+                    }
+                }
+            });
+        </script>
+        <script>
+            $(document).ready(function () {
+                $('#example-form').validate({
+                    errorClass: "text-danger",
+                    rules:
+                    {
+                        correoRecuperacion:
+                        {
+                            required: true,
+                            email: true
+                        }
+                    },
+                    messages:
+                    {
+                        Codigo:
+                        {
+                            required: "Este campo es obligatorio.",
+                            email: "Ingresa solo dígitos."
+                        }
+                    }
+                });
+            });
+        </script>
+    }
+</body>
+</html>

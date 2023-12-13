@@ -1,0 +1,77 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="~/libs/toastr/build/toastr.min.css" rel="stylesheet" />
+    <link href="~/css/login.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="~/img/logo.png" />
+    <title>Restablecer contraseña</title>
+</head>
+<body>
+    <div class="container-form">
+        <div class="information">
+            <div class="info-childs">
+                <p>Elige una nueva contraseña segura para tu cuenta. Asegúrate de incluir mayúsculas, minúsculas y para proteger tu cuenta de manera efectiva.</p>
+            </div>
+        </div>
+        <div class="form-information">
+            <div class="form-information-childs">
+                <h2>Restablecer</h2>
+                <br>
+                <form method="post" id="restablecer-form">
+                    <input type="hidden" name="token" value="@ViewBag.Token" />
+                    <div class="input-box">
+                        <input type="password" id="nuevaContrasena" name="nuevaContrasena" placeholder=" ">
+                        <label>Nueva contraseña</label>
+                        <box-icon name='lock-alt'></box-icon>
+                        <i class='bx bxs-lock-alt'></i>
+                    </div>
+                    <button type="submit" class="btn" title="Confirmar recuperación de contraseña">Restablecer</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script src="/_framework/aspnetcore-browser-refresh.js"></script>
+<script src="~/libs/jquery/dist/jquery.min.js"></script>
+<script src="~/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="~/libs/toastr/toastr.js"></script>
+<script src="~/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+<script src="~/libs/sparkline/sparkline.js"></script>
+<script src="~/libs/select2/dist/js/select2.min.js"></script>
+<script src="~/libs/select2/dist/js/select2.full.min.js"></script>
+<script src="~/libs/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/libs/datatables/datatables.min.js"></script>
+<script src="~/js/waves.js"></script>
+<script src="~/js/sidebarmenu.js"></script>
+<script src="~/js/custom.min.js"></script>
+@if (TempData["ToastrMessage"] != null)
+{
+    <script>
+        $(document).ready(function () {
+            var toastrMessage = '@TempData["ToastrMessage"]';
+            var toastrType = '@TempData["ToastrType"]';
+
+            if (toastrMessage && toastrType) {
+                if (toastrType === "success") {
+                    toastr.success(toastrMessage.toString(), 'Éxito');
+                } else if (toastrType === "danger") {
+                    toastr.error(toastrMessage.toString(), 'Error');
+                } else {
+                    toastr.info(toastrMessage.toString(), 'Notificación');
+                }
+            }
+        });
+    </script>
+}

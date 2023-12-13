@@ -1,0 +1,353 @@
+﻿@model Tuple<List<LeamosColombiaProject.Models.Compra>, DateTime?, DateTime?>
+
+@{
+    ViewData["Title"] = "Compras";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .custom-tooltip {
+        position: relative;
+        display: inline-block;
+    }
+
+        .custom-tooltip::before {
+            content: attr(data-title);
+            position: absolute;
+            background-color: #C4C8C7;
+            color: black;
+            border: 1px solid white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+            z-index: 1000;
+            top: -180%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .custom-tooltip:hover::before {
+            opacity: 1;
+            visibility: visible;
+        }
+
+    .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+    }
+</style>
+
+
+<p>
+    <a class="btn btn-success custom-tooltip" asp-action="Create" data-title="Crear" title="Crear una nueva compra">Nueva compra</a>
+    <button class="btn btn-primary custom-tooltip" data-toggle="modal" data-target="#filtroFechaModal" data-title="Filtros" title="Hacer filtros de las compras mediante la fecha">Filtrar por fecha</button>
+</p>
+
+<div class="modal fade" id="filtroFechaModal" tabindex="-1" role="dialog" aria-labelledby="filtroFechaModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="filtroFechaModalLabel">Filtrar por fecha</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"  title="Cerrar el modal de filtrar fecha">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="startDate">Fecha de inicio:</label>
+                            <input type="date" id="startDate" class="form-control" value="@Model.Item2?.ToString("yyyy-MM-dd")" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="endDate">Fecha de fin:</label>
+                            <input type="date" id="endDate" class="form-control" value="@Model.Item3?.ToString("yyyy-MM-dd")" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12">
+                        <p>Los filtros funcionan de forma independiente, pero en caso de proporcionar ambas fechas, se filtrará en el rango de ambas.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                                    <button class="btn btn-success ml-2" id="descargarPdfButton" title="Descarga el informe PDF de las compras en el rango de fechas">Descargar PDF</button>
+
+                <button class="btn btn-primary ml-2" onclick="aplicarFiltroFecha()" title="Confirma el filtro de las compras en el rango de fechas">
+                    Filtrar
+                </button>
+                <button class="btn btn-danger ml-2" onclick="limpiarFiltrosFecha()" title="Limpiar filtros">
+                    Limpiar filtros
+                </button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" title="Cerrar el modal de filtrar fecha">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Listado de compras</h5>
+        <div class="table-responsive">
+            <table id="zero_config" class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>
+                            ID
+                        </th>
+                        <th>
+                                Fecha
+                        </th>
+                        <th>
+                            Precio total
+                        </th>
+                        <th>
+                            Proveedor
+                        </th>
+                        <th>
+                            Estado
+                        </th>
+                        <th>
+                            Acciones
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Item1)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IdCompra)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Fecha)
+                            </td>
+
+                            <td>
+                                $@string.Format("{0:N0}", item.Total)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IdProveedorNavigation.Nombre)
+                            </td>
+                            <td>
+                                @switch (item.Estado)
+                                {
+                                    case true:
+                                        <button type="button" class="btn btn-success btn-block custom-tooltip" data-toggle="modal" data-target="#inhabilitar-@item.IdCompra" data-title="Cambiar estado" title="La compra esta activa. Si presionas se inhabilitará">
+                                            Activo
+                                        </button>
+                                        break;
+                                    case false:
+                                        <button type="button" class="btn btn-danger btn-block custom-tooltip" data-toggle="modal" data-target="#habilitar-@item.IdCompra" data-title="Cambiar estado" title="La compra esta inactiva. Si presionas se habilitará">
+                                            Inactivo
+                                        </button>
+                                        break;
+                                    default:
+                                        <span>Estado desconocido</span>
+                                        break;
+                                }
+                            </td>
+                            <td>
+                                @if (item.Estado == true)
+                                {
+                                    <div class="d-flex justify-content-center">
+                                        <a class="btn btn-info m-1 custom-tooltip" asp-action="Details" asp-route-id="@item.IdCompra" data-title="Detalles compra" title="Visualizar detalles de la compra"><i class="fas fa-shopping-cart"></i></a>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="d-flex justify-content-center">
+                                        <a class="btn btn-info disabled m-1" asp-action="Details" asp-route-id="@item.IdCompra"><i class="fas fa-shopping-cart"></i></a>
+                                    </div>
+                                }
+                                <div class="modal fade" id="habilitar-@item.IdCompra" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Habilitar compra</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" title="Cerrar el modal de habilitar compra">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body modal-body-content">
+                                                <div>
+                                                    <div>
+                                                        <div>
+                                                            <dl class="text-center modal-body">
+                                                                ¿Estás seguro de querer realizar esta acción?
+                                                            </dl>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal"  title="Cerrar el modal de habilitar compra">Cerrar</button>
+                                                <form asp-action="Habilitar" asp-route-id="@item.IdCompra" method="post">
+                                                    <button type="submit" class="btn btn-danger" title="Confirmar habilitación de la compra">Confirmar</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="modal fade" id="inhabilitar-@item.IdCompra" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Inhabilitar compra</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" title="Cerrar el modal de inhabilitar compra">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body modal-body-content">
+                                                <div>
+                                                    <div>
+                                                        <div>
+                                                            <dl class="text-center modal-body">
+                                                                ¿Estás seguro de querer realizar esta acción?
+                                                            </dl>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal" title="Cerrar el modal de inhabilitar compra">Cerrar</button>
+                                                <form asp-action="Inhabilitar" asp-route-id="@item.IdCompra" method="post">
+                                                    <button type="submit" class="btn btn-danger" title="Confirmar inhabilitación de la compra">Confirmar</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+           
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#zero_config').DataTable({
+                "columns": [
+                    { "data": "ID" },
+                    { "data": "Fecha"},
+                    { "data": "Precio total" },
+                    { "data": "Proveedor" },
+                    { "data": "Estado" },
+                    { "data": "Acciones" },
+                ],
+                "paging": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "pageLength": 10,
+                "lengthMenu": [10, 25, 50, 100],
+                "language": {
+                    "lengthMenu": "Mostrando _MENU_ registros por página",
+                    "zeroRecords": "No se ha encontrado este registro",
+                    "info": "Mostrando página _PAGE_ de _PAGES_",
+                    "infoEmpty": "No hay registros en la tabla",
+                    "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    'search': 'Buscar',
+                    'paginate': {
+                        'next': 'Siguiente',
+                        'previous': 'Anterior'
+                    },
+                },
+                "columnDefs": [
+                    { "searchable": false, "targets": [2, 3, 4, 5] }
+                ]
+            });
+        });
+    </script>
+    <script>
+        function aplicarFiltroFecha() {
+            var startDate = document.getElementById("startDate").value;
+            var endDate = document.getElementById("endDate").value;
+
+            // Redirige a la acción Index con las fechas seleccionadas
+            window.location.href = "/Compras/Index?startDate=" + startDate + "&endDate=" + endDate;
+        }
+        function limpiarFiltrosFecha() {
+            document.getElementById("startDate").value = "";
+            document.getElementById("endDate").value = "";
+
+            // Redirige a la acción Index sin parámetros de fecha
+            window.location.href = "/Compras/Index";
+        }
+    </script>
+    <script>
+        function aplicarFiltroFecha() {
+            var startDate = document.getElementById("startDate").value;
+            var endDate = document.getElementById("endDate").value;
+
+            if (startDate && endDate) {
+                if (startDate < endDate) {
+                    window.location.href = "/Compras/Index?startDate=" + startDate + "&endDate=" + endDate;
+                } else if (startDate > endDate) {
+                    toastr.error("La fecha de fin no puede ser menor que la fecha de inicio.", 'Error');
+                } else {
+                    toastr.error("Las fecha de inicio y la fecha de fin no pueden ser iguales.", 'Error');
+                }
+
+            } else {
+                // Reemplaza el alert con Toastr si no se seleccionan fechas válidas
+                toastr.error("Por favor, selecciona un rango de fechas válido.", 'Error');
+            }
+        }
+
+        function limpiarFiltrosFecha() {
+            document.getElementById("startDate").value = "";
+            document.getElementById("endDate").value = "";
+
+            window.location.href = "/Compras/Index";
+        }
+
+        document.getElementById("descargarPdfButton").addEventListener("click", function () {
+            var startDate = document.getElementById("startDate").value;
+            var endDate = document.getElementById("endDate").value;
+
+            if (startDate && endDate) {
+                if (startDate < endDate) {
+                    $.get("/Compras/VerificarRegistrosEnRango", { startDate: startDate, endDate: endDate }, function (result) {
+                        if (result) {
+                            window.location.href = "/Compras/DescargarPDFPorRango?startDate=" + startDate + "&endDate=" + endDate;
+                        } else {
+                            toastr.error("Descarga fallida. No hay registros en el rango de fechas seleccionado.", 'Error');
+                        }
+                    });
+                } else if (startDate > endDate) {
+                    toastr.error("La fecha de fin no puede ser menor que la fecha de inicio.", 'Error');
+                } else {
+                    toastr.error("Las fecha de inicio y la fecha de fin no pueden ser iguales.", 'Error');
+                }
+            } else {
+                toastr.error("Por favor, selecciona un rango de fechas válido.", 'Error');
+            }
+        });
+
+    </script>
+
+
+}

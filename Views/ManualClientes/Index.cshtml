@@ -1,0 +1,269 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Manual clientes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .seccion {
+            width: 90%;
+            margin: 0 auto;
+            max-height: 80vh;
+            overflow: auto;
+            display: grid;
+            flex-direction: column;
+            align-items: flex-start; 
+        }
+
+        .step {
+            width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 8px;
+            display: inline-block;
+            vertical-align: top;
+            background: #fff;
+        }
+
+            .step h4 {
+                padding: 10px;
+                font-size: 18px;
+                color: #333;
+                text-align: center;
+                line-height: 1.5;
+                display: flex;
+            }
+
+        p {
+            padding: 10px;
+            font-size: 18px;
+            color: #333;
+            font-weight: normal;
+        }
+
+        h3 {
+            padding: 10px;
+            font-size: 20px;
+            color: #333;
+            text-align: center;
+            line-height: 1.5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .step img {
+            max-height: 85%; 
+        }
+
+        .img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            border-radius: 8px;
+            border: 1px solid #F4F2F7;
+            box-shadow: 10px 15px 20px #ccc;
+        }
+
+        /* Estilo para el scroll en el contenedor */
+        .container-fluid::-webkit-scrollbar {
+            width: 12px; /* Ancho del scrollbar */
+        }
+
+        .seccion::-webkit-scrollbar-thumb {
+            background-color: #888; /* Color del "pulgarcito" del scrollbar */
+            border-radius: 10px;
+        }
+
+            .seccion::-webkit-scrollbar-thumb:hover {
+                background-color: #555; /* Color del "pulgarcito" al pasar el mouse */
+            }
+    </style>
+
+</head>
+<body>
+    <div class="seccion">
+        <h3>1. Ingreso a gentión de Clientes.</h3>
+        <div class="step">
+            <p>En este primer paso, debe pulsar con el botón izquierdo del mouse en el menú de la barra izquierda de la pantalla, sobre la opción "Clientes", para acceder a la sección de clientes en la plataforma. Esto te llevará a la página principal de gestión de clientes.</p>
+            <img class="img" src="https://images.tango.us/workflows/4c344e52-86e4-4e70-bbbc-6bffb03199c3/steps/bdbb0b44-9734-4200-863e-009b11e0b89c/b3fa7376-3467-45ab-bfad-7984b5389fcd.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=5&mark-y=323&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0zMDYmaD03MiZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Clientes" />
+        </div>
+
+        <h3>2. Clientes.</h3>
+        <div class="step">
+             <p>En la sección de gestión de clientes, puede visualizar el listado de clientes registrados en el sistema. </p>
+            <img class="img" src="https://images.tango.us/workflows/9cba0c14-ed43-4618-b993-8ba22eba3a60/steps/6526b407-b350-4271-b3fb-4c1de06abc79/33f0d11e-f483-4a08-b65d-26a0960e0ade.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Listado de clientes…" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>2.1 Crear Cliente.</h4>
+            <p>
+                Para crear un nuevo cliente, debe pulsar con el botón izquierdo del mouse sobre el
+                botón "Nuevo cliente". Esto te permitirá iniciar el proceso de creación de registro del nuevo cliente.
+            </p>
+            <img class="img" src="https://images.tango.us/workflows/9cba0c14-ed43-4618-b993-8ba22eba3a60/steps/883f643b-804a-449e-8f7e-0ccffcd4e985/c2446e88-d296-49e1-b660-e6721c0c7c15.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=36&mark-y=186&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0zOTImaD0xNDEmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Nuevo cliente" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>2.1.1 Formulario de Registro.</h4>
+            <p>
+                Para registrar un nuevo cliente, se debe ingresar cada uno de los campos del formulario donde debes ingresar los datos del cliente. Asegúrate de completar todos los campos marcados con un asterisco (*), ya que son obligatorios para el registro. <br /><br />Si alguno de los campos obligatorios no es diligenciado correctamente, el sistema no permitirá el registro del Cliente.
+                hasta que los campos obligatorios sean ingresados correctamente.
+            </p>
+            <img class="img" src="https://images.tango.us/workflows/9cba0c14-ed43-4618-b993-8ba22eba3a60/steps/484f1235-b664-4334-aa64-cdaaee978384/7de2e168-df0a-47f0-b0fd-d5c0859d0135.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Crear Cliente…" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Una vez que todos los campos estén completos, presiona el botón "Crear" con el botón izquierdo del mouse. Esto garantizará que los datos del cliente se registren de manera precisa en el sistema.</p>
+            <img class="img" src="https://images.tango.us/workflows/9cba0c14-ed43-4618-b993-8ba22eba3a60/steps/68fb0aee-967c-4d64-b7cf-e7481cd60a6f/1f92a2bc-0597-4617-87b9-eb5450643506.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=303&mark-y=216&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0yMTMmaD0xMzQmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Crear" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>2.2 Crear Referencia</h4>
+            <p>Para crear una referencia, se debe pulsar con el botón izquierdo del mouse sobre el botón “Crear referencia”. luego, el sistema te redirigirá automáticamente al formulario para crear la nueva referencia. </p>
+            <img class="img" src="https://images.tango.us/workflows/9cba0c14-ed43-4618-b993-8ba22eba3a60/steps/667d3db1-b901-4d70-870f-48ca4107146b/84df2195-65d9-480f-b1f3-f01a84974f2f.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=364&mark-y=150&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0zOTImaD0xMjEmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Nueva referencia" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>2.2.1 Formulario de Registro.</h4>
+            <p>
+                Para registrar una nueva referencia, se deben ingresar cada uno de los campos del formulario donde debes ingresar los datos de la referencia. Asegúrate de completar todos los campos marcados con un asterisco (*), ya que son obligatorios para el registro. <br /><br />Si alguno de los campos obligatorios no es diligenciado correctamente, el sistema no permitirá el registro de la referencia
+                hasta que los campos obligatorios sean ingresados correctamente.
+            </p>
+            <img class="img" src="https://images.tango.us/workflows/9cba0c14-ed43-4618-b993-8ba22eba3a60/steps/d9054f9b-e7d2-44d4-91ff-46f746741729/bc0b0096-2a10-4e49-833a-ae52ffd1525c.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Crear Referencia…" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Una vez que todos los campos estén completos, presiona el botón "Crear" con el botón izquierdo del mouse. Esto garantizará que los datos de la nueva referencia se registren de manera precisa en el sistema.</p>
+            <img class="img" src="https://images.tango.us/workflows/9cba0c14-ed43-4618-b993-8ba22eba3a60/steps/da162eab-c141-4507-8b5e-d019c505e79d/ebbf4687-9a63-431d-9b08-2f12cdfb9ce8.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=341&mark-y=230&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0yNjkmaD0xNzAmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Crear" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>2.3 Buscar un Cliente. </h4>
+            <p>Si desea buscar un cliente, selecciona la opción "Buscar" presionando con el botón izquierdo del mouse. Esto te permitirá realizar búsquedas y acceder a los clientes existentes.</p>
+            <img class="img" src="https://images.tango.us/workflows/9cba0c14-ed43-4618-b993-8ba22eba3a60/steps/d04e12e5-7203-4611-b452-121996ff8ce6/e8fea2bc-41f5-429d-a564-4c148bd8e631.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=941&mark-y=264&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0xOTYmaD01MyZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Buscar" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>2.4 Desactivar el estado de un cliente.</h4>
+            <p>Para inhabilitar un cliente presione el botón "Activo" con el botón izquierdo del mouse en el cliente que desee inhabilitar.</p>
+            <img class="img" src="https://images.tango.us/workflows/9cba0c14-ed43-4618-b993-8ba22eba3a60/steps/30bc2577-c3eb-4e3e-ae31-ff0e45f6cf5e/35740890-79cd-4d9e-834a-1b9350306693.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=155&mark-y=220&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0yMTcmaD0xMjYmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Activo" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Luego, confirma esta acción presionando el botón "Confirmar" con el botón izquierdo del mouse. Si se pulsa sobre el botón “Cerrar”, el sistema cierra sin inhabilitar el cliente.</p>
+            <img class="img" src="https://images.tango.us/workflows/e9dd146b-81bb-4e79-bc27-d7ca8769966f/steps/c0265e3f-8b03-4964-a7cd-cbafb93edb0e/a1a88261-fbf0-45bd-8bcd-f88cabbb0e53.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Confirmar" />
+        </div>
+        <div class="step mt-2">
+            <p>Si el cliente cuenta con ventas a crédito (carteras) activas, no es posible inhabilitar al cliente. En este caso, el sistema mostrará un mensaje de Error.</p>
+            <img class="img" src="https://images.tango.us/workflows/70becf17-4123-44b9-ab3a-08a500010324/steps/ccbec52c-c15b-472e-b6b0-e6598876231a/516c10bc-3fa7-4fb8-bd71-9868d6ba7eb7.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Error" />
+        </div>
+        <div class="step mt-2">
+            <p>Si el cliente no tiene saldos pendientes ni ventas a crédito activas. El sistema mostrará un mensaje de Éxito confirmando que el cliente se ha inhabilitado correctamente.</p>
+            <img class="img" src="https://images.tango.us/workflows/70becf17-4123-44b9-ab3a-08a500010324/steps/2ab99816-d24c-40f7-a9f9-1a26d50dd214/b2c9a606-71e3-462b-82ff-f47173152545.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Éxito…" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>2.5 Activar el estado del cliente.</h4>
+            <p>Si desea habilitar un cliente que esta inactivo, pulsa el botón "Inactivo" con el botón izquierdo del mouse en el cliente que desea habilitar.</p>
+            <img class="img" src="https://images.tango.us/workflows/9cba0c14-ed43-4618-b993-8ba22eba3a60/steps/73f2095e-0170-46eb-a11d-ea21af842ac2/3f703f50-af3b-47cd-81a1-47e0162e4cb4.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=141&mark-y=215&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0yNTImaD0xMzImZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Inactivo" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Después de seleccionar "Inactivo" para un cliente, confirma la activación presionando con el botón izquierdo del mouse el botón "Confirmar". Si se pulsa sobre el botón “Cerrar”, el sistema cierra sin habilitar el cliente.</p>
+            <img class="img" src="https://images.tango.us/workflows/e9dd146b-81bb-4e79-bc27-d7ca8769966f/steps/23d122aa-4df6-4cdd-abcd-838fb39c9d09/13e03f4e-17e0-44fc-8dbd-c588546a5cbf.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=914&mark-y=477&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0yMTQmaD05NiZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Confirmar habitacio0n" />
+        </div>
+
+        <div class="step mt-2">
+            <p>El sistema mostrará un mensaje de Éxito confirmando que el cliente se ha habilitado correctamente.</p>
+            <img class="img"src="https://images.tango.us/workflows/70becf17-4123-44b9-ab3a-08a500010324/steps/1566c349-35af-4889-972c-647fa7114de6/cfbcbacc-19f8-4ec1-b2a1-132e73909136.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Éxito…" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>2.6 Información adicional.</h4>
+            <p>Al pulsar con el botón izquierdo del mouse sobre el botón con el icono de ojo de un cliente, puede visualizar información adicional del cliente.</p>
+            <img class="img" src="https://images.tango.us/workflows/9cba0c14-ed43-4618-b993-8ba22eba3a60/steps/1405de5a-4640-48aa-9dbc-984fad3dac8d/af9c9954-bba4-479b-85b7-71adb00faf46.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=366&mark-y=186&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0xNjAmaD0xMzgmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Visualizar información adicional del cliente" />
+        </div>
+        <div class="step">
+            <img class="img" src="https://images.tango.us/workflows/9cba0c14-ed43-4618-b993-8ba22eba3a60/steps/4879b0c1-739b-4f7f-b03d-a27e4075bb0e/8660b772-2343-4104-b857-29ba817db894.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Clientes…" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>2.6 Modificar datos del cliente.</h4>
+            <p>Si necesita realizar cambios en la información de un cliente, selecciona el botón con el icono de edición con el botón izquierdo del mouse en el cliente que necesitas modificar.</p>
+            <img class="img" src="https://images.tango.us/workflows/9cba0c14-ed43-4618-b993-8ba22eba3a60/steps/b56749e6-7189-497a-a19a-ccba26ca1f6e/c1374e4d-58c1-4fc4-8f49-b75fceee9ca8.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=577&mark-y=189&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0xNjYmaD0xNDMmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Editar información del cliente" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Al hacerlo, se abrirá un formulario que te permitirá acceder y modificar los detalles del cliente, teniendo en cuenta los campos con asterisco (*) son obligatorios.<br /><br />Después de realizar las modificaciones necesarias en la información del cliente, asegúrate presionar el botón izquierdo del mouse en "Editar" para guardar los cambios realizados.</p>
+            <img class="img" src="https://images.tango.us/workflows/9cba0c14-ed43-4618-b993-8ba22eba3a60/steps/6d914b9b-c10a-4fa3-8528-2e000e323ef8/babfc618-a515-41bd-a61d-d6073294434b.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=144&mark-y=741&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz05NCZoPTU3JmZpdD1jcm9wJmNvcm5lci1yYWRpdXM9MTA%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Editar" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>2.7 Acceder a Referencias</h4>
+            <p>Para visualizar las referencias asociadas al cliente, pulsa con el botón izquierdo del mouse sobre el botón con el icono de usuario que se encuentra en cada cliente. </p>
+            <img class="img" src="https://images.tango.us/workflows/9cba0c14-ed43-4618-b993-8ba22eba3a60/steps/4e3d16a5-3b59-4fa3-b372-992f5c453e5b/15a794b5-d10b-4837-b517-919bf6301ea3.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=693&mark-y=185&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0xNTMmaD0xMzcmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Visualizar las referencias asociadas al cliente" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Al hacerlo, podrás ver el listado de referencias asociadas al cliente seleccionado.</p>
+            <img class="img" src="https://images.tango.us/workflows/9cba0c14-ed43-4618-b993-8ba22eba3a60/steps/8d2435a1-7add-4bd7-85b5-575d85ccca78/4b360f82-9684-46cd-8a56-bfc9dd74c744.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Referencias del cliente…" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>2.7.1 Editar Referencias</h4>
+            <p>Para realizar cambios en la información de una referencia, selecciona el botón con el icono de edición presionando con el botón izquierdo del mouse en la referencia que necesitas modificar.</p>
+            <img class="img" src="https://images.tango.us/workflows/9cba0c14-ed43-4618-b993-8ba22eba3a60/steps/7763fcbe-7f9d-4f8b-9a91-23a2731a2045/42f8339d-e19e-4bba-bec2-3c0985c0e3e2.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=1015&mark-y=79&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz02OCZoPTU5JmZpdD1jcm9wJmNvcm5lci1yYWRpdXM9MTA%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Editar información de la referencia" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Al hacerlo, se abrirá un formulario que permitirá acceder y modificar los detalles de la referencia seleccionada.<br /><br />No olvides guardar los cambios después de realizar las modificaciones necesarias, presionando con el botón izquierdo del mouse el botón "Editar" para guardar los cambios.</p>
+            <img class="img" src="https://images.tango.us/workflows/9cba0c14-ed43-4618-b993-8ba22eba3a60/steps/8661cf30-4cdf-471f-b2c5-60402b80ddd3/29115137-dd9d-4f07-9eed-06b44f41c11d.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=185&mark-y=808&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0xMTkmaD03MiZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Editar" />
+        </div>
+        <div class="step mt-2">
+            <h4>2.7.2 Eliminar Referencias</h4>
+            <p>Puede Eliminar una referencia, al pulsar con el botón izquierdo del mouse sobre el botón con el icono de papelera.</p>
+            <img class="img" src="https://images.tango.us/workflows/9cba0c14-ed43-4618-b993-8ba22eba3a60/steps/46fdd810-129e-4714-8005-f58a65289c12/5ee78a3c-4a09-4efc-865f-133ece0460a2.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=1076&mark-y=92&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz02MiZoPTU4JmZpdD1jcm9wJmNvcm5lci1yYWRpdXM9MTA%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Eliminar la referencia" />
+        </div>
+
+        <div class="step mt-2">
+            <p>
+                Luego, En caso de confirmar la acción presiona con el botón izquierdo del mouse el botón "Eliminar", el sistema eliminará la referencia. Si se pulsa sobre el botón “Cancelar” el sistema cierra la alerta sin eliminar a la referencia.
+            </p>
+            <img class="img" src="https://images.tango.us/workflows/e9dd146b-81bb-4e79-bc27-d7ca8769966f/steps/8de0f2fc-1103-42aa-b446-3de432b91b5a/e9a0e9a9-6ccf-4db7-85a3-c69c93bfd79a.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=942&mark-y=541&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0xODkmaD05NiZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Eliminar" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>2.8 Visualizar ventas hechas al cliente</h4>
+            <p>Para visualizar las ventas hechas al cliente, pulsa con el botón izquierdo del mouse, sobre el botón con el icono de bolso que se encuentra en cada cliente. </p>
+            <img class="img" src="https://images.tango.us/workflows/9cba0c14-ed43-4618-b993-8ba22eba3a60/steps/92343674-8515-4c89-aabe-23a2cb49ed0e/fb82925c-06f1-4983-97c1-3e9287d6681f.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=826&mark-y=185&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0xNDAmaD0xMzEmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Visualizar el listado de ventas hechas al cliente" />
+        </div>
+
+        <div class="step mt-2">
+            <p>
+                Al hacerlo, podrás visualizar el listado de ventas asociadas al cliente seleccionado. <br />
+                Para ver detalles de cada venta, presiona el botón "Ver productos" con el botón izquierdo del mouse.
+            </p>
+            <img class="img" src="https://images.tango.us/workflows/a9cca56c-b2f3-401d-a676-1bcef65d634d/steps/0477b9ac-daab-460f-b304-80270be0685c/ca4700e8-8e9f-4585-95d8-a383d8b9c6a6.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Listado de ventas hechas…" />
+        </div>
+
+        <div class="step mt-2">
+            <p>
+                Luego, el sistema abre una ventana con la información de los detalles de la venta asociadas al cliente. Además, tiene la opción de descargar un archivo PDF que contiene toda la información relacionada. <br /> <br />Una vez revisados los detalles de la venta relacionada con el cliente, si desea regresar a la página principal, presione el botón "Volver" con el botón izquierdo de mouse.
+            </p>
+
+            <img class="img" src="https://images.tango.us/workflows/193491ed-52c8-4137-a630-512b9c975ea6/steps/8be1e947-209d-448f-a98e-e6859f414929/98e2f7c8-7ce7-4dbd-9ee1-1c5f217cc05b.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Ventas" />
+        </div>
+
+    </div>
+
+</body>
+</html>

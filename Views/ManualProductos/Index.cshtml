@@ -1,0 +1,366 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+
+    ViewData["Title"] = "Manual productos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .seccion {
+            width: 90%;
+            margin: 0 auto;
+            max-height: 80vh;
+            overflow: auto;
+            display: grid;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .step {
+            width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 8px;
+            display: inline-block;
+            vertical-align: top;
+            background: #fff;
+        }
+
+        .step h4 {
+                padding: 10px;
+                font-size: 18px;
+                color: #333;
+                text-align: center;
+                line-height: 1.5;
+                display: flex;
+
+        }
+
+        p {
+            padding: 10px;
+            font-size: 18px;
+            color: #333;
+            font-weight: normal;
+        }
+
+        h3 {
+            padding: 10px;
+            font-size: 20px;
+            color: #333;
+            text-align: center;
+            line-height: 1.5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .step img {
+            max-height: 85%; /* Establece la altura máxima que desees */
+        }
+
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            border-radius: 8px;
+            border: 1px solid #F4F2F7;
+            box-shadow: 10px 15px 20px #ccc;
+        }
+
+        /* Estilo para el scroll en el contenedor */
+        .container-fluid::-webkit-scrollbar {
+            width: 12px; /* Ancho del scrollbar */
+        }
+
+        .seccion::-webkit-scrollbar-thumb {
+            background-color: #888; /* Color del "pulgarcito" del scrollbar */
+            border-radius: 10px;
+        }
+
+            .seccion::-webkit-scrollbar-thumb:hover {
+                background-color: #555; /* Color del "pulgarcito" al pasar el mouse */
+            }
+    </style>
+
+</head>
+<body>
+    <div class="seccion">
+        <h3>1. Ingreso a gestión de productos</h3>
+        <div class ="step">
+            <p>Pulsa con el botón izquierdo del mouse en el menú de la barra izquierda de la pantalla sobre la opción "Productos" para acceder a la pagina principal de gestión de productos.</p>
+            <img class="img" src="https://images.tango.us/workflows/407ff610-9115-41c8-a82b-86786b0dff46/steps/6786e7cf-a694-451f-9b8c-04e182e932d6/60eee2f1-7793-4359-ba31-9bb65205cac7.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=5&mark-y=260&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0zMDYmaD03MiZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Productos" />
+        </div>
+
+       
+
+        <h3>2. Explorar Editoriales</h3>
+        <div class="step">
+            <h4>2.1 Ingresar a editoriales</h4>
+            <p>
+                Para acceder al listado de editoriales existentes, pulsa el botón "Editoriales" con el botón izquierdo del mouse.
+            </p>
+            <img class="img" src="https://images.tango.us/workflows/9cba0c14-ed43-4618-b993-8ba22eba3a60/steps/1252ac5b-2792-49b7-ba4c-f40dd890006f/82bb7ba1-b8f5-4dfd-be36-245962dd3f94.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=639&mark-y=148&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0yNjgmaD0xMTUmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Editoriales" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>2.2 Crear una editorial</h4>
+            <p>
+                Para crear una editorial, debe pulsa el botón "Crear editorial" con el botón izquierdo del mouse. Se abrirá una ventana que permitirá ingresar la información. 
+            </p>
+            <img class="img" src="https://images.tango.us/workflows/9cba0c14-ed43-4618-b993-8ba22eba3a60/steps/54d39735-c9d9-43f7-b0c0-5f23f31aaf15/5f1439f5-2897-4815-aa5a-ab022cce266b.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=316&mark-y=145&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0xNDYmaD01MSZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Crear editorial" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Ingrese los campos requeridos. Luego, presione "Guardar" con el botón izquierdo del mouse para finalizar la creación de la editorial. Si se pulsa sobre el botón “Cancelar”, el sistema cierra la ventana sin guardar la nueva editorial.</p>
+            <img class="img"src="https://images.tango.us/workflows/407ff610-9115-41c8-a82b-86786b0dff46/steps/c5fa4e41-c014-4d1a-b087-a589c83ce18a/f0ff18ed-f289-4fc1-92ca-7349cf74afe7.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=99&mark-y=274&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0xMDIxJmg9OTMmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Editorial:" />
+        </div>
+
+        <div class="step mt-2">
+            <p>El sistema mostrará un mensaje de éxito confirmando que la editorial se ha creado correctamente.</p>
+            <img class="img" src="https://images.tango.us/workflows/407ff610-9115-41c8-a82b-86786b0dff46/steps/cbbbe1c1-62bd-4133-88a6-f83a854b71f6/25fc252a-1d07-4bcb-a446-14cb00f91d31.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Éxito…" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>2.3 Buscar una editorial</h4>
+            <p>Si desea buscar una editorial, selecciona la opción "Buscar" con el botón izquierdo del mouse. Esto te permitirá acceder a las editoriales existentes.</p>
+            <img class="img" src="https://images.tango.us/workflows/9cba0c14-ed43-4618-b993-8ba22eba3a60/steps/19fbe703-c2de-4476-9415-090e54caaeb5/4dd8d724-c42f-4a5a-b700-8b18d056ecb1.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=954&mark-y=67&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0yMjImaD02MSZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Buscar" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>2.4 Modificar editorial</h4>
+            <p>Para realizar cambios en la información de una editorial, selecciona el botón con el icono de edición presionando con el botón izquierdo del mouse en la editorial que necesita editar.</p>
+            <img class="img" src="https://images.tango.us/workflows/9cba0c14-ed43-4618-b993-8ba22eba3a60/steps/c82d4c1a-44c0-4d10-90c9-044568b33961/8883eb7a-dab5-4fb2-a022-e1565d20149f.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=922&mark-y=118&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz02NyZoPTU4JmZpdD1jcm9wJmNvcm5lci1yYWRpdXM9MTA%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Editar información de la editorial" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Se abrirá una ventana que permitirá modificar los detalles de la editorial seleccionada. Luego, presione "Guardar Cambios" con el botón izquierdo del mouse para finalizar la actualización.
+                Si se pulsa sobre el botón “Cancelar”, el sistema cierra la ventana sin guardar los cambios.</p>
+            <img class="img"src="https://images.tango.us/workflows/407ff610-9115-41c8-a82b-86786b0dff46/steps/9beb0f3b-e7dc-47fd-828a-b87ec81b6010/974d611c-5003-43fe-aaaa-7adb0cb746ac.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Editar editorial…" />
+        </div>
+
+        <div class="step mt-2">
+            <p>El sistema mostrará un mensaje de éxito confirmando que la editorial se ha modificado correctamente.</p>
+            <img class="img" src="https://images.tango.us/workflows/407ff610-9115-41c8-a82b-86786b0dff46/steps/86b2de7f-4ed5-48b0-9c7c-6d972899b7f7/73866b65-746c-432b-819e-27eb56f821b7.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Éxito…" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>2.5 Eliminar editorial</h4>
+            <p>Puede eliminar una editorial, al pulsar con el botón izquierdo del mouse sobre el botón con el icono de papelera.</p>
+            <img class="img" src="https://images.tango.us/workflows/9cba0c14-ed43-4618-b993-8ba22eba3a60/steps/14310c75-7ab2-46a1-99cb-d583d2986a02/27cba8c3-7352-4806-a8f1-5ba449a82b11.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=992&mark-y=100&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz02NCZoPTYwJmZpdD1jcm9wJmNvcm5lci1yYWRpdXM9MTA%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Eliminar la editorial" />
+        </div>
+
+        <div class="step mt-2">
+            <p>
+                Luego, En caso de confirmar la acción presiona con el botón izquierdo del mouse el botón "Eliminar", el sistema eliminará la editorial. Si se pulsa sobre el botón “Cancelar” el sistema cierra la ventana sin eliminar a la editorial.
+            </p>
+            <img class="img" src="https://images.tango.us/workflows/407ff610-9115-41c8-a82b-86786b0dff46/steps/749bcddd-c0cd-4819-aba1-478b31e84b64/f0fa7ed3-bbe8-4d64-9575-a45703f7521f.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Eliminar editorial…" />
+        </div>
+
+        <div class="step mt-2">
+            <p>El sistema mostrará un mensaje de éxito confirmando que la editorial se ha eliminado correctamente.</p>
+            <img class="img"src="https://images.tango.us/workflows/407ff610-9115-41c8-a82b-86786b0dff46/steps/0cbb8a5c-abbc-4271-ac4a-3edc0f0624a7/b809f5b5-57a2-4659-a325-3556bcb328ed.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Éxito…" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Presiona el botón "Ir a productos" con el botón izquierdo del mouse, para regresar a la página principal de gestión de productos</p>
+            <img class="img" src="https://images.tango.us/workflows/9cba0c14-ed43-4618-b993-8ba22eba3a60/steps/7b15d26a-2b76-445a-a993-e50536945ab5/92a61faa-0c40-4043-b07f-c1bb2c4031e8.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=414&mark-y=172&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0zODImaD0xMzcmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Ir a productos" />
+        </div>
+
+        <h3>3. Explorar Categorías</h3>
+        <div class="step">
+            <h4>3.1 Ingresar a Cartegoría</h4>
+            <p>
+                Para acceder al listado de categorías existentes, pulsa el botón "Categorías" con el botón izquierdo del mouse.
+            </p>
+            <img class="img" src="https://images.tango.us/workflows/9cba0c14-ed43-4618-b993-8ba22eba3a60/steps/0ab1b542-9cbe-4f0a-be7d-390aca873ee5/14850dce-b6d3-4d6b-a3a3-b606059f607d.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=412&mark-y=164&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0yOTUmaD0xMjYmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Categorías" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>3.2 Crear una categoría</h4>
+            <p>
+                Para crear una categoría, debe pulsa el botón "Crear categoría" con el botón izquierdo del mouse. Se abrirá una ventana que permitirá ingresar la información.
+            </p>
+            <img class="img" src="https://images.tango.us/workflows/9cba0c14-ed43-4618-b993-8ba22eba3a60/steps/33c12ab2-62fb-4d0c-bfe0-5c8b87498bdd/a8ec9ac6-66f3-431b-8e4a-67751eb30fe0.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=52&mark-y=185&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz00MDEmaD0xMzMmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Crear categoría" />
+        </div>
+
+        <div class="step mt-2">
+              <p>Ingrese los campos requeridos. Luego, presione "Guardar" con el botón izquierdo del mouse para finalizar la creación de la categoría. Si se pulsa sobre el botón “Cancelar”, el sistema cierra la ventana sin guardar la nueva categoría.</p>
+            <img class="img"src="https://images.tango.us/workflows/407ff610-9115-41c8-a82b-86786b0dff46/steps/ed2fbcd6-1958-4bc2-a70b-30d05fef4001/f74183c1-b740-4d48-be4e-07b0bfec0843.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=162&mark-y=248&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz05MjUmaD04NCZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Categoría:" />
+        </div>
+
+        <div class="step mt-2">
+            <p>El sistema mostrará un mensaje de éxito confirmando que la categoría se ha creado correctamente.</p>
+            <img class="img" src="https://images.tango.us/workflows/407ff610-9115-41c8-a82b-86786b0dff46/steps/e9cea155-10ac-4f6a-9e33-f6f4ceb4c94f/158f2bfc-b663-4177-b973-b9a2221daf93.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Éxito…" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>3.3 Buscar una categoría</h4>
+            <p>Si desea buscar una categoría, selecciona la opción "Buscar" con el botón izquierdo del mouse. Esto te permitirá acceder a las categorías existentes.</p>
+            <img class="img" src="https://images.tango.us/workflows/9cba0c14-ed43-4618-b993-8ba22eba3a60/steps/139890c2-89bc-4a18-a21d-e78c9a219677/0fe31ac8-6a04-4934-90d9-03624a72f8c5.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=903&mark-y=88&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0yODAmaD03NiZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Buscar" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>3.4 Modificar categoría</h4>
+            <p>Para realizar cambios en la información de una categoría, selecciona el botón con el icono de edición presionando con el botón izquierdo del mouse en la categoría que necesita editar.</p>
+            <img class="img" src="https://images.tango.us/workflows/9cba0c14-ed43-4618-b993-8ba22eba3a60/steps/248ac799-173d-4c0a-9573-e79856a5cfdf/447559e3-fd4a-4a6c-ba7f-59fc5f680b7c.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=864&mark-y=104&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz04NyZoPTc1JmZpdD1jcm9wJmNvcm5lci1yYWRpdXM9MTA%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Editar información de la categoría" />
+        </div>
+
+        <div class="step mt-2">
+            <p>
+                Se abrirá una ventana que permitirá modificar los detalles de la categoría seleccionada. Luego, presione "Guardar Cambios" con el botón izquierdo del mouse para finalizar la actualización.
+                Si se pulsa sobre el botón “Cancelar”, el sistema cierra la ventana sin guardar los cambios.
+            </p>
+            <img class="img"src="https://images.tango.us/workflows/407ff610-9115-41c8-a82b-86786b0dff46/steps/ade95551-4ae7-4dd8-b54a-047f832c9cf5/ee374788-2663-4c9b-adf6-efa46076b01c.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=593&mark-y=414&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0zMDQmaD05MSZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Guardar Cambios" />
+        </div>
+
+        <div class="step mt-2">
+            <p>El sistema mostrará un mensaje de éxito confirmando que la categoría se ha modificado correctamente.</p>
+            <img class="img"src="https://images.tango.us/workflows/407ff610-9115-41c8-a82b-86786b0dff46/steps/88a8d913-b868-4ece-8573-89ad0115b91e/57cb6b36-fc9b-40b4-bb5f-c381b34cea40.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Éxito…" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>3.5 Eliminar categoría</h4>
+            <p>Puede eliminar una categoría, al pulsar con el botón izquierdo del mouse sobre el botón con el icono de papelera.</p>
+            <img class="img" src="https://images.tango.us/workflows/9cba0c14-ed43-4618-b993-8ba22eba3a60/steps/218c092b-7fd4-4bfa-a3e0-bd6c7f1c93b1/8234c684-617f-44c5-90f4-4d19266206ce.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=936&mark-y=99&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz03OSZoPTc0JmZpdD1jcm9wJmNvcm5lci1yYWRpdXM9MTA%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Eliminar la categoría" />
+        </div>
+
+        <div class="step mt-2">
+            <p>
+                Luego, En caso de confirmar la acción presiona con el botón izquierdo del mouse el botón "Eliminar", el sistema eliminará la categoría. Si se pulsa sobre el botón “Cancelar” el sistema cierra la ventana sin eliminar la categoría.
+            </p>
+            <img class="img" src="https://images.tango.us/workflows/407ff610-9115-41c8-a82b-86786b0dff46/steps/93231d7b-3e9c-4cb6-9dfb-47bed18ead16/90fd23c0-6254-4a75-bffa-eec908abd774.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=736&mark-y=363&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0xOTEmaD05NiZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Eliminar" />
+        </div>
+
+        <div class="step mt-2">
+            <p>El sistema mostrará un mensaje de éxito confirmando que la categoría se ha eliminado correctamente.</p>
+            <img class="img"src="https://images.tango.us/workflows/407ff610-9115-41c8-a82b-86786b0dff46/steps/1cfce120-e717-4515-bc72-437059a26c5f/66239bdb-899f-42be-bfd9-5900cb927f09.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Éxito…" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Presiona el botón "Ir a productos" con el botón izquierdo del mouse, para regresar a la página principal de gestión de productos</p>
+            <img class="img" src="https://images.tango.us/workflows/9cba0c14-ed43-4618-b993-8ba22eba3a60/steps/9bde5dc1-0925-4523-8ee1-e43bedbae073/427d97bc-5ef0-4840-810c-ad86bf2e16e1.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=410&mark-y=174&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0zNTQmaD0xMjcmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Ir a productos" />
+        </div>
+
+        <h3>4. Productos</h3>
+        <div class="step">
+            <p>En la sección de gestión de productos, se muestra un listado de los productos registrados en el sistema.</p>
+            <img class="img" src="https://images.tango.us/workflows/9cba0c14-ed43-4618-b993-8ba22eba3a60/steps/681fceda-71aa-4018-8ad6-b2623a2c3eaa/cf115425-cce2-488d-8c18-bf3027a0eaca.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Listado de libros…" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>4.1 Crear nuevo producto</h4>
+            <p>
+                Para crear un nuevo producto, debe pulsar con el botón izquierdo del mouse sobre el
+                botón "Nuevo Producto". Esto te permitirá iniciar el proceso de creación de registro del nuevo producto.
+            </p>
+            <img class="img" src="https://images.tango.us/workflows/9cba0c14-ed43-4618-b993-8ba22eba3a60/steps/127f6dc2-f17a-49d9-9187-5b94b6a84b1b/fd321b81-f0e7-4007-a3f0-c06912cc280d.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=40&mark-y=149&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0zNTkmaD0xMTQmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Nuevo Producto" />
+        </div>
+
+        <div class="step mt-2">
+            <p>
+                Para registrar un nuevo producto, se debe ingresar cada uno de los campos del formulario requerido. Asegúrate de completar todos los campos marcados con un asterisco (*), ya que son obligatorios para el registro.<br />Si alguno de los campos obligatorios no es diligenciado correctamente, el sistema no permitirá el registro del producto.
+                hasta que los campos obligatorios sean ingresados correctamente.
+                <br />Puede subir una imagen del producto presionando con el botón izquierdo del mouse en la opción "Seleccionar archivo".
+            </p>
+            <img class="img" src="https://images.tango.us/workflows/9cba0c14-ed43-4618-b993-8ba22eba3a60/steps/d1fdd2d9-7213-4774-8a6e-cc9ba4153d2b/163079b5-2a48-4532-bed6-aff067984f36.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Crear producto" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Una vez que todos los campos estén completos, presiona el botón "Crear" con el botón izquierdo del mouse. Esto garantizará que el producto se registre exitosamente.</p>
+            <img class="img" src="https://images.tango.us/workflows/9cba0c14-ed43-4618-b993-8ba22eba3a60/steps/0e4ac8ed-c942-4452-b9c7-ee3fadca5540/ec1e4901-c506-43ba-bfd6-67b0c57a240a.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=301&mark-y=378&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0yMjcmaD0xNDQmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Crear" />
+        </div>
+
+        <div class="step mt-2">
+            <p>El sistema mostrará un mensaje de éxito confirmando que el producto se ha creado correctamente.</p>
+            <img class="img"src="https://images.tango.us/workflows/407ff610-9115-41c8-a82b-86786b0dff46/steps/272c58b6-a4b3-4b79-9e57-a80e6bd77a25/ce3c50ad-2230-47d1-8b52-926b3ee1aa81.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Éxito…" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>4.2 Buscar Productos. </h4>
+            <p>Si desea buscar un producto, selecciona la opción "Buscar" presionando con el botón izquierdo del mouse. Esto te permitirá realizar acceder al producto existente que desea.</p>
+            <img class="img" src="https://images.tango.us/workflows/9cba0c14-ed43-4618-b993-8ba22eba3a60/steps/8666ebcd-de29-44b8-9957-0db3e4e52591/f2fa4eff-3502-49ee-a923-af44fafe7a91.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=950&mark-y=74&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0yMTgmaD01OSZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Buscar" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>4.3 Desactivar el estado de un producto</h4>
+            <p>Para inhabilitar un producto presione el botón "Activo" con el botón izquierdo del mouse en el producto que desee inhabilitar.</p>
+            <img class="img" src="https://images.tango.us/workflows/9cba0c14-ed43-4618-b993-8ba22eba3a60/steps/83e24a50-9000-4ae4-b27a-bd5af069fa0e/84ad741f-c334-4de5-9d8d-5e3fb9e015ae.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=451&mark-y=253&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0yMTImaD0xMjMmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Activo" />
+        </div>
+
+        <div class="step mt-2">
+             <p>Luego, confirma esta acción presionando el botón "Confirmar" con el botón izquierdo del mouse. Si se pulsa sobre el botón “Cerrar”, el sistema cierra sin inhabilitar el producto.</p>
+            <img class="img"src="https://images.tango.us/workflows/407ff610-9115-41c8-a82b-86786b0dff46/steps/98e27d31-116f-4853-a245-c084d7a8d68c/15b73d19-85e4-45df-bfc1-5830c464ef79.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=909&mark-y=422&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0yMDImaD05MSZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Confirmar" />
+        </div>
+
+        <div class="step mt-2">
+            <p>El sistema mostrará un mensaje de éxito confirmando que el producto se ha inhabilitado correctamente.</p>
+            <img class="img" src="https://images.tango.us/workflows/407ff610-9115-41c8-a82b-86786b0dff46/steps/3514b677-e925-4533-809c-04a53c9ba568/dd9ae187-b2dc-4ede-9ca6-488ccadb9a5c.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Éxito…" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>4.4 Activar el estado del producto.</h4>
+            <p>Si desea habilitar un producto que esta inactivo, pulsa el botón "Inactivo" con el botón izquierdo del mouse en el producto que desea habilitar.</p>
+            <img class="img" src="https://images.tango.us/workflows/9cba0c14-ed43-4618-b993-8ba22eba3a60/steps/23db6534-e9e8-464a-9e1f-dd2a2f4c9664/8dc02b18-10a2-4aa9-9001-b64c231a3fdb.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=361&mark-y=234&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0yNjcmaD0xNDAmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Inactivo" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Después de seleccionar "Inactivo" para un producto, confirma la activación presionando con el botón izquierdo del mouse el botón "Confirmar". Si se pulsa sobre el botón “Cerrar”, el sistema cierra sin habilitar el producto.</p>
+            <img class="img"src="https://images.tango.us/workflows/407ff610-9115-41c8-a82b-86786b0dff46/steps/9d65b3b9-4a52-4c1c-b1c3-5b0b02c06636/36099cc8-66b8-4ee0-8e94-615f7a87faec.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=894&mark-y=422&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0yMDImaD05MSZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Confirmar" />
+        </div>
+
+        <div class="step mt-2">
+            <p>El sistema mostrará un mensaje de éxito confirmando que el producto se ha habilitado correctamente.</p>
+            <img class="img"src="https://images.tango.us/workflows/407ff610-9115-41c8-a82b-86786b0dff46/steps/a3306147-fc2b-4a2e-bf5b-ffa37e19de4c/34b1fde4-416e-4867-b237-29a288e626fd.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Éxito…" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>4.5 Ver imagen del producto</h4>
+            <p>Puede visualizar la imagen del producto, presionando el botón con icono de una imagen con el botón izquierdo del mouse. Ten en cuenta que no todos los productos cuentan con imágenes disponibles.</p>
+            <img class="img" src="https://images.tango.us/workflows/9cba0c14-ed43-4618-b993-8ba22eba3a60/steps/5aa2c50b-8c86-4c78-b641-7d8fddd8c445/9bbab2e1-8ee8-4194-b769-46f781bf8b48.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=653&mark-y=177&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0xNDQmaD0xMjkmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Visualizar la imagen del producto" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>8.1 Eliminar imagen</h4>
+            <p>Posteriormente puedes visualizar la imagen del producto.<br />Si presionas el botón "Eliminar Imagen" el sistema la eliminará. Si se pulsa sobre el botón “Cerrar” el sistema cierra la ventana sin eliminar a la imagen.</p>
+            <img class="img" src="https://images.tango.us/workflows/9cba0c14-ed43-4618-b993-8ba22eba3a60/steps/61110f2c-7169-4181-8d29-b916793e62c5/3287ddde-ecf0-4606-a318-d809026acf5c.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.4916&fp-y=0.4673&fp-z=1.0388&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=287&mark-y=30&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTQlMkNGRjc0NDImdz02MjYmaD02ODImZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Imagen del producto…" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>4.6 Detalles del producto</h4>
+            <p>Al pulsar con el botón izquierdo del mouse sobre el botón con el icono de un ojo, podrá visualizar los detalles del producto seleccionado.</p>
+            <img class="img" src="https://images.tango.us/workflows/9cba0c14-ed43-4618-b993-8ba22eba3a60/steps/d603c531-9611-4338-9b2d-0714274741b8/75a5d8a1-1df6-4a02-8929-a3e29a973eb9.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=731&mark-y=203&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0xODUmaD0xNTkmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Visualizar detalles adicionales del producto" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Posteriormente puedes visualizar la información del producto.<br />Pulsa "Cerrar" con el botón izquierdo del mouse para volver a la página principal de gestión de productos.</p>
+            <img class="img" src="https://images.tango.us/workflows/407ff610-9115-41c8-a82b-86786b0dff46/steps/8591faf8-83ef-4352-b83c-9214d30b4f57/57fc5542-0943-4f58-9fa4-4c37ab1c9b6a.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Detalles del producto…" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>4.7 Modificar información de un producto.</h4>
+            <p>Si necesita realizar cambios en la información de un producto, pulsa con el botón izquierdo del mouse el botón con el icono de edición en el producto que necesitas modificar.</p>
+            <img class="img" src="https://images.tango.us/workflows/9cba0c14-ed43-4618-b993-8ba22eba3a60/steps/996c541e-b284-41ef-a70d-ca6346f21b66/c170285a-7e5f-4dc9-a205-2f7de03d7300.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=881&mark-y=240&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0xODgmaD0xNjEmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Editar información del producto" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Al hacerlo, se abrirá un formulario que te permitirá acceder y modificar la información del producto, ten en cuenta los campos con asterisco (*) son obligatorios.<br /><br />Después de realizar las modificaciones necesarias en la información del producto, asegúrate de presionar el botón izquierdo del mouse en "Editar" para guardar los cambios realizados.</p>
+            <img class="img" src="https://images.tango.us/workflows/9cba0c14-ed43-4618-b993-8ba22eba3a60/steps/290f0998-e28f-4869-8663-2480bc9f1c73/fc83f291-41a2-4b9e-8de4-b3e20cf0bec9.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=183&mark-y=960&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0xMTkmaD03MiZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Editar" />
+        </div>
+
+        <div class="step mt-2">
+            <p>El sistema mostrará un mensaje de éxito confirmando que el producto se ha editado correctamente.</p>
+            <img class="img" src="https://images.tango.us/workflows/407ff610-9115-41c8-a82b-86786b0dff46/steps/7fc6456a-1ec7-4485-86e2-f9ae15cf8a8a/54639085-0186-4f27-9f78-ee1e1e102751.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Éxito…" />
+        </div>
+
+    </div>
+
+</body>
+</html>

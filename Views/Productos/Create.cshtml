@@ -1,0 +1,205 @@
+﻿@model LeamosColombiaProject.Models.Producto
+
+@{
+    ViewData["Title"] = "Productos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-body wizard-content">
+            <h4 class="card-title">Crear producto</h4>
+            <form asp-action="Create" class="mt-4" id="example-form" enctype="multipart/form-data">
+                <div>
+                    <section class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="Isbn">ISBN <span style="color: red;">*</span></label>
+                            <input asp-for="Isbn" id="Isbn" class="form-control" placeholder="Ingrese el ISBN" data-rule-required="true" data-rule-digits="true" data-rule-maxlength="20" />
+                        </div>
+                        <div class="col-md-6">
+                            <label for="Titulo">Título <span style="color: red;">*</span></label>
+                            <input asp-for="Titulo" id="Titulo" class="form-control" placeholder="Ingrese el título" data-rule-required="true" data-rule-maxlength="80" />
+                        </div>
+                    </section>
+                    <section class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="Autor">Autor <span style="color: red;">*</span></label>
+                            <input asp-for="Autor" id="Autor" class="form-control" placeholder="Ingrese el autor" data-rule-required="true" data-rule-maxlength="100" />
+                        </div>
+                        <div class="col-md-6">
+                            <label for="Anio">Año de publicación <span style="color: red;">*</span></label>
+                            <input asp-for="Anio" id="Anio" class="form-control" placeholder="Ingrese el año de publicación" data-rule-required="true" data-rule-maxlength="4" data-rule-minlength="4" />
+                        </div>
+                    </section>
+                    <section class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="NPaginas">Número de páginas <span style="color: red;">*</span></label>
+                            <input asp-for="NPaginas" id="NPaginas" type="text" class="form-control" placeholder="Ingrese el número de páginas" data-rule-required="true" data-rule-digits="true" />
+                        </div>
+                        <div class="col-md-6">
+                            <label for="Precio">Precio <span style="color: red;">*</span></label>
+                            <input asp-for="Precio" id="Precio" class="form-control" placeholder="Ingrese el precio" data-rule-required="true" data-rule-digits="true" data-rule-maxlength="10" />
+                        </div>
+                    </section>
+                    <section class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="Editorial">Editorial <span style="color: red;">*</span></label>
+                            <select asp-for="Editorial" id="Editorial" class="select2 form-control" asp-items="ViewBag.Editorial" data-rule-required="true">
+                                <option value="">Seleccione la editorial</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="IdCategoria">Categoría <span style="color: red;">*</span></label>
+                            <select asp-for="IdCategoria" id="IdCategoria" class="select2 form-control" asp-items="ViewBag.IdCategoria" data-rule-required="true">
+                                <option value="">Seleccione la categoría</option>
+                            </select>
+                        </div>
+                    </section>
+                    <section class="row mb-3">
+                        <div class="col-md-6">
+                            <input asp-for="Cantidad" id="Cantidad" class="form-control" hidden value="0" placeholder="Ingrese la cantidad" />
+                        </div>
+                    </section>
+                    <section class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="Sinopsis">Sinopsis</label>
+                            <textarea asp-for="Sinopsis" id="Sinopsis" class="form-control" placeholder="Ingrese la sinopsis (máximo 1000 caracteres)"data-rule-maxlength="1000"></textarea>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="ImagenArchivo">Imagen</label>
+                            <input asp-for="ImagenArchivo" id="ImagenArchivo" type="file" class="form-control" />
+                        </div>
+                    </section>
+                    <section>
+                        <select asp-for="Estado" id="Estado" hidden class="form-control">
+                            <option value="True">Activo</option>
+                        </select>
+                        <p class="mt-2">(<span style="color: red;">*</span>) Obligatorio</p>
+                    </section>
+                    <section class="mt-3">
+                        <a asp-action="Index" class="btn btn-secondary"  title="Volver a la vista de productos">Volver</a>
+                        <input type="submit" value="Crear" class="btn btn-primary"  title="Confirmar creación de un nuevo producto"/>
+                    </section>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $.extend($.validator.messages, {
+            required: "Este campo es obligatorio.",
+            digits: "Ingresa solo dígitos.",
+            maxlength: $.validator.format("Ingresa máximo {0} caracteres."),
+            number: "Ingresa un número válido."
+        });
+
+
+        $(document).ready(function () {
+            $('#example-form').validate({
+                errorClass: "text-danger",
+                errorPlacement: function (error, element) {
+                    if (element.is("select") && element.hasClass("select2")) {
+                        error.insertAfter(element.next("span.select2"));
+                    } else {
+                        error.insertAfter(element);
+                    }
+                },
+                rules: {
+                    Isbn: {
+                        required: true,
+                        digits: true,
+                        maxlength: 13,
+                        minlength: 13,
+                        remote: {
+                            url: "/Productos/VerificarISBNExistente",
+                            type: "GET",
+                            data: {
+                                documento: function () {
+                                    return $("#Isbn").val();
+                                }
+                            }
+                        }
+                    },
+                    Titulo: {
+                        required: true,
+                        maxlength: 80
+                    },
+                    Autor: {
+                        required: true,
+                        maxlength: 100
+                    },
+                    Anio: {
+                        required: true,
+                        digits: true,
+                        maxlength: 4,
+                        minlength: 4
+                    },
+                    NPaginas: {
+                        required: true,
+                        digits: true,
+                        maxlength: 4
+                    },
+                    Editorial: {
+                        required: true
+                    },
+                    IdCategoria: {
+                        required: true
+                    },
+                    Precio: {
+                        required: true,
+                        digits: true,
+                        maxlength: 7
+                    },
+                    Sinopsis: {
+                        maxlength: 1000
+                    },
+                },
+                messages: {
+                    Isbn: {
+                        required: "Este campo es obligatorio.",
+                        digits: "Ingresa solo dígitos.",
+                        maxlength: "Ingresa máximo {0} caracteres.",
+                        minlength: "Ingresa mínimo {0} caracteres."
+
+                    },
+                    Titulo: {
+                        required: "Este campo es obligatorio.",
+                        maxlength: "Ingresa máximo {0} caracteres."
+                    },
+                    Autor: {
+                        required: "Este campo es obligatorio.",
+                        maxlength: "Ingresa máximo {0} caracteres."
+                    },
+                    Anio: {
+                        required: "Este campo es obligatorio.",
+                        digits: "Ingresa solo dígitos.",
+                        maxlength: "Ingresa máximo {0} caracteres.",
+                        minlength: "Ingresa mínimo {0} caracteres."
+
+                    },
+                    NPaginas: {
+                        required: "Este campo es obligatorio.",
+                        digits: "Ingresa solo dígitos.",
+                                maxlength: "Ingresa máximo {0} caracteres."
+                    },
+                    Editorial: {
+                        required: "Este campo es obligatorio."
+                    },
+                    IdCategoria: {
+                        required: "Este campo es obligatorio."
+                    },
+                    Precio: {
+                        required: "Este campo es obligatorio.",
+                        digits: "Ingresa solo dígitos.",
+                        maxlength: "Ingresa máximo {0} caracteres."
+                    },
+                    Sinopsis: {
+                        maxlength: "Ingresa máximo {0} caracteres."
+                    },
+                }
+            });
+        });
+    </script>
+}

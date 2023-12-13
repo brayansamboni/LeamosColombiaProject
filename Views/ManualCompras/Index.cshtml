@@ -1,0 +1,213 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Manual Compras";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .seccion {
+            width: 90%;
+            margin: 0 auto;
+            max-height: 80vh;
+            overflow: auto;
+            display: grid;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .step {
+            width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 8px;
+            display: inline-block;
+            vertical-align: top;
+            background: #fff;
+        }
+
+            .step h4 {
+                padding: 10px;
+                font-size: 18px;
+                color: #333;
+                text-align: center;
+                line-height: 1.5;
+                display: flex;
+            }
+
+        p {
+            padding: 10px;
+            font-size: 18px;
+            color: #333;
+            font-weight: normal;
+        }
+
+        h3 {
+            padding: 10px;
+            font-size: 20px;
+            color: #333;
+            text-align: center;
+            line-height: 1.5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .step img {
+            max-height: 85%; /* Establece la altura máxima que desees */
+        }
+
+        .img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            border-radius: 8px;
+            border: 1px solid #F4F2F7;
+            box-shadow: 10px 15px 20px #ccc;
+        }
+
+        /* Estilo para el scroll en el contenedor */
+        .container-fluid::-webkit-scrollbar {
+            width: 12px; /* Ancho del scrollbar */
+        }
+
+        .seccion::-webkit-scrollbar-thumb {
+            background-color: #888; /* Color del "pulgarcito" del scrollbar */
+            border-radius: 10px;
+        }
+
+            .seccion::-webkit-scrollbar-thumb:hover {
+                background-color: #555; /* Color del "pulgarcito" al pasar el mouse */
+            }
+    </style>
+
+</head>
+<body>
+    <div class="seccion">
+        <h3>1. Ingreso a gestión de compras</h3>
+        <div class="step">
+            <p>Para acceder a la sección de compras, debe pulsar con el botón izquierdo del mouse en el menú de la barra izquierda de la pantalla sobre la opción "Compras". Esto te llevará a la página principal de gestión de compras.</p>
+            <img class="img" src="https://images.tango.us/workflows/591cff31-fc01-45ca-a259-3632e6617dbf/steps/f57330f5-73c6-491b-9394-361e06f9bb8f/5629be15-c71d-47cd-9cc3-3bf88b79a265.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=6&mark-y=197&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0yOTMmaD03MSZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Compras" />
+        </div>
+
+        <h3>2. Compras</h3>
+        <div class="step">
+            <p>En la sección de compras, puedes visualizar el listado de compras que se encuentran registrados en el sistema. </p>
+            <img class="img" src="https://images.tango.us/workflows/1357765f-7907-4050-b75c-92a36b439873/steps/70b344e1-debc-4b18-96c2-eb9ce99d01a3/da88afa2-0276-410e-9d47-50792c80cb95.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Listado de compras" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>2.1. Crear nueva compra</h4>
+            <p>
+                Para crear una compra, debe pulsar con el botón izquierdo del mouse sobre el botón “Nueva compra”. Luego, el sistema muestra un formulario donde se ingresan los datos requeridos para realizar la nueva compra.
+            </p>
+            <img class="img" src="https://images.tango.us/workflows/1357765f-7907-4050-b75c-92a36b439873/steps/68e64e99-a1c4-4b6e-bd23-a8aeb00ad38f/a03afd01-353b-4cb9-bd1c-82772790b894.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=36&mark-y=145&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0zNDcmaD0xMjAmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Nueva compra" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>2.1.1. Formulario de registro</h4>
+            <p>
+                Para iniciar, seleccione un proveedor desde el botón desplegable que muestra los nombres de los proveedores disponibles. Este campo es obligatorio, ya que está marcado con un asterisco (*), y el sistema no permitirá crear una compra sin proveedor. <br /><br />
+                Pulse con el botón izquierdo del mouse sobre el botón "Agregar producto". Los productos se irán agregando a la tabla de productos de la compra. Desde allí, puede indicar la cantidad de cada producto y eliminar si es necesario.
+            </p>
+
+            <img class="img" src="https://images.tango.us/workflows/1357765f-7907-4050-b75c-92a36b439873/steps/4bcc29ad-61be-4bb6-9f2b-72f8c3fc9037/86c83482-eef3-4fab-93ba-18c157e3c67c.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=52&mark-y=259&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0xOTQmaD02MiZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Crear compra…" />
+        </div>
+
+        <div class="step mt-2">
+            <p>
+                Para guardar la compra, se debe pulsar con el botón izquierdo del mouse sobre el botón “Crear”, ubicado en la parte inferior del formulario.
+            </p>
+            <img class="img" src="https://images.tango.us/workflows/1357765f-7907-4050-b75c-92a36b439873/steps/04ec2e58-27a9-43bd-a2c4-727caa019115/22548b18-070f-457f-b524-7e45fa30baf1.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=331&mark-y=222&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0yNTYmaD0xNjImZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Crear" />
+        </div>
+
+        <div class="step mt-2">
+            <p>El sistema mostrará un mensaje de éxito confirmando el registro de la nueva compra.</p>
+            <img class="img" src="https://images.tango.us/workflows/591cff31-fc01-45ca-a259-3632e6617dbf/steps/5fca604a-b06d-47b0-afcf-b7aa463a9780/1986227d-1d79-42b8-87e0-5331ccaf2a3d.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Éxito…" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>2.2 Filtrar Compras </h4>
+            <p>Para acceder a registros de las compras en un rango de fechas, presiona el botón "Filtrar por fecha" con el botón izquierdo del mouse.</p>
+            <img class="img" src="https://images.tango.us/workflows/1357765f-7907-4050-b75c-92a36b439873/steps/7ed394d7-e9fe-4751-b7a5-41f4f9fbdd67/273e2a38-45bb-46c6-b360-331805d3a7b0.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=239&mark-y=145&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0xNTgmaD01MSZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Filtrar por fecha" />
+        </div>
+
+        <div class="step mt-2">
+            <P>
+                Para filtrar registros de compras, completa los campos "Fecha de inicio" y "Fecha de fin" con las fechas específicas que necesitas. <br /> <br />
+                -Presiona el botón "Descargar PDF" con el botón izquierdo del mouse. Esto descargará un archivo PDF con un reporte de la Tabla de Compras según los filtros aplicados.<br />
+                -Presiona el botón "Filtrar" con el botón izquierdo del mouse, para aplicar los filtros seleccionados y visualizar el Listado de Compras con el rango de fechas aplicados.<br />
+                -Presiona el botón "Limpiar filtros" con el botón izquierdo del mouse, para restaurar la vista original del Listado de Compras, eliminando cualquier filtro previamente aplicado y mostrando todos los registros sin restricciones de fechas.<br />
+                -Presiona el botón "Cerrar" con el botón izquierdo del mouse, para cerrar la ventana.
+            </P>
+            <img class="img" src="https://images.tango.us/workflows/724198f2-7498-4852-8a09-d70489640607/steps/26ef7d9a-43c4-423e-a424-676d0f7b7f11/46cfb9a6-53fe-4ece-a3fb-3e87017a2cbc.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Filtrar por fecha…" />
+        </div>
+        <div class="step mt-2">
+            <p>Si los campos de fecha están vacíos o no son válidos, al intentar aplicar acciones, el sistema mostrará un mensaje de Error indicando que es necesario seleccionar un rango de fechas válido.</p>
+            <img class="img" src="https://images.tango.us/workflows/724198f2-7498-4852-8a09-d70489640607/steps/6634e5dd-8951-406e-9dcc-de3345aac9e7/86a4b4da-bbc5-42a8-a4ac-7a54ff7f9b81.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Por favor, selecciona un rango de fechas válido." />
+        </div>
+        <div class="step mt-2">
+            <h4>2.3 Buscar compra</h4>
+            <p>Si desea buscar una compra, selecciona la opción "Buscar" con el botón izquierdo del mouse. Esto te permitirá buscar entre las compras existentes.</p>
+            <img class="img" src="https://images.tango.us/workflows/591cff31-fc01-45ca-a259-3632e6617dbf/steps/935b5276-1e93-45c7-8b58-9d2cf4f75b01/f918dbde-0d32-44a7-9839-6baa16d55985.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=947&mark-y=60&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0yMjAmaD00OCZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Buscar" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>2.4. Desactivar estado de la compra</h4>
+            <p>Para inhabilitar una compra presione el botón "Activo" con el botón izquierdo del mouse en la compra que desea inhabilitar.</p>
+            <img class="img" src="https://images.tango.us/workflows/1357765f-7907-4050-b75c-92a36b439873/steps/9b729a6c-2c4a-4911-8f78-66a71e217455/aff9b13f-2513-4321-abcf-bd42f1ef7dbc.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=817&mark-y=116&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0xNTUmaD02NiZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Activo" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Luego, confirma esta acción presionando el botón "Confirmar" con el botón izquierdo del mouse. Si se pulsa sobre el botón “Cerrar”, el sistema cierra sin inhabilitar la compra.</p>
+            <img class="img" src="https://images.tango.us/workflows/591cff31-fc01-45ca-a259-3632e6617dbf/steps/b55cfcd6-94f9-4307-872c-33b1809a5aaf/0528b1e1-96fb-4ce6-9384-a911c8db286a.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=922&mark-y=439&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0yMTImaD05NSZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Confirmar" />
+        </div>
+        <div class="step mt-2">
+            <p>Si el producto en cuestión tiene la cantidad del stock en cero (0). Si intentas inhabilitar la compra. El sistema mostrará un mensaje de error.</p>
+            <img class="img" src="https://images.tango.us/workflows/382fe3bd-5218-4c95-984d-b024482622d9/steps/4a90bd2f-2d00-48d1-b393-c25f5510da0d/249b7430-78bf-45fd-966b-6e69df13f1c8.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=333&mark-y=22&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz04NDImaD0yNzYmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Error…" />
+        </div>
+        <div class="step mt-2">
+            <p>El sistema mostrará un mensaje de éxito confirmando que la compra se ha inhabilitado correctamente.</p>
+            <img class="img" src="https://images.tango.us/workflows/591cff31-fc01-45ca-a259-3632e6617dbf/steps/27e5ba6f-932e-4f51-8f71-1a4284dbec72/b216ae3b-e3a5-4193-a300-a5e6f6ce8e99.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Éxito…" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>2.5 Activar estado de la compra</h4>
+            <p>Si desea habilitar una compra que esta inactiva, pulsa el botón "Inactivo" con el botón izquierdo del mouse en la compra que desea habilitar.</p>
+            <img class="img" src="https://images.tango.us/workflows/1357765f-7907-4050-b75c-92a36b439873/steps/12bc71bf-d40a-4c3c-a898-003b1d352ba1/ab5fb83c-3e80-45b3-9b2b-28441ffeaaa9.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=761&mark-y=95&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0xNjkmaD02NSZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Inactivo" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Después de seleccionar "Inactivo" para una compra, confirma la activación presionando con el botón izquierdo del mouse el botón "Confirmar". Si se pulsa sobre el botón “Cerrar”, el sistema cierra sin habilitar la compra.</p>
+            <img class="img" src="https://images.tango.us/workflows/591cff31-fc01-45ca-a259-3632e6617dbf/steps/f9a7cc58-87fc-4f9c-9928-e4b58789693f/3f114d3c-eeb9-4647-976a-c446417c211c.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=924&mark-y=449&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0yMTYmaD05NyZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Confirmar" />
+        </div>
+
+        <div class="step mt-2">
+            <p>El sistema mostrará un mensaje de Éxito confirmando que la compra se ha habilitado correctamente.</p>
+            <img class="img" src="https://images.tango.us/workflows/591cff31-fc01-45ca-a259-3632e6617dbf/steps/b3ee3a8c-9561-4e05-b7a3-8c3b54794ebd/1e4d357c-4ca8-46e7-93b9-2024eef5be69.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Éxito…" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>2.6 Visualizar detalles de la compra</h4>
+            <p>Para visualizar detalles de una compra, pulsa con el botón izquierdo del mouse sobre el botón con el icono de carrito que se encuentra en cada compra. </p>
+            <img class="img" src="https://images.tango.us/workflows/1357765f-7907-4050-b75c-92a36b439873/steps/ea90a3b9-791b-4be5-b2c4-9efcd530cf5c/3258a75e-66bd-4ec8-83b7-d9feaae915ef.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=1026&mark-y=99&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz03NSZoPTY1JmZpdD1jcm9wJmNvcm5lci1yYWRpdXM9MTA%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Visualizar detalles de la compra" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Al hacerlo, podrá visualizar los detalles de la compra junto con sus respectivos productos. Además, tiene la opción de descargar un archivo PDF que contiene toda la información relacionada. <br /> <br />
+                Una vez revisados los detalles de la compra, si desea regresar a la página principal, presione el botón "Volver" con el botón izquierdo de mouse.
+            </p>
+            <img class="img" src="https://images.tango.us/workflows/591cff31-fc01-45ca-a259-3632e6617dbf/steps/4b6beaa8-1c49-4448-a708-323bc2aa68d9/4ce438b9-3321-4fa2-aca2-ca1f52a2f2d1.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Detalles de la Compra…" />
+        </div>
+
+    </div>
+
+</body>
+</html>

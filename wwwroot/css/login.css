@@ -1,0 +1,195 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #0F0E0E;
+}
+
+.container-form {
+    display: flex;
+    border-radius: 20px;
+    margin: 10px;
+    height: 500px;
+    max-width: 900px;
+}
+
+.information {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background-color: #186F65;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.info-childs {
+    width: 100%;
+    padding: 0 30px;
+}
+
+    .info-childs h2 {
+        font-weight: bold;
+        font-size: 2.5rem;
+        color: #F6FBF4;
+    }
+
+    .info-childs p {
+        font-weight: bold;
+        margin: 15px 0;
+        color: #F6FBF4;
+    }
+
+.form-information {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    text-align: center;
+    background-color: #F6FBF4;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.form-information-childs {
+    padding: 0 30px;
+}
+
+    .form-information-childs h2 {
+        color: #186F65;
+        font-weight: bold;
+        font-size: 2.5rem;
+        text-align: center;
+    }
+
+    .form-information-childs .input-box {
+        position: relative;
+        width: 100%;
+        height: 50px;
+        margin: 25px 0;
+    }
+
+.form span {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin: 20px auto;
+    color: black;
+}
+
+    .form span a {
+        color: #0174BE;
+    }
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #186F65;
+    padding-right: 23px;
+    font-size: 0.9rem;
+    color: black;
+    font-weight: 500;
+    transition: .5s;
+}
+
+    .input-box input:focus,
+    .input-box input:valid {
+        border-bottom-color: #186F65;
+    }
+
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    font-size: 0.8rem;
+    color: #1C6758;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input-box input:focus ~ label,
+.input-box input:not(:placeholder-shown) ~ label {
+    top: 5px;
+    color: #186F65;
+}
+
+.input-box i {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    font-size: 1.4rem;
+    color: #186F65;
+    transition: .5s;
+}
+
+.input-box input:focus ~ i,
+.input-box input:valid ~ i {
+    color: #186F65;
+}
+
+.btn {
+    display: block;
+    margin: 10px auto;
+    background-color: #186F65;
+    font-weight: bold;
+    border: none;
+    width: 60%;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    color: #F6FBF4;
+}
+
+    .btn:hover {
+        background-color: #1C6758;
+    }
+
+@media screen and (max-width: 750px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    html {
+        font-size: 10px;
+    }
+
+    .container-form {
+        height: auto;
+        flex-direction: column;
+    }
+
+    .information {
+        width: 100%;
+        padding: 20px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0;
+    }
+
+    .form-information {
+        width: 100%;
+        padding: 20px;
+        border-bottom-left-radius: 20px;
+        border-top-right-radius: 0px;
+    }
+}

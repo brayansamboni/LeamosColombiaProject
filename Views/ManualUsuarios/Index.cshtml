@@ -1,0 +1,211 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Manual Usuarios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .seccion {
+            width: 90%;
+            margin: 0 auto;
+            max-height: 80vh;
+            overflow: auto;
+            display: grid;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .step {
+            width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 8px;
+            display: inline-block;
+            vertical-align: top;
+            background: #fff;
+        }
+
+            .step h4 {
+                padding: 10px;
+                font-size: 18px;
+                color: #333;
+                text-align: center;
+                line-height: 1.5;
+                display: flex;
+            }
+
+        p {
+            padding: 10px;
+            font-size: 18px;
+            color: #333;
+            font-weight: normal;
+        }
+
+        h3 {
+            padding: 10px;
+            font-size: 20px;
+            color: #333;
+            text-align: center;
+            line-height: 1.5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .step img {
+            max-height: 85%; /* Establece la altura máxima que desees */
+        }
+
+        .img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            border-radius: 8px;
+            border: 1px solid #F4F2F7;
+            box-shadow: 10px 15px 20px #ccc;
+        }
+
+        /* Estilo para el scroll en el contenedor */
+        .container-fluid::-webkit-scrollbar {
+            width: 12px; /* Ancho del scrollbar */
+        }
+
+        .seccion::-webkit-scrollbar-thumb {
+            background-color: #888; /* Color del "pulgarcito" del scrollbar */
+            border-radius: 10px;
+        }
+
+            .seccion::-webkit-scrollbar-thumb:hover {
+                background-color: #555; /* Color del "pulgarcito" al pasar el mouse */
+            }
+    </style>
+
+</head>
+<body>
+    <div class="seccion">
+        <h3>1. Ingreso gestión de Usuarios.</h3>
+        <div class="step">
+            <p>En este primer paso, debe pulsar con el botón izquierdo del mouse en el menú de la barra izquierda de la pantalla sobre la opción "Usuarios" para acceder a la sección de usuarios en la plataforma. Esto te llevará a la página principal de gestión de usuarios.</p>
+            <img class="img" src="https://images.tango.us/workflows/e9666b1c-8f68-43e6-a40c-e7884e4b692d/steps/6910cfa4-e010-40e1-88f0-1edb976ef49b/738ed8c2-eec5-47c0-a1fc-53d725aa21d1.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=5&mark-y=451&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0zMDgmaD03MyZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Usuarios" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>1.1. Listado de usuarios.</h4>
+            <p>En la sección de usuarios, puedes visualizar el listado de usuarios que se encuentran registrados en el sistema. Puedes buscar en los usuarios existentes, presionando en la opción "Buscar" con el botón izquierdo de mouse.</p>
+            <img class ="img" src="https://images.tango.us/workflows/c61436ed-a0d0-41fa-8cee-185156baa9e4/steps/1a22f952-ba3d-4f5b-a238-7ef7fbd63515/e39fc5ef-b3b3-45b5-b5aa-10acf737c7aa.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=867&mark-y=196&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0zMTAmaD03NyZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Listado de usuarios…" />
+        </div>
+
+        <h3>2. Creación de Usuario</h3>
+        <div class="step">
+            <h4>2.1. Crear Usuario</h4>
+            <p>
+                Para crear un usuario, debe pulsar con el botón izquierdo del mouse sobre el botón “Nuevo Usuario”, Esto te permitirá iniciar el proceso de creación del nuevo usuario.
+            </p>
+            <img class="img" src="https://images.tango.us/workflows/c61436ed-a0d0-41fa-8cee-185156baa9e4/steps/19f6d9c9-c5da-4846-afa8-3a17ca064fc0/f0aa4057-a0e8-4a8b-9ac7-2a7614755808.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=47&mark-y=178&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0zOTQmaD0xMzQmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Nuevo Usuario" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>2.2. Formulario de registro</h4>
+            <p>
+                Para registrar un nuevo usuario, debe diligenciar cada uno de los campos del formulario donde se ingresan
+                los datos del nuevo usuario. Los campos marcados con un asterisco (*), son obligatorios para el registro. <br /><br />Si alguno de los campos obligatorios no es diligenciado correctamente, el sistema no permitirá el registro del usuario
+                hasta que los campos obligatorios sean ingresados correctamente.
+            </p>
+            <img class="img" src="https://images.tango.us/workflows/c61436ed-a0d0-41fa-8cee-185156baa9e4/steps/d704f876-4503-40b9-892c-67f07177643d/8cd46774-c0e0-417c-a76c-d7d4f79e54b2.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Crear usuario…" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Una vez que todos los campos estén diligenciados, presiona el botón "Crear" con el botón izquierdo del mouse. Esto garantizará que el usuario se registre correctamente.</p>
+            <img class="img" src="https://images.tango.us/workflows/c61436ed-a0d0-41fa-8cee-185156baa9e4/steps/1dfe7baa-699e-4c06-941d-21d36197458b/4cedef47-3e44-4436-a261-8a92aa333d80.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=283&mark-y=194&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0yMTYmaD0xMzcmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Crear" />
+        </div>
+
+        <div class="step mt-2">
+            <p>El sistema mostrará un mensaje de éxito confirmando el registro del usuario nuevo.</p>
+            <img class="img" src="https://images.tango.us/workflows/e9666b1c-8f68-43e6-a40c-e7884e4b692d/steps/0ae60990-24e5-424d-96cf-e7a9a3ee5b29/12d613f8-aa86-40d9-a420-cb19c940282b.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Éxito…" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>2.3. Editar Usuario</h4>
+            <p>Para realizar cambios en la información de un usuario, selecciona el botón con el icono de edición presionando con el botón izquierdo del mouse en el usuario que necesita modificar.</p>
+            <img class="img" src="https://images.tango.us/workflows/c61436ed-a0d0-41fa-8cee-185156baa9e4/steps/ddd64803-cfc1-482b-8980-05c0b74bc01a/2bb68207-1c2d-47d0-93a0-c1edcec300af.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=1073&mark-y=66&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz03MCZoPTYxJmZpdD1jcm9wJmNvcm5lci1yYWRpdXM9MTA%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Editar información del usuario" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Al hacerlo, se abrirá un formulario que te permitirá acceder y modificar el usuario, ten en cuenta que los campos con asterisco (*) son obligatorios.<br />Posteriormente, presiona el botón izquierdo del mouse en el botón "Editar" para guardar los cambios realizados. <br />
+            </>
+                <img class="img" src="https://images.tango.us/workflows/c61436ed-a0d0-41fa-8cee-185156baa9e4/steps/b84e9b48-a078-46bb-a062-d3932e44fc2b/30c238df-c968-4797-8586-9bfe7167abc4.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=179&mark-y=556&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0xMTgmaD03MSZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Editar" />
+        </div>
+        <div class="step mt-2">
+            <p>El sistema mostrará un mensaje de éxito confirmando que el usuario se ha editado correctamente.<br /></p>
+            <img class="img" src="https://images.tango.us/workflows/e9666b1c-8f68-43e6-a40c-e7884e4b692d/steps/4c5e14fe-5b18-4383-96a7-7efd85be198f/b63bc50a-5ea8-40fd-b91d-fabc6a14c9c7.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Éxito…" />
+        </div>
+
+        <h3>3. Rol</h3>
+        <div class="step">
+            <p>Pulsa con el botón izquierdo del mouse sobre el botón "Roles" para acceder a la sección de roles en la plataforma.</p>
+            <img class="img" src="https://images.tango.us/workflows/c61436ed-a0d0-41fa-8cee-185156baa9e4/steps/55bd4603-387f-427c-84b4-079dfd765572/10aa5935-7dbf-4543-8c31-cb0cfb979d06.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=241&mark-y=145&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz04MiZoPTUxJmZpdD1jcm9wJmNvcm5lci1yYWRpdXM9MTA%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Roles" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>3.1. Listado de roles</h4>
+            <p>En la sección de roles, puedes visualizar el listado de roles registrados en el sistema. </p>
+            <img class="img" src="https://images.tango.us/workflows/c61436ed-a0d0-41fa-8cee-185156baa9e4/steps/c26a0948-e4c0-4d4a-871b-cb45501b04a8/7dd773a1-b1c6-483d-a9f0-9bbbef8efbe0.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Nuevo rol…" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>3.2. Crear nuevo rol</h4>
+            <p>
+                Para crear un rol nuevo, se debe pulsar con el botón izquierdo del mouse sobre el
+                botón “Nuevo rol”. Luego, el sistema muestra una ventana con el formulario donde se ingresan los datos del nuevo rol.
+            </p>
+            <img class="img" src="https://images.tango.us/workflows/c61436ed-a0d0-41fa-8cee-185156baa9e4/steps/4e31eda9-a1b3-4c94-962d-f8c9adb5c3bb/49414223-f062-4a60-9426-78ca283e7b65.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=43&mark-y=196&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0zMzkmaD0xNTQmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Nuevo rol" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>3.3. Formulario de registro</h4>
+            <p>
+                Para crear un nuevo rol, es necesario diligenciar el campo obligatorio indicado por un asterisco (*), el sistema no permitirá
+                crear un rol sin nombre. <br /> Luego de ingresar un nombre al rol, se deben seleccionar los módulos que éste rol va
+                a desempañar en el sistema.
+            </p>
+            <img class="img" src="https://images.tango.us/workflows/c61436ed-a0d0-41fa-8cee-185156baa9e4/steps/60716975-f71f-4853-83a4-343656376d15/a20db757-70ce-4874-8b67-ba9d02d473a8.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Crear rol…" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Para finalizar, es necesario pulsar con el botón izquierdo del mouse en el botón "Crear" para guardar la información.</p>
+            <img class="img" src="https://images.tango.us/workflows/c61436ed-a0d0-41fa-8cee-185156baa9e4/steps/3b716701-69a9-4ca9-94bf-42b893e39765/5d309fd8-50ce-49aa-8a64-55be56e87e34.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=373&mark-y=225&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0yODgmaD0xODImZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Crear" />
+        </div>
+
+        <div class="step mt-2">
+            <p>El sistema mostrará un mensaje de éxito confirmando que el nuevo rol se ha creado correctamente.</p>
+            <img class="img" src="https://images.tango.us/workflows/e9666b1c-8f68-43e6-a40c-e7884e4b692d/steps/c435e093-2ec6-48d9-b633-336d3f9b07b6/f072b431-2c07-4d69-8693-884941dbe03b.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Éxito…" />
+        </div>
+
+        <div class="step mt-2">
+            <h4>3.4. Editar Rol</h4>
+            <p>Para realizar cambios en la información de un rol, selecciona el botón con el icono de edición presionando con el botón izquierdo del mouse en el rol que necesita modificar.</p>
+            <img class="img" src="https://images.tango.us/workflows/c61436ed-a0d0-41fa-8cee-185156baa9e4/steps/40604dd1-ca91-4801-a0a8-314808c7bc3c/3ffa505e-6ed5-46fb-af1e-e79869612618.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=951&mark-y=106&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz04NSZoPTczJmZpdD1jcm9wJmNvcm5lci1yYWRpdXM9MTA%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Editar información del Rol" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Al hacerlo, se abrirá un formulario que permitirá acceder y modificar los detalles del rol seleccionado.<br /><br />No olvides guardar los cambios después de realizar las modificaciones necesarias, presionando con el botón izquierdo del mouse el botón "Editar" para guardar los cambios.</p>
+            <img class="img" src="https://images.tango.us/workflows/c61436ed-a0d0-41fa-8cee-185156baa9e4/steps/a9252e39-ea28-48d8-87c1-00b4181e4590/70c48a8e-f7a9-48c8-ade8-e6002b458607.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=311&mark-y=185&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0yNDMmaD0xNDcmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Editar" />
+        </div>
+
+        <div class="step mt-2">
+            <p>El sistema mostrará un mensaje de éxito confirmando que el rol se ha editado correctamente.</p>
+            <img class="img" src="https://images.tango.us/workflows/e9666b1c-8f68-43e6-a40c-e7884e4b692d/steps/b9fa0546-7420-4970-aed0-b9fa2acf4155/bfa0d95f-7b0b-4d55-aa1c-ebeed7e361a2.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Éxito…" />
+        </div>
+
+    </div>
+
+</body>
+</html>

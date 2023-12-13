@@ -1,0 +1,328 @@
+﻿@model IEnumerable<LeamosColombiaProject.Models.Producto>
+
+@{
+    ViewData["Title"] = "Productos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .custom-tooltip {
+        position: relative;
+        display: inline-block;
+    }
+
+        .custom-tooltip::before {
+            content: attr(data-title);
+            position: absolute;
+            background-color: #C4C8C7;
+            color: black;
+            border: 1px solid white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+            z-index: 1000;
+            top: -180%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .custom-tooltip:hover::before {
+            opacity: 1;
+            visibility: visible;
+        }
+
+    .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+    }
+</style>
+
+<p>
+    <a class="btn btn-success custom-tooltip" asp-action="Create" data-title="Crear" title="Crear un nuevo producto">Nuevo Producto</a>
+    <a class="btn btn-info custom-tooltip" asp-controller="Categorias" asp-action="Index" data-title="Ingresar a categorías" title="Ingresar a la vista de categorías">Categorías</a>
+    <a class="btn btn-danger custom-tooltip" asp-controller="Editorials" asp-action="Index" data-title="Ingresar a editoriales"  title="Ingresar a la vista de editoriales">Editoriales</a>
+</p>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Listado de libros</h5>
+        <div class="table-responsive">
+            <table id="zero_config" class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+
+                        <th>
+                            Título
+                        </th>
+                        <th>
+                            Editorial
+                        </th>
+                        <th>
+                            Autor
+                        </th>
+                        <th>
+                            Precio
+                        </th>
+                        <th>
+                            Cantidad
+                        </th>
+                        <th>
+                            Categoría
+                        </th>
+                        <th>
+                            Estado
+                        </th>
+                        <th>
+                            Acciones
+                        </th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Titulo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EditorialNavigation.NombreEditorial)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Autor)
+                            </td>
+                            <td>
+                                $@string.Format("{0:N0}", item.Precio)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Cantidad)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IdCategoriaNavigation.Categoria)
+                            </td>
+                            <td>
+                                @switch (item.Estado)
+                                {
+                                    case true:
+                                        <button type="button" class="btn btn-success btn-block custom-tooltip" data-toggle="modal" data-target="#inhabilitar-@item.IdProducto" data-title="Cambiar estado" title="El producto esta activo. Si presionas se inhabilitará">
+                                            Activo
+                                        </button>
+                                        break;
+                                    case false:
+                                        <button type="button" class="btn btn-danger btn-block custom-tooltip" data-toggle="modal" data-target="#habilitar-@item.IdProducto" data-title="Cambiar estado" title="El producto esta inactivo. Si presionas se habilitará">
+                                            Inactivo
+                                        </button>
+                                        break;
+                                    default:
+                                        <span>Estado desconocido</span>
+                                        break;
+                                }
+                            </td>
+
+                            <td>
+                                @if (item.Estado == true)
+                                {
+                                    <div class="d-flex justify-content-center">
+                                        <button type="button" class="btn btn-info m-1 custom-tooltip" data-toggle="modal" data-target="#imagen-@item.IdProducto" data-title="Ver imagen" title="Visualizar la imagen del producto">
+                                            <i class="fas fa-image"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-info m-1 custom-tooltip" data-toggle="modal" data-target="#sinopsis-@item.IdProducto" data-title="Ver información" title="Visualizar detalles adicionales del producto">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <a class="btn btn-warning m-1 custom-tooltip" asp-action="Edit" asp-route-id="@item.IdProducto" data-title="Editar" title="Editar información del producto"><i class="fas fa-edit"></i></a>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="d-flex justify-content-center">
+                                        <button type="button" class="btn btn-info m-1" disabled data-toggle="modal" data-target="#imagen-@item.IdProducto">
+                                            <i class="fas fa-image"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-info m-1" disabled data-toggle="modal" data-target="#sinopsis-@item.IdProducto">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <a class="btn btn-warning m-1 disabled" asp-action="Edit" asp-route-id="@item.IdProducto"><i class="fas fa-edit"></i></a>
+                                    </div>
+                                }
+                                <div class="modal fade" id="imagen-@item.IdProducto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Imagen del producto</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" title="Cerrar el modal de imagen del producto">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                @if (item.ImagenUrl != null && item.ImagenUrl.Length > 0)
+                                                {
+                                                    <div class="text-center">
+                                                        <img src="@item.ImagenUrl" alt="Imagen del Producto" class="img-fluid" style="max-width: 80%; max-height: 60vh;" />
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <div class="text-center">
+                                                        <span>No hay imagen para este producto.</span>
+                                                    </div>
+                                                }
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal" title="Cerrar el modal de imagen del producto">Cerrar</button>
+                                                <!-- Agrega un botón para eliminar la imagen -->
+                                                <form asp-action="EliminarImagen" asp-route-id="@item.IdProducto" method="post">
+                                                    @Html.AntiForgeryToken()
+                                                    <button type="submit" class="btn btn-danger" title="Eliminar imagen del prodcuto">Eliminar Imagen</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="modal fade" id="habilitar-@item.IdProducto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Habilitar producto</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" title="Cerrar el modal de habilitación del producto">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body modal-body-content">
+                                                <div>
+                                                    <div>
+                                                        <div>
+                                                            <dl class="text-center modal-body">
+                                                                ¿Estás seguro de querer realizar esta acción?
+                                                            </dl>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal" title="Cerrar el modal de habilitación del producto">Cerrar</button>
+                                                <form asp-action="Habilitar" asp-route-id="@item.IdProducto" method="post">
+                                                    <button type="submit" class="btn btn-danger" title="Confirmar la habilitación del producto">Confirmar</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="modal fade" id="inhabilitar-@item.IdProducto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Inhabilitar producto</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" title="Cerrar el modal de inhabilitación del producto">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body modal-body-content">
+                                                <div>
+                                                    <div>
+                                                        <div>
+                                                            <dl class="text-center modal-body">
+                                                                ¿Estás seguro de querer realizar esta acción?
+                                                            </dl>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal" title="Cerrar el modal de inhabilitación del producto">Cerrar</button>
+                                                <form asp-action="Inhabilitar" asp-route-id="@item.IdProducto" method="post">
+                                                    <button type="submit" class="btn btn-danger" title="Confirmar la inhabilitación del producto">Confirmar</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal fade" id="sinopsis-@item.IdProducto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Detalles del producto</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" title="Cerrar el modal de detalles adicionales del producto">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <strong>ISBN:</strong> @Html.DisplayFor(modelItem => item.Isbn) <br />
+                                                <strong>Año de publicación:</strong>
+                                                @Html.DisplayFor(modelItem => item.Anio) <br />
+                                                <strong>Número de páginas:</strong> @Html.DisplayFor(modelItem => item.NPaginas) <br />
+                                                <hr />
+                                                <strong>Sinopsis:</strong> <br />
+                                                @Html.DisplayFor(modelItem => item.Sinopsis)
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal"  title="Cerrar el modal de detalles adicionales del producto">Cerrar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#zero_config').DataTable({
+                "columns": [
+                    { "data": "Título" },
+                    { "data": "Editorial" },
+                    { "data": "Autor" },
+                    { "data": "Precio" },
+                    { "data": "Cantidad" },
+                    { "data": "Categoria" },
+                    { "data": "Estado" },
+                    { "data": "Acciones" }
+                ],
+                "paging": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "pageLength": 10,
+                "lengthMenu": [10, 25, 50, 100],
+                "language": {
+                    "lengthMenu": "Mostrando _MENU_ registros por página",
+                    "zeroRecords": "No se ha encontrado este registro",
+                    "info": "Mostrando página _PAGE_ de _PAGES_",
+                    "infoEmpty": "No hay registros en la tabla",
+                    "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    'search': 'Buscar',
+                    'paginate': {
+                        'next': 'Siguiente',
+                        'previous': 'Anterior'
+                    },
+                },
+                "columnDefs": [
+                    { "searchable": true, "targets": [0, 2] }, // Permitir buscar en las columnas de Título y Autor
+                    { "searchable": false, "targets": [1, 3, 4, 5, 6, 7] } // No permitir buscar en las otras columnas
+                ]
+            });
+        });
+    </script>
+}

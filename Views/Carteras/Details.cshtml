@@ -1,0 +1,145 @@
+﻿@model LeamosColombiaProject.Models.Cartera
+
+@{
+    ViewData["Title"] = "Cartera";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <p>
+        <a asp-controller="Carteras" asp-action="DescargarPDF" asp-route-id="@Model.IdCartera" class="btn btn-success" title="Descarga el informe PDF del detalle cartera del cliente">Descargar PDF</a>
+    </p>
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Detalles de la cartera</h4>
+            <dl class="row">
+                                <dt class="col-sm-3">Cliente:</dt>
+                                                <dd class="col-sm-9"> 
+                                                    @if (Model.IdVentaNavigation != null && Model.IdVentaNavigation.IdClienteNavigation != null)
+    {
+        @Model.IdVentaNavigation.IdClienteNavigation.Nombre
+    }
+    else
+    {
+        <span>Cliente no disponible</span>
+    }</dd>
+
+                <dt class="col-sm-3">Monto:</dt>
+                <dd class="col-sm-9">$@string.Format("{0:N0}", Model.Monto)</dd>
+
+                <dt class="col-sm-3">Saldo:</dt>
+                <dd class="col-sm-9">$@string.Format("{0:N0}", Model.Saldo)</dd>
+
+                <dt class="col-sm-3">Progreso:</dt>
+                <dd class="col-sm-9">
+                    @if (Model.Saldo == 0)
+                    {
+                        <span class="text-success">Completado</span>
+                    }
+                    else
+                    {
+                        <span class="text-warning">Pendiente</span>
+                    }
+                </dd>
+
+                <dt class="col-sm-3">Fecha inicial:</dt>
+                <dd class="col-sm-9">@Model.FechaInicio</dd>
+                <dt class="col-sm-3">Fecha de último pago:</dt>
+                <dd class="col-sm-9">
+
+                @if(Model.fechaUltimoAbono != null)
+                {
+                    @Model.fechaUltimoAbono
+                }
+                else
+                {
+                    <span>No hay abonos</span>
+                }
+                </dd>
+                    
+                    <dt class="col-sm-3">Fecha final:</dt>
+                <dd class="col-sm-9">@Model.FechaFinal</dd>
+
+                <dt class="col-sm-3">Estado:</dt>
+                <dd class="col-sm-9">
+                    @if (Model.Estado == true)
+                    {
+                        <span class="text-success">Activo</span>
+
+                    }
+                    else
+                    {
+                        <span class="text-danger">Inactivo</span>
+                    }
+                </dd>
+            </dl>
+
+            <h5>Detalles de los abonos:</h5>
+            <div class="table-responsive">
+
+            <table id="zero_config" class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Cuota</th>
+                        <th>Abono</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var abono in Model.AbonoCarteras)
+                    {
+                        <tr>
+                            <td>@abono.IdAbonoCartera</td>
+                            <td>@abono.Cuotas</td>
+                            <td class="text-right">$@string.Format("{0:N0}", abono.Abono)</td>
+                            <td class="text-right">@abono.Fecha</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <a asp-action="Index" class="btn btn-secondary" title="Volver a la vista de cartera">Volver</a>
+        </div>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#zero_config').DataTable({
+                "columns": [
+                    { "data": "ID" },
+                    { "data": "Cuota" },
+                    { "data": "Abono" },
+                    { "data": "Fecha" },
+
+                ],
+                "paging": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "pageLength": 10,
+                "lengthMenu": [10, 25, 50, 100],
+                "language": {
+                    "lengthMenu": "Mostrando _MENU_ registros por página",
+                    "zeroRecords": "No se ha encontrado este registro",
+                    "info": "Mostrando página _PAGE_ de _PAGES_",
+                    "infoEmpty": "No hay registros en la tabla",
+                    "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    'search': 'Buscar',
+                    'paginate': {
+                        'next': 'Siguiente',
+                        'previous': 'Anterior'
+                    },
+                },
+                "columnDefs": [
+                    { "searchable": true, "targets": [0] },
+                    { "searchable": false, "targets": [1, 2, 3] }
+                ]
+            });
+        });
+    </script>
+}

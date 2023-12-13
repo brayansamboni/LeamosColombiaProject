@@ -1,0 +1,187 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+
+    ViewData["Title"] = "Inicio de sesión";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .seccion {
+            width: 90%;
+            margin: 0 auto;
+            max-height: 80vh;
+            overflow: auto;
+            display: grid;
+            flex-direction: column;
+            align-items: flex-start; 
+        }
+
+        .step {
+            width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 8px;
+            display: inline-block;
+            vertical-align: top;
+            background: #fff;
+        }
+
+        p {
+            padding: 10px;
+            font-size: 18px;
+            color: #333;
+            font-weight: normal;
+        }
+
+        h3 {
+            padding: 10px;
+            font-size: 20px;
+            color: #333;
+            text-align: center;
+            line-height: 1.5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .step img {
+            max-height: 85%; /* Establece la altura máxima que desees */
+        }
+
+        .img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            border-radius: 8px;
+            border: 1px solid #F4F2F7;
+            box-shadow: 10px 15px 20px #ccc;
+        }
+
+        .container-fluid::-webkit-scrollbar {
+            width: 12px; 
+        }
+
+        .seccion::-webkit-scrollbar-thumb {
+            background-color: #888; 
+            border-radius: 10px;
+        }
+
+            .seccion::-webkit-scrollbar-thumb:hover {
+                background-color: #555; 
+            }
+    </style>
+
+</head>
+<body>
+    <div class="seccion">
+
+        <h3>1. Ingresar al sistema </h3>
+        <div class="step">
+            <p>
+                Para acceder al sistema, es necesario dirigirse a la página de inicio de sesión, rellene los campos requeridos con su correo electrónico y contraseña, luego, presione con el botón izquierdo de mouse el botón "Ingresar".
+                <br /><br />
+                <span style="color: blue;">Nota:</span> Los usuarios que requieran iniciar sesión, deben estar previamente
+                registrados por el administrador.
+            </p>
+            <img class="img" src="https://images.tango.us/workflows/15228680-a41d-45c0-a779-68f98ed7749f/steps/faf12d7a-8faa-4c72-9064-8336410967e1/c884da12-ab2e-4191-9c82-58455220e1cc.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on correo" />
+        </div>
+        <div class="step mt-2">
+            <p>En caso de que el usuario no esté registrado por el administrador o si alguno de los campos no esté diligenciado de manera incorrecta, al presionar el botón "Ingresar", el sistema mostrará un mensaje de error.</p>
+            <img class="img" src="https://images.tango.us/workflows/15228680-a41d-45c0-a779-68f98ed7749f/steps/b451bce5-f811-4ca5-b965-c8427719e425/f7651680-f4ca-496c-9df1-d691c8d40205.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=419&mark-y=20&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz03NjQmaD0yNzMmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Error…" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Si alguno de los campos está vacío, al presionar el botón "Ingresar", el sistema mostrará un mensaje de error.</p>
+            <img class="img" src="https://images.tango.us/workflows/15228680-a41d-45c0-a779-68f98ed7749f/steps/6a2a89b0-2dd5-41c0-8722-cefce359e9ac/f5bd7054-3fa6-4d01-a52e-e3860dc35d07.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.8398&fp-y=0.0980&fp-z=2.1228&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=404&mark-y=20&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTQlMkNGRjc0NDImdz03NzYmaD0yNzcmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Error…" />
+        </div>
+        <h3>Recuperar contraseña</h3>
+        <div class="step">
+            <p>
+                Si el usuario olvida la contraseña de acceso al sistema, tiene la opción de recuperarla directamente desde la pantalla de inicio de sesión. Pulsando el botón izquierdo del mouse sobre el enlace en la parte inferior del formulario, donde dice "Olvidé mi contraseña", el sistema lo redirigirá hacia una ventana adicional que facilita el proceso de recuperación.
+            </p>
+
+            <img class="img" src="https://images.tango.us/workflows/15228680-a41d-45c0-a779-68f98ed7749f/steps/83f0a2d6-da99-471c-b8a6-693cbcefddb9/2931692b-27e1-450d-a097-a420b608ea67.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Olvidé mi…" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Aquí, deberá ingresar su correo electrónico y, posteriormente, presionar el botón "Enviar solicitud" para completar el proceso de recuperación de contraseña.</p>
+            <img class="img" src="https://images.tango.us/workflows/15228680-a41d-45c0-a779-68f98ed7749f/steps/3c32fc8e-b148-4945-90b6-89f67da85b8f/d148887e-2362-4f1f-ab56-e1a9a8e57804.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=291&mark-y=395&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz02MzkmaD0xMDYmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Enviar solicitud" />
+        </div>
+
+        <div class="step mt-2">
+            <p>El sistema mostrará un mensaje indicando que se ha enviado un correo electrónico al usuario. Este correo contendrá la información necesaria para completar el proceso de recuperación de contraseña.</p>
+            <img class="img" src="https://images.tango.us/workflows/15228680-a41d-45c0-a779-68f98ed7749f/steps/6c6e5eb7-c7d1-4040-836c-5f46bdead84d/7e78806b-7809-4b70-b5ec-1de5af9fbfbe.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Éxito…" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Posteriormente, el sistema mostrará un formulario en el cual el usuario deberá ingresar la nueva contraseña. Para guardar los cambios, es necesario presionar el botón "Restablecer" con el botón izquierdo del mouse.</p>
+            <img class="img" src="https://images.tango.us/workflows/15228680-a41d-45c0-a779-68f98ed7749f/steps/800fb4c6-1bf7-4d25-9660-22e316d114a0/b9e5896b-358f-4408-8d3c-8f40fb4963fa.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=725&mark-y=455&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0xNzkmaD02MiZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on password field" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Si la nueva contraseña no cumple con las validaciones requeridas, el sistema mostrará un mensaje de error. Asegúrate de que la contraseña cumpla con los requisitos especificados antes de intentar nuevamente.</p>
+            <img class="img" src="https://images.tango.us/workflows/15228680-a41d-45c0-a779-68f98ed7749f/steps/5cffb95f-a79e-44dc-906e-69d23b5bd5c9/923c9a7d-21ca-4bab-8970-32fab68daa9f.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Error…" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Si la contraseña cumple con las validaciones y se restablece correctamente, el sistema mostrará un mensaje de Éxito confirmando que las contraseñas se han restablecido correctamente.</p>
+            <img class="img" src="https://images.tango.us/workflows/15228680-a41d-45c0-a779-68f98ed7749f/steps/e7c80dae-59de-4b1e-8f3a-ed73b091bf78/a1ed7f4b-00ee-4fbc-a361-37f66f103ac5.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Éxito…" />
+        </div>
+
+        <div class="step mt-2">
+            <p>
+                Después de cambiar la contraseña, el sistema redireccionará a la pantalla de inicio de sesión. En esta pantalla, deberás completar los campos con tu nueva contraseña y, a continuación, presionar el botón "Ingresar" con el botón izquierdo del mouse, se redireccionará a la página de inicio de sistema.
+            </p>
+
+            <img class="img" src="https://images.tango.us/workflows/15228680-a41d-45c0-a779-68f98ed7749f/steps/faf12d7a-8faa-4c72-9064-8336410967e1/c884da12-ab2e-4191-9c82-58455220e1cc.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on correo" />
+        </div>
+        <h3>Perfil Usuario</h3>
+        <div class="step mt-2">
+            <p>Para actualizar el perfil después de iniciar sesión, coloca el puntero sobre el último icono en la parte superior derecha y pulsa el botón izquierdo del mouse.</p>
+            <img class="img" src="https://images.tango.us/workflows/15228680-a41d-45c0-a779-68f98ed7749f/steps/8f1d8ecb-6554-4b06-ad94-eb93ebf35308/2fe46ec8-db79-4375-80a0-6364033794e7.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=1125&mark-y=5&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz02OSZoPTY0JmZpdD1jcm9wJmNvcm5lci1yYWRpdXM9MTA%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on dropdown trigger" />
+        </div>
+
+        <div class="step mt-2">
+            <p> Luego,  se despliega un menú y se selecciona la opción "Mi Perfil".</p>
+            <img class="img" src="https://images.tango.us/workflows/c61436ed-a0d0-41fa-8cee-185156baa9e4/steps/5f58ec5d-77d8-4a9e-b9a9-debcc08ee0c9/53eab5d7-9681-4798-b798-d72d052347e5.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=181&mark-y=207&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz05NDcmaD0xNjgmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Mi Perfil" />
+        </div>
+
+        <div class="step mt-2">
+            <p>
+                Después de acceder a la sección de "Mi Perfil", puedes editar los campos del nombre y correo del usuario. Para aplicar los cambios, presiona el botón "Editar perfil" con el botón izquierdo del mouse.
+            </p>
+            <img class="img" src="https://images.tango.us/workflows/c61436ed-a0d0-41fa-8cee-185156baa9e4/steps/0f7517e6-1804-4845-83a4-3beeca845881/a01be301-cd1d-4067-a2f2-4aadb236aa31.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=73&mark-y=726&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0yODAmaD0xMTMmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Editar perfil" />
+        </div>
+
+        <div class="step mt-2">
+            <p>
+                Posteriormente, el sistema mostrará un mensaje indicando que, para guardar los cambios, es necesario cerrar sesión y volver a registrarte. Así, los ajustes realizados se reflejarán correctamente en tu perfil.
+            </p>
+            <img class="img" src="https://images.tango.us/workflows/15228680-a41d-45c0-a779-68f98ed7749f/steps/5a67edcd-694c-4e18-8bfc-b654825ad3cd/c512cd0b-d158-402a-b0b4-8229267f2bc1.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Notificación…" />
+        </div>
+
+        <div class="step mt-2">
+            <p>
+                Después de acceder a la sección de "Mi Perfil", puedes cambiar la contraseña. En el primer campo, introduce la contraseña actual de acceso al sistema. Luego, en el segundo campo, ingresa la nueva contraseña de acceso, y en el tercer campo, confirma la nueva contraseña. Finalmente, para guardar los cambios, pulsa sobre el botón "Cambiar Contraseña" con el botón izquierdo del mouse.
+            </p>
+            <img class="img" src="https://images.tango.us/workflows/c61436ed-a0d0-41fa-8cee-185156baa9e4/steps/125b7fd4-58eb-4c6b-9645-f33213c73fc7/c4eac2eb-a3bd-48f4-93c1-0631e43da21e.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=84&mark-y=959&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz00MjQmaD0xMTMmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Cambiar Contraseña" />
+        </div>
+
+        <div class="step mt-2">
+            <p>Si la contraseña cumple con las validaciones y se restablece correctamente, el sistema mostrará un mensaje de Éxito confirmando que la contraseña se ha cambiado correctamente.</p>
+            <img class="img" src="https://images.tango.us/workflows/15228680-a41d-45c0-a779-68f98ed7749f/steps/f4fd8480-8e6b-4373-bb7d-0664aa6938df/308c8d59-23df-4569-97aa-df0baf477e49.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n" style="border-radius: 8px; border: 1px solid #F4F2F7;" width="600" alt="Click on Éxito…" />
+        </div>
+
+
+    </div>
+
+</body>
+</html>

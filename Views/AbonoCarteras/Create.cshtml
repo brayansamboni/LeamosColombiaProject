@@ -1,0 +1,124 @@
+﻿@model LeamosColombiaProject.Models.AbonoCartera
+
+@{
+    ViewData["Title"] = "Abonos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-body wizard-content">
+            <h4 class="card-title">Crear abono</h4>
+            <form id="example-form" asp-action="Create" class="mt-4">
+                <section class="row d-block d-flex justify-content-between">
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label for="Cartera">Cartera <span style="color:red;">*</span></label>
+                            <select asp-for="IdCartera" id="IdCartera" class="select2 form-control" asp-items="ViewBag.IdCartera" data-rule-required="true">
+                                <option value="">Seleccione la cartera</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="Abono">Abono <span style="color:red;">*</span></label>
+                            <input asp-for="Abono" id="Abono" class="form-control" placeholder="Ingresa el abono *" data-rule-required="true" />
+                        </div>
+
+                    </div>
+                    <div class="col-md-2">
+
+                        <div class="form-group">
+                            <label>Saldo pendiente</label>
+                            <input disabled asp-for="IdCarteraNavigation.Saldo" id="Saldo" class="form-control" />
+                        </div>
+                    </div>
+                </section>
+
+
+                <div>
+                    <p class="mt-2">(*) Obligatorio</p>
+                </div>
+                <div class="mt-3">
+                    <a asp-action="Index" class="btn btn-secondary" title="Volver a la vista de abonos">Volver</a>
+                    <input type="submit" value="Crear" class="btn btn-primary" title="Crear un nuevo abono" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@section Scripts {
+
+    <script>
+        // Captura el evento de cambio en el campo de selección de cartera
+        $('#IdCartera').on('change', function () {
+            var carteraId = $(this).val(); // Obtiene el ID de la cartera seleccionada
+
+            // Realiza una solicitud AJAX para obtener el saldo de la cartera
+            $.ajax({
+                url: '/AbonoCarteras/GetCarteraSaldo', // Reemplaza con la URL correcta en tu aplicación
+                method: 'GET',
+                data: { idCartera: carteraId },
+                success: function (data) {
+                    // Actualiza el valor del campo "Total Cartera"
+                    $('#Saldo').val(data);
+                },
+                error: function (error) {
+                    console.log('Error al obtener el saldo de la cartera:', error);
+                }
+            });
+        });
+        $(document).ready(function () {
+            $('#example-form').validate({
+                errorClass: "text-danger",
+                errorPlacement: function (error, element) {
+                    if (element.is("select") && element.hasClass("select2")) {
+                        error.insertAfter(element.next("span.select2"));
+                    } else {
+                        error.insertAfter(element);
+                    }
+                },
+                rules: {
+                    IdCartera: {
+                        required: true,
+                    },
+                    Cuota: {
+                        required: true,
+                    },
+                    Abono: {
+                        required: true,
+                        maxlength: 10,
+                        minlength: 5,
+                        remote: {
+                            url: '/AbonoCarteras/ValidarSaldo',
+                            type: 'GET',
+                            data: {
+                                idCartera: function () {
+                                    return $('#IdCartera').val();
+                                },
+                                abono: function () {
+                                    return $('#Abono').val();
+                                }
+                            }
+                        }
+                    },
+                },
+                messages: {
+                    IdCartera: {
+                        required: "Este campo es obligatorio.",
+                    },
+                    Cuota: {
+                        required: "Este campo es obligatorio.",
+                    },
+                    Abono: {
+                        required: "Este campo es obligatorio.",
+                        digits: "Ingresa solo dígitos.",
+                        maxlength: "Ingresa máximo {0} caracteres.",
+                        minlength: "Ingresa mínimo {0} caracteres."
+                    }
+                }
+            });
+        });
+    </script>
+}
